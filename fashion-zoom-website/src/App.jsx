@@ -81,7 +81,8 @@ function App() {
 
       {/* Hero Section */}
       <section id="home" className="relative bg-gradient-to-r from-black to-gray-800 text-white">
-        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-tr from-[#F81F2E]/25 via-transparent to-transparent"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
@@ -316,6 +317,42 @@ function App() {
             <Button variant="outline" size="lg" className="h-12 px-8 text-base border-[#F81F2E] text-[#F81F2E] hover:bg-[#F81F2E] hover:text-white transition-colors transition-transform duration-200 hover:scale-[1.02]">
               View Full Gallery
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials & Partners */}
+      <section id="testimonials" className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">What Our Talents Say</h2>
+            <div className="h-1 w-16 sm:w-20 md:w-24 bg-[#F81F2E] rounded mx-auto"></div>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <Card className="transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
+              <CardContent className="p-6">
+                <p className="text-lg text-gray-700">“The runway coaching and portfolio shoots helped me land my first brand job within weeks. The mentors are world‑class.”</p>
+                <div className="mt-4 text-sm text-gray-500">— Aditri Gouri, Cover Girl</div>
+              </CardContent>
+            </Card>
+            <Card className="transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
+              <CardContent className="p-6">
+                <p className="text-lg text-gray-700">“From confidence to camera presence, I grew across the board. The exposure at shows changed my trajectory.”</p>
+                <div className="mt-4 text-sm text-gray-500">— Aarav Menon, Runway Winner</div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="mt-12">
+            <div className="text-center mb-6">
+              <h3 className="text-xl font-semibold text-gray-900">Trusted by partners and local brands</h3>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 items-center text-center text-gray-500">
+              <div className="py-2 border rounded-md">Studio Nova</div>
+              <div className="py-2 border rounded-md">Kerala Couture</div>
+              <div className="py-2 border rounded-md">South Silk Co.</div>
+              <div className="py-2 border rounded-md">Urban Frames</div>
+            </div>
           </div>
         </div>
       </section>

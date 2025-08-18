@@ -8,6 +8,10 @@ import { Input } from "@/components/ui/input.jsx";
 import { Textarea } from "@/components/ui/textarea.jsx";
 import { Separator } from "@/components/ui/separator.jsx";
 import { Instagram, Phone, Mail, MapPin, CalendarDays, ArrowRight, Play } from "lucide-react";
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form.jsx'
 import logoWhite from './assets/logo-white.png'
 import logo from './assets/logo.png'
 
@@ -81,6 +85,7 @@ function Hero() {
       <div className="absolute inset-0 -z-10">
         <img src="/src/assets/fashion-show-2.jpg" alt="Runway" className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-[#F81F2E]/25 via-transparent to-transparent" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
@@ -199,7 +204,7 @@ function Courses() {
   );
 }
 
-function Portfolio() {
+  function Portfolio() {
   const imgs = ["/src/assets/fashion-show-1.jpg", "/src/assets/fashion-show-2.jpg", "/src/assets/fashion-show-3.jpg"];
   return (
     <section id="portfolio" className="py-16 bg-white">
@@ -221,6 +226,16 @@ function Portfolio() {
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               </div>
             ))}
+          </div>
+        </div>
+
+        <div className="mt-10">
+          <h3 className="text-sm font-medium text-neutral-500">Trusted by partners</h3>
+          <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-4 text-neutral-500">
+            <div className="py-2 border rounded-md text-center">Studio Nova</div>
+            <div className="py-2 border rounded-md text-center">Kerala Couture</div>
+            <div className="py-2 border rounded-md text-center">South Silk Co.</div>
+            <div className="py-2 border rounded-md text-center">Urban Frames</div>
           </div>
         </div>
       </div>
@@ -260,6 +275,26 @@ function Events() {
 }
 
 function Admissions() {
+  const schema = z.object({
+    fullName: z.string().min(2, 'Name is too short'),
+    phone: z.string().min(7, 'Enter a valid phone').max(15, 'Phone too long'),
+    email: z.string().email('Enter a valid email').optional().or(z.literal('')),
+    city: z.string().min(2, 'City is required'),
+    goals: z.string().min(10, 'Please add a short message'),
+  })
+
+  const form = useForm({
+    resolver: zodResolver(schema),
+    defaultValues: { fullName: '', phone: '', email: '', city: '', goals: '' }
+  })
+  const [submitted, setSubmitted] = useState(false)
+
+  const onSubmit = (values) => {
+    setSubmitted(true)
+    setTimeout(() => form.reset(), 300)
+    console.log('Admission Request', values)
+  }
+
   return (
     <section id="admissions" className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -268,19 +303,64 @@ function Admissions() {
             <h2 className="text-3xl font-bold">Admissions</h2>
             <div className="h-1 w-16 bg-[#F81F2E] rounded mt-2"></div>
             <p className="mt-2 text-neutral-600">Tell us about you. Our team will call you back within 24 hours.</p>
-            <form className="mt-6 grid gap-4">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <Input placeholder="Full name" />
-                <Input placeholder="Phone number" />
-              </div>
-              <Input placeholder="Email (optional)" />
-              <Input placeholder="City" />
-              <Textarea placeholder="What do you want to achieve with us?" />
-              <div className="flex items-center gap-3">
-            <Button className="h-12 px-8 text-base bg-[#F81F2E] text-white hover:bg-[#d11322]" type="button">Request Callback</Button>
-                <span className="text-xs text-neutral-500">By submitting, you agree to our terms.</span>
-              </div>
-            </form>
+            <Form {...form}>
+              <form className="mt-6 grid gap-4" onSubmit={form.handleSubmit(onSubmit)} noValidate>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <FormField control={form.control} name="fullName" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Full name</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Jane Doe" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+                  <FormField control={form.control} name="phone" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Phone</FormLabel>
+                      <FormControl>
+                        <Input placeholder="+91 85908 66865" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+                </div>
+                <FormField control={form.control} name="email" render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email (optional)</FormLabel>
+                    <FormControl>
+                      <Input placeholder="you@example.com" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )} />
+                <FormField control={form.control} name="city" render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>City</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Calicut" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )} />
+                <FormField control={form.control} name="goals" render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Your goals</FormLabel>
+                    <FormControl>
+                      <Textarea placeholder="What do you want to achieve with us?" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )} />
+                {submitted && (
+                  <div className="text-sm text-emerald-600">Thanks! We’ll contact you within 24 hours.</div>
+                )}
+                <div className="flex items-center gap-3">
+                  <Button className="h-12 px-8 text-base bg-[#F81F2E] text-white hover:bg-[#d11322]" type="submit">Request Callback</Button>
+                  <span className="text-xs text-neutral-500">By submitting, you agree to our terms.</span>
+                </div>
+              </form>
+            </Form>
           </div>
           <div className="rounded-2xl ring-1 ring-black/5 p-6 bg-neutral-50">
             <h3 className="font-semibold">Quick contact</h3>
