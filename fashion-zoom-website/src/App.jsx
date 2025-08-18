@@ -46,12 +46,12 @@ function App() {
             {/* Desktop Navigation */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-              <a href="#home" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black">Home</a>
-              <a href="#about" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black">About</a>
-              <a href="#fashion-shows" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black">Fashion Shows</a>
-              <a href="#academy" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black">Academy</a>
-              <a href="#gallery" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black">Gallery</a>
-              <a href="#contact" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black">Contact</a>
+              <a href="#home" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">Home</a>
+              <a href="#about" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">About</a>
+              <a href="#fashion-shows" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">Fashion Shows</a>
+              <a href="#academy" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">Academy</a>
+              <a href="#gallery" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">Gallery</a>
+              <a href="#contact" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">Contact</a>
             </div>
             </div>
 
@@ -68,12 +68,12 @@ function App() {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-900">
-              <a href="#home" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400">Home</a>
-              <a href="#about" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400">About</a>
-              <a href="#fashion-shows" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400">Fashion Shows</a>
-              <a href="#academy" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400">Academy</a>
-              <a href="#gallery" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400">Gallery</a>
-              <a href="#contact" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400">Contact</a>
+              <a href="#home" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Home</a>
+              <a href="#about" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">About</a>
+              <a href="#fashion-shows" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Fashion Shows</a>
+              <a href="#academy" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Academy</a>
+              <a href="#gallery" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Gallery</a>
+              <a href="#contact" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Contact</a>
             </div>
           </div>
         )}
@@ -176,15 +176,15 @@ function App() {
               </p>
               <div className="space-y-3">
                 <div className="flex items-center">
-                  <Badge variant="secondary" className="mr-3">Winner</Badge>
+                  <Badge variant="secondary" className="mr-3 bg-[#F81F2E] text-white">Winner</Badge>
                   <span>Cover Girl: Aditri Gouri</span>
                 </div>
                 <div className="flex items-center">
-                  <Badge variant="secondary" className="mr-3">Location</Badge>
+                  <Badge variant="secondary" className="mr-3 bg-[#F81F2E] text-white">Location</Badge>
                   <span>Thrissur, Kerala</span>
                 </div>
                 <div className="flex items-center">
-                  <Badge variant="secondary" className="mr-3">Categories</Badge>
+                  <Badge variant="secondary" className="mr-3 bg-[#F81F2E] text-white">Categories</Badge>
                   <span>Teen, Miss, Traditional, Kids</span>
                 </div>
               </div>
