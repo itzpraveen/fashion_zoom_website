@@ -192,8 +192,8 @@ function App() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <img src={fashionShow1} alt="Fashion Show 1" className="rounded-lg shadow-lg" />
-              <img src={fashionShow2} alt="Fashion Show 2" className="rounded-lg shadow-lg" />
+              <img src={fashionShow1} alt="Fashion Show 1" className="rounded-lg shadow-lg" loading="lazy" />
+              <img src={fashionShow2} alt="Fashion Show 2" className="rounded-lg shadow-lg" loading="lazy" />
             </div>
           </div>
 
@@ -293,19 +293,19 @@ function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="relative group overflow-hidden rounded-lg shadow-lg">
-              <img src={fashionShow1} alt="Traditional Fashion" className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" />
+              <img src={fashionShow1} alt="Traditional Fashion" className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
               <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <Play className="h-12 w-12 text-white" />
               </div>
             </div>
             <div className="relative group overflow-hidden rounded-lg shadow-lg">
-              <img src={fashionShow2} alt="Contemporary Fashion" className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" />
+              <img src={fashionShow2} alt="Contemporary Fashion" className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
               <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <Play className="h-12 w-12 text-white" />
               </div>
             </div>
             <div className="relative group overflow-hidden rounded-lg shadow-lg">
-              <img src={fashionShow3} alt="Fashion Show" className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" />
+              <img src={fashionShow3} alt="Fashion Show" className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
               <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <Play className="h-12 w-12 text-white" />
               </div>

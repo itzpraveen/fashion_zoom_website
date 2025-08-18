@@ -148,7 +148,7 @@ function Academy() {
             </div>
           </div>
           <div className="relative">
-            <img src="/src/assets/fashion-show-1.jpg" alt="Academy" className="rounded-2xl shadow-2xl ring-1 ring-black/5 object-cover w-full h-[420px]" />
+            <img src="/src/assets/fashion-show-1.jpg" alt="Academy" className="rounded-2xl shadow-2xl ring-1 ring-black/5 object-cover w-full h-[420px]" loading="lazy" />
             <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl ring-1 ring-black/5 p-5">
               <div className="text-3xl font-bold">2k+</div>
               <div className="text-sm text-neutral-600 -mt-1">Alumni & talents</div>
@@ -217,7 +217,7 @@ function Portfolio() {
           <div className="flex gap-4 min-w-max">
             {imgs.map((src, i) => (
               <div key={i} className="relative w-[320px] h-[420px] shrink-0 transition-transform duration-200 hover:-translate-y-1">
-                <img src={src} className="w-full h-full object-cover rounded-2xl ring-1 ring-black/5" alt={`Portfolio ${i+1}`} />
+                <img src={src} className="w-full h-full object-cover rounded-2xl ring-1 ring-black/5" alt={`Portfolio ${i+1}`} loading="lazy" />
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               </div>
             ))}
@@ -248,7 +248,7 @@ function Events() {
             </div>
           </div>
           <div className="relative">
-            <img src="/src/assets/fashion-show-3.jpg" alt="Event" className="rounded-2xl shadow-2xl ring-1 ring-black/5 object-cover w-full h-[420px]" />
+            <img src="/src/assets/fashion-show-3.jpg" alt="Event" className="rounded-2xl shadow-2xl ring-1 ring-black/5 object-cover w-full h-[420px]" loading="lazy" />
             <div className="absolute top-4 left-4">
               <Badge className="bg-white text-black">Aug 30</Badge>
             </div>
