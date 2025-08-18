@@ -21,6 +21,7 @@ import {
 } from 'lucide-react'
 import './App.css'
 import { locales } from './i18n.js'
+import { useLocation } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -39,6 +40,8 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [lang, setLang] = useState('en')
   const L = locales[lang]
+  const location = useLocation()
+  const path = location?.pathname || '/'
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
@@ -78,11 +81,7 @@ function App() {
             <div className="flex items-center">
               <img src={logoWhite} alt="Fashion Zoom logo" className="h-12 w-auto" />
             </div>
-            <div className="hidden md:block">
-              <button onClick={() => setLang(lang === 'en' ? 'ml' : 'en')} className="px-3 py-1 text-sm rounded-md bg-white text-black hover:bg-gray-100" aria-label="Toggle language">
-                {lang === 'en' ? 'ML' : 'EN'}
-              </button>
-            </div>
+            <div className="hidden md:block" />
             
             {/* Desktop Navigation */}
             <div className="hidden md:block">
@@ -93,7 +92,8 @@ function App() {
               <a href="#academy" aria-label="Go to Academy section" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">{L.nav.courses}</a>
               <a href="#gallery" aria-label="Go to Gallery section" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">{L.nav.portfolio}</a>
               <a href="#faq" aria-label="Go to FAQs" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">{L.nav.faq}</a>
-              <a href="#admissions" aria-label="Go to Admissions" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">{L.nav.admissions}</a>
+              <a href="#/admissions" aria-label="Go to Admissions" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">{L.nav.admissions}</a>
+              <a href="#/magazine" aria-label="Go to Magazine hub" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">{L.nav.magazine}</a>
               <a href="#contact" aria-label="Go to Contact section" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">{L.nav.contact}</a>
             </div>
             </div>
@@ -117,7 +117,8 @@ function App() {
               <a href="#academy" aria-label="Go to Academy section" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">{L.nav.courses}</a>
               <a href="#gallery" aria-label="Go to Gallery section" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">{L.nav.portfolio}</a>
               <a href="#faq" aria-label="Go to FAQs" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">{L.nav.faq}</a>
-              <a href="#admissions" aria-label="Go to Admissions" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">{L.nav.admissions}</a>
+              <a href="#/admissions" aria-label="Go to Admissions" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">{L.nav.admissions}</a>
+              <a href="#/magazine" aria-label="Go to Magazine hub" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">{L.nav.magazine}</a>
               <a href="#contact" aria-label="Go to Contact section" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">{L.nav.contact}</a>
             </div>
           </div>
@@ -150,7 +151,8 @@ function App() {
 
 
 
-      {/* Admissions */}
+      {/* Admissions (only on route) */}
+      {path === '/admissions' && (
       <section id="admissions" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
@@ -206,7 +208,9 @@ function App() {
           </Form>
         </div>
       </section>
-      {/* Magazine Hub */}
+      )}
+      {/* Magazine Hub (only on route) */}
+      {path === '/magazine' && (
       <section id="magazine" className="py-16 bg-neutral-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
@@ -241,6 +245,7 @@ function App() {
           </div>
         </div>
       </section>
+      )}
       {/* About Section */}
       <section id="about" className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -624,12 +629,13 @@ function App() {
             <p className="text-gray-400 mb-4">
               Kerala's Premier Fashion Magazine & Modeling Academy Since 2013
             </p>
-            <p className="text-gray-500 text-sm">
-              © {new Date().getFullYear()} Fashion Zoom Magazine. All rights reserved.
-            </p>
-            <p className="mt-2 text-xs text-gray-500">
+            <p className="text-gray-500 text-sm">© {new Date().getFullYear()} Fashion Zoom Magazine. All rights reserved.</p>
+            <div className="mt-3 text-xs text-gray-500 flex items-center justify-center gap-4">
               <a href="./privacy.html" className="underline underline-offset-4">Privacy Policy</a>
-            </p>
+              <button onClick={() => setLang(lang === 'en' ? 'ml' : 'en')} className="px-2 py-1 rounded-md bg-white text-black hover:bg-gray-100 border" aria-label="Toggle language">
+                {lang === 'en' ? 'മലയാളം' : 'English'}
+              </button>
+            </div>
           </div>
         </div>
       </footer>

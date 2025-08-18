@@ -1,6 +1,6 @@
 export const locales = {
   en: {
-    nav: { home: 'Home', about: 'About', why: 'Why', courses: 'Courses', shows: 'Fashion Shows', portfolio: 'Portfolio', admissions: 'Admissions', faq: 'FAQ', contact: 'Contact' },
+    nav: { home: 'Home', about: 'About', why: 'Why', courses: 'Courses', shows: 'Fashion Shows', portfolio: 'Portfolio', admissions: 'Admissions', magazine: 'Magazine', faq: 'FAQ', contact: 'Contact' },
     hero: {
       title: "Kerala's Premier Fashion Magazine",
       subtitle: '& Modeling Academy Since 2013',
@@ -19,7 +19,7 @@ export const locales = {
     },
   },
   ml: {
-    nav: { home: 'ഹോം', about: 'കുറിച്ച്', why: 'എന്തുകൊണ്ട്', courses: 'കോഴ്സുകൾ', shows: 'ഫാഷൻ ഷോകൾ', portfolio: 'പോർട്ട്ഫോളിയോ', admissions: 'അഡ്മിഷൻസ്', faq: 'ചോദ്യോത്തരങ്ങൾ', contact: 'ബന്ധപ്പെടുക' },
+    nav: { home: 'ഹോം', about: 'കുറിച്ച്', why: 'എന്തുകൊണ്ട്', courses: 'കോഴ്സുകൾ', shows: 'ഫാഷൻ ഷോകൾ', portfolio: 'പോർട്ട്ഫോളിയോ', admissions: 'അഡ്മിഷൻസ്', magazine: 'മാഗസിന്‍', faq: 'ചോദ്യോത്തരങ്ങൾ', contact: 'ബന്ധപ്പെടുക' },
     hero: {
       title: 'കേരളത്തിലെ മുൻനിര ഫാഷൻ മാസിക',
       subtitle: 'മോഡലിംഗ് അക്കാദമി • 2013 മുതൽ',
@@ -38,4 +38,3 @@ export const locales = {
     },
   },
 }
-
