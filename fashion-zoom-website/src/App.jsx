@@ -46,12 +46,12 @@ function App() {
             {/* Desktop Navigation */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-              <a href="#home" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">Home</a>
-              <a href="#about" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">About</a>
-              <a href="#fashion-shows" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">Fashion Shows</a>
-              <a href="#academy" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">Academy</a>
-              <a href="#gallery" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">Gallery</a>
-              <a href="#contact" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">Contact</a>
+              <a href="#home" aria-label="Go to Home section" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">Home</a>
+              <a href="#about" aria-label="Go to About section" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">About</a>
+              <a href="#fashion-shows" aria-label="Go to Fashion Shows section" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">Fashion Shows</a>
+              <a href="#academy" aria-label="Go to Academy section" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">Academy</a>
+              <a href="#gallery" aria-label="Go to Gallery section" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">Gallery</a>
+              <a href="#contact" aria-label="Go to Contact section" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">Contact</a>
             </div>
             </div>
 
@@ -68,12 +68,12 @@ function App() {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-900">
-              <a href="#home" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Home</a>
-              <a href="#about" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">About</a>
-              <a href="#fashion-shows" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Fashion Shows</a>
-              <a href="#academy" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Academy</a>
-              <a href="#gallery" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Gallery</a>
-              <a href="#contact" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Contact</a>
+              <a href="#home" aria-label="Go to Home section" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Home</a>
+              <a href="#about" aria-label="Go to About section" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">About</a>
+              <a href="#fashion-shows" aria-label="Go to Fashion Shows section" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Fashion Shows</a>
+              <a href="#academy" aria-label="Go to Academy section" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Academy</a>
+              <a href="#gallery" aria-label="Go to Gallery section" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Gallery</a>
+              <a href="#contact" aria-label="Go to Contact section" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Contact</a>
             </div>
           </div>
         )}
@@ -96,10 +96,10 @@ function App() {
               seasonal fashion shows, and magazine features across Kerala.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="h-12 px-8 text-base bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
+              <Button size="lg" aria-label="Join the Fashion Zoom Academy" className="h-12 px-8 text-base bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
                 Join Our Academy
               </Button>
-              <Button size="lg" variant="outline" className="h-12 px-8 text-base border-[#F81F2E] text-[#F81F2E] hover:bg-[#F81F2E] hover:text-white transition-colors transition-transform duration-200 hover:scale-[1.02]">
+              <Button size="lg" aria-label="View Fashion Shows" variant="outline" className="h-12 px-8 text-base border-[#F81F2E] text-[#F81F2E] hover:bg-[#F81F2E] hover:text-white transition-colors transition-transform duration-200 hover:scale-[1.02]">
                 View Fashion Shows
               </Button>
             </div>
@@ -199,7 +199,7 @@ function App() {
           </div>
 
           <div className="text-center">
-            <Button size="lg" className="h-12 px-8 text-base bg-[#F81F2E] hover:bg-[#d11322] text-white shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
+            <Button size="lg" aria-label="View all fashion shows" className="h-12 px-8 text-base bg-[#F81F2E] hover:bg-[#d11322] text-white shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
               View All Fashion Shows
             </Button>
           </div>
@@ -274,7 +274,7 @@ function App() {
             <p className="text-lg mb-6">
               <strong>Age Range:</strong> 3-60 years | <strong>Direct Entry:</strong> No auditions required
             </p>
-            <Button size="lg" className="h-12 px-8 text-base bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
+            <Button size="lg" aria-label="Register for the Modeling Academy" className="h-12 px-8 text-base bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
               Register Now
             </Button>
           </div>
@@ -314,7 +314,7 @@ function App() {
           </div>
 
           <div className="text-center mt-8">
-            <Button variant="outline" size="lg" className="h-12 px-8 text-base border-[#F81F2E] text-[#F81F2E] hover:bg-[#F81F2E] hover:text-white transition-colors transition-transform duration-200 hover:scale-[1.02]">
+            <Button variant="outline" size="lg" aria-label="View full gallery" className="h-12 px-8 text-base border-[#F81F2E] text-[#F81F2E] hover:bg-[#F81F2E] hover:text-white transition-colors transition-transform duration-200 hover:scale-[1.02]">
               View Full Gallery
             </Button>
           </div>
@@ -407,7 +407,7 @@ function App() {
           </div>
 
           <div className="text-center mt-12">
-            <Button size="lg" className="h-12 px-8 text-base bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
+            <Button size="lg" aria-label="Get started and contact Fashion Zoom" className="h-12 px-8 text-base bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
               Get Started Today
             </Button>
           </div>
@@ -426,6 +426,9 @@ function App() {
             </p>
             <p className="text-gray-500 text-sm">
               © {new Date().getFullYear()} Fashion Zoom Magazine. All rights reserved.
+            </p>
+            <p className="mt-2 text-xs text-gray-500">
+              <a href="./privacy.html" className="underline underline-offset-4">Privacy Policy</a>
             </p>
           </div>
         </div>

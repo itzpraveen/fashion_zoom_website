@@ -55,7 +55,7 @@ function Header() {
           <a href="https://instagram.com" target="_blank" rel="noreferrer" className="p-2 rounded-full hover:bg-neutral-100">
             <Instagram size={18} />
           </a>
-          <Button className="h-12 px-8 text-base bg-[#F81F2E] text-white hover:bg-[#d11322]">Apply Now</Button>
+          <Button aria-label="Apply to Fashion Zoom Academy" className="h-12 px-8 text-base bg-[#F81F2E] text-white hover:bg-[#d11322]">Apply Now</Button>
         </div>
 
         <button className="md:hidden p-2 rounded-lg hover:bg-neutral-100" onClick={() => setOpen((v) => !v)} aria-label="Toggle menu">
@@ -71,7 +71,7 @@ function Header() {
                 {n.label}
               </a>
             ))}
-            <Button className="h-12 px-8 text-base bg-[#F81F2E] text-white hover:bg-[#d11322]">Apply Now</Button>
+            <Button aria-label="Apply to Fashion Zoom Academy" className="h-12 px-8 text-base bg-[#F81F2E] text-white hover:bg-[#d11322]">Apply Now</Button>
           </div>
         </div>
       )}
@@ -99,11 +99,11 @@ function Hero() {
           </p>
 
           <div className="mt-6 flex flex-wrap items-center gap-3">
-            <Button size="lg" className="h-12 px-8 text-base bg-[#F81F2E] text-white hover:bg-[#d11322]">
+            <Button size="lg" aria-label="Join the Fashion Zoom Academy" className="h-12 px-8 text-base bg-[#F81F2E] text-white hover:bg-[#d11322]">
               Join the Academy
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button size="lg" variant="outline" className="h-12 px-8 text-base border-[#F81F2E] text-[#F81F2E] hover:bg-[#F81F2E] hover:text-white">
+            <Button size="lg" aria-label="Watch Fashion Zoom reels" variant="outline" className="h-12 px-8 text-base border-[#F81F2E] text-[#F81F2E] hover:bg-[#F81F2E] hover:text-white">
               Watch Reels
               <Play className="ml-2 h-4 w-4" />
             </Button>
@@ -181,7 +181,7 @@ function Courses() {
             <div className="h-1 w-16 bg-[#F81F2E] rounded mt-2"></div>
             <p className="mt-2 text-neutral-600">Hands-on curriculum with shoots, runway, and brand projects.</p>
           </div>
-          <Button className="h-12 px-8 text-base bg-[#F81F2E] text-white hover:bg-[#d11322] hidden sm:inline-flex">Get Prospectus</Button>
+          <Button aria-label="Download or view academy prospectus" className="h-12 px-8 text-base bg-[#F81F2E] text-white hover:bg-[#d11322] hidden sm:inline-flex">Get Prospectus</Button>
         </div>
 
         <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -192,7 +192,7 @@ function Courses() {
                 <h3 className="mt-3 font-semibold text-lg">{c.title}</h3>
                 <p className="text-sm text-neutral-600">{c.tag}</p>
                 <Separator className="my-4" />
-                <Button variant="outline" className="w-full group-hover:bg-[#F81F2E]/10">
+                <Button aria-label={`View syllabus for ${c.title}`} variant="outline" className="w-full group-hover:bg-[#F81F2E]/10">
                   View syllabus <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </CardContent>
@@ -249,7 +249,7 @@ function Events() {
               <li>Family packages • No age limit • Limited 30 seats</li>
             </ul>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Button className="h-12 px-8 text-base bg-[#F81F2E] text-white hover:bg-[#d11322] shadow-md hover:shadow-lg transition-transform hover:scale-[1.02]">Register Now</Button>
+              <Button aria-label="Register for upcoming event" className="h-12 px-8 text-base bg-[#F81F2E] text-white hover:bg-[#d11322] shadow-md hover:shadow-lg transition-transform hover:scale-[1.02]">Register Now</Button>
               <Button variant="outline" className="h-12 px-8 text-base border-[#F81F2E] text-[#F81F2E] hover:bg-[#F81F2E] hover:text-white transition-transform hover:scale-[1.02]">View past events</Button>
             </div>
           </div>
@@ -416,7 +416,7 @@ function Footer() {
         <Separator className="my-8 bg-white/10" />
         <div className="text-xs text-neutral-400 flex flex-wrap gap-4 justify-between">
           <p>© {new Date().getFullYear()} Fashion Zoom Magazine. All rights reserved.</p>
-          <p>Made with ♥ in Kerala</p>
+          <p className="flex items-center gap-3">Made with ♥ in Kerala <a href="./privacy.html" className="underline underline-offset-4">Privacy Policy</a></p>
         </div>
       </div>
     </footer>
