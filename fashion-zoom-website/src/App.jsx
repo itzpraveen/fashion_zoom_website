@@ -20,6 +20,13 @@ import {
   Play
 } from 'lucide-react'
 import './App.css'
+import { locales } from './i18n.js'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form.jsx'
+import { Input } from '@/components/ui/input.jsx'
+import { Textarea } from '@/components/ui/textarea.jsx'
 
 // Import assets
 import logoWhite from './assets/logo-white.png'
@@ -30,8 +37,37 @@ import fashionShow3 from './assets/fashion-show-3.jpg'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [lang, setLang] = useState('en')
+  const L = locales[lang]
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
+
+  // Admissions form (classic)
+  const schema = z.object({
+    fullName: z.string().min(2, 'Name is too short'),
+    phone: z.string().min(7, 'Enter a valid phone').max(15, 'Phone too long'),
+    email: z.string().email('Enter a valid email').optional().or(z.literal('')),
+    city: z.string().min(2, 'City is required'),
+    goals: z.string().min(10, 'Please add a short message'),
+  })
+  const form = useForm({ resolver: zodResolver(schema), defaultValues: { fullName: '', phone: '', email: '', city: '', goals: '' } })
+  const [submitted, setSubmitted] = useState(false)
+  const onSubmit = async (values) => {
+    const endpoint = import.meta.env.VITE_FORM_ENDPOINT
+    setSubmitted(false)
+    try {
+      if (endpoint) {
+        const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ source: 'fashion-zoom-site', ...values }) })
+        if (!res.ok) throw new Error('Request failed')
+      } else {
+        console.log('Admission Request (no endpoint configured)', values)
+      }
+      setSubmitted(true)
+      form.reset()
+    } catch (e) {
+      alert('Could not submit the form right now. Please try again later.')
+    }
+  }
 
   return (
     <main id="main" role="main" className="min-h-screen bg-white">
@@ -42,17 +78,23 @@ function App() {
             <div className="flex items-center">
               <img src={logoWhite} alt="Fashion Zoom logo" className="h-12 w-auto" />
             </div>
+            <div className="hidden md:block">
+              <button onClick={() => setLang(lang === 'en' ? 'ml' : 'en')} className="px-3 py-1 text-sm rounded-md bg-white text-black hover:bg-gray-100" aria-label="Toggle language">
+                {lang === 'en' ? 'ML' : 'EN'}
+              </button>
+            </div>
             
             {/* Desktop Navigation */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-              <a href="#home" aria-label="Go to Home section" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">Home</a>
-              <a href="#about" aria-label="Go to About section" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">About</a>
-              <a href="#fashion-shows" aria-label="Go to Fashion Shows section" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">Fashion Shows</a>
-              <a href="#academy" aria-label="Go to Academy section" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">Academy</a>
-              <a href="#gallery" aria-label="Go to Gallery section" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">Gallery</a>
-              <a href="#faq" aria-label="Go to FAQs" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">FAQ</a>
-              <a href="#contact" aria-label="Go to Contact section" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">Contact</a>
+              <a href="#home" aria-label="Go to Home section" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">{L.nav.home}</a>
+              <a href="#about" aria-label="Go to About section" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">{L.nav.about}</a>
+              <a href="#fashion-shows" aria-label="Go to Fashion Shows section" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">{L.nav.shows}</a>
+              <a href="#academy" aria-label="Go to Academy section" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">{L.nav.courses}</a>
+              <a href="#gallery" aria-label="Go to Gallery section" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">{L.nav.portfolio}</a>
+              <a href="#faq" aria-label="Go to FAQs" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">{L.nav.faq}</a>
+              <a href="#admissions" aria-label="Go to Admissions" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">{L.nav.admissions}</a>
+              <a href="#contact" aria-label="Go to Contact section" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">{L.nav.contact}</a>
             </div>
             </div>
 
@@ -69,13 +111,14 @@ function App() {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-900">
-              <a href="#home" aria-label="Go to Home section" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Home</a>
-              <a href="#about" aria-label="Go to About section" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">About</a>
-              <a href="#fashion-shows" aria-label="Go to Fashion Shows section" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Fashion Shows</a>
-              <a href="#academy" aria-label="Go to Academy section" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Academy</a>
-              <a href="#gallery" aria-label="Go to Gallery section" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Gallery</a>
-              <a href="#faq" aria-label="Go to FAQs" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">FAQ</a>
-              <a href="#contact" aria-label="Go to Contact section" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Contact</a>
+              <a href="#home" aria-label="Go to Home section" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">{L.nav.home}</a>
+              <a href="#about" aria-label="Go to About section" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">{L.nav.about}</a>
+              <a href="#fashion-shows" aria-label="Go to Fashion Shows section" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">{L.nav.shows}</a>
+              <a href="#academy" aria-label="Go to Academy section" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">{L.nav.courses}</a>
+              <a href="#gallery" aria-label="Go to Gallery section" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">{L.nav.portfolio}</a>
+              <a href="#faq" aria-label="Go to FAQs" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">{L.nav.faq}</a>
+              <a href="#admissions" aria-label="Go to Admissions" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">{L.nav.admissions}</a>
+              <a href="#contact" aria-label="Go to Contact section" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">{L.nav.contact}</a>
             </div>
           </div>
         )}
@@ -87,33 +130,122 @@ function App() {
         <div className="absolute inset-0 bg-gradient-to-tr from-[#F81F2E]/25 via-transparent to-transparent"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Kerala's Premier Fashion Magazine
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-gray-300">
-              & Modeling Academy Since 2013
-            </p>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6" dangerouslySetInnerHTML={{__html: L.hero.title}} />
+            <p className="text-xl md:text-2xl mb-8 text-gray-300" dangerouslySetInnerHTML={{__html: L.hero.subtitle}} />
             <p className="text-lg mb-8 max-w-3xl mx-auto">
               Discover your fashion potential with professional modeling training, 
               seasonal fashion shows, and magazine features across Kerala.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" aria-label="Join the Fashion Zoom Academy" className="h-12 px-8 text-base bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
-                Join Our Academy
+                {L.hero.ctaPrimary}
               </Button>
               <Button size="lg" aria-label="View Fashion Shows" variant="outline" className="h-12 px-8 text-base border-[#F81F2E] text-[#F81F2E] hover:bg-[#F81F2E] hover:text-white transition-colors transition-transform duration-200 hover:scale-[1.02]">
-                View Fashion Shows
+                {L.hero.ctaSecondary}
               </Button>
             </div>
           </div>
         </div>
       </section>
 
+
+
+      {/* Admissions */}
+      <section id="admissions" className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Admissions</h2>
+            <div className="h-1 w-16 sm:w-20 md:w-24 bg-[#F81F2E] rounded mx-auto"></div>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Request a callback. Our team will contact you with batch dates, fees and a short orientation call.</p>
+          </div>
+          <Form {...form}>
+            <form className="grid gap-4 max-w-3xl mx-auto" onSubmit={form.handleSubmit(onSubmit)} noValidate>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <FormField control={form.control} name="fullName" render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Full name</FormLabel>
+                    <FormControl><Input placeholder="Jane Doe" {...field} /></FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )} />
+                <FormField control={form.control} name="phone" render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Phone</FormLabel>
+                    <FormControl><Input placeholder="+91 85908 66865" {...field} /></FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )} />
+              </div>
+              <FormField control={form.control} name="email" render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email (optional)</FormLabel>
+                  <FormControl><Input placeholder="you@example.com" {...field} /></FormControl>
+                  <FormMessage />
+                </FormItem>
+              )} />
+              <FormField control={form.control} name="city" render={({ field }) => (
+                <FormItem>
+                  <FormLabel>City</FormLabel>
+                  <FormControl><Input placeholder="Calicut" {...field} /></FormControl>
+                  <FormMessage />
+                </FormItem>
+              )} />
+              <FormField control={form.control} name="goals" render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Your goals</FormLabel>
+                  <FormControl><Textarea placeholder="What do you want to achieve with us?" {...field} /></FormControl>
+                  <FormMessage />
+                </FormItem>
+              )} />
+              {submitted && (<div className="text-sm text-emerald-600 text-center">Thanks! We’ll contact you within 24 hours.</div>)}
+              <div className="flex items-center gap-3 justify-center">
+                <Button className="h-12 px-8 text-base bg-[#F81F2E] text-white hover:bg-[#d11322]" type="submit">Request Callback</Button>
+                <span className="text-xs text-neutral-500">By submitting, you agree to our terms.</span>
+              </div>
+            </form>
+          </Form>
+        </div>
+      </section>
+      {/* Magazine Hub */}
+      <section id="magazine" className="py-16 bg-neutral-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{L.sections.magazine}</h2>
+            <div className="h-1 w-16 sm:w-20 md:w-24 bg-[#F81F2E] rounded mx-auto"></div>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            <Card className="transition-transform hover:-translate-y-1 hover:shadow-lg">
+              <CardHeader><CardTitle>Editorials</CardTitle></CardHeader>
+              <CardContent className="text-sm text-gray-700 space-y-2">
+                <a className="block underline underline-offset-4" href="#">Kerala Couture — Monsoon Edit</a>
+                <a className="block underline underline-offset-4" href="#">Traditional Elegance — Onam Special</a>
+                <a className="block underline underline-offset-4" href="#">Street to Studio — Calicut</a>
+              </CardContent>
+            </Card>
+            <Card className="transition-transform hover:-translate-y-1 hover:shadow-lg">
+              <CardHeader><CardTitle>Covers</CardTitle></CardHeader>
+              <CardContent className="text-sm text-gray-700 space-y-2">
+                <a className="block underline underline-offset-4" href="#">Season 8 — Cover Girl Aditri</a>
+                <a className="block underline underline-offset-4" href="#">Teens Edition — Kochi</a>
+                <a className="block underline underline-offset-4" href="#">Festival Issue — Thrissur</a>
+              </CardContent>
+            </Card>
+            <Card className="transition-transform hover:-translate-y-1 hover:shadow-lg">
+              <CardHeader><CardTitle>Press</CardTitle></CardHeader>
+              <CardContent className="text-sm text-gray-700 space-y-2">
+                <a className="block underline underline-offset-4" href="#">Local Daily: Fashion Zoom Season 8</a>
+                <a className="block underline underline-offset-4" href="#">Channel Feature: Modeling Careers</a>
+                <a className="block underline underline-offset-4" href="#">Photo Expo: Alumni Showcase</a>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
       {/* About Section */}
       <section id="about" className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">About Fashion Zoom</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{L.sections.about}</h2>
             <div className="h-1 w-16 sm:w-20 md:w-24 bg-[#F81F2E] rounded mx-auto mb-6"></div>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Since 2013, Fashion Zoom has been Kerala's leading fashion magazine and modeling academy, 
@@ -214,7 +346,7 @@ function App() {
       <section id="fashion-shows" className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Fashion Shows</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{L.sections.shows}</h2>
             <div className="h-1 w-16 sm:w-20 md:w-24 bg-[#F81F2E] rounded mx-auto mb-6"></div>
             <p className="text-lg text-gray-600">
               Experience the glamour of our seasonal fashion shows featuring talented models and stunning designs.
@@ -278,7 +410,7 @@ function App() {
       <section id="academy" className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Modeling Academy</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{L.sections.academy}</h2>
             <div className="h-1 w-16 sm:w-20 md:w-24 bg-[#F81F2E] rounded mx-auto mb-6"></div>
             <p className="text-lg text-gray-600">
               Professional modeling training with direct entry - no auditions required!
@@ -353,7 +485,7 @@ function App() {
       <section id="gallery" className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Gallery</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{L.sections.gallery}</h2>
             <div className="h-1 w-16 sm:w-20 md:w-24 bg-[#F81F2E] rounded mx-auto mb-6"></div>
             <p className="text-lg text-gray-600">
               Highlights from our fashion shows, photoshoots, and academy events.
@@ -418,7 +550,7 @@ function App() {
       <section id="contact" className="py-16 bg-black text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-2">Contact Us</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-2">{L.sections.contact}</h2>
             <div className="h-1 w-16 sm:w-20 md:w-24 bg-[#F81F2E] rounded mx-auto mb-6"></div>
             <p className="text-lg text-gray-300">
               Get in touch with us across Kerala for modeling academy enrollment and fashion show participation.

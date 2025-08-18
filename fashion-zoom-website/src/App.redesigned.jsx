@@ -205,7 +205,7 @@ function Courses() {
   );
 }
 
-  function Portfolio() {
+function Portfolio() {
   const imgs = ["/src/assets/fashion-show-1.jpg", "/src/assets/fashion-show-2.jpg", "/src/assets/fashion-show-3.jpg"];
   return (
     <section id="portfolio" className="py-16 bg-white">
@@ -228,6 +228,36 @@ function Courses() {
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="mt-10 grid md:grid-cols-3 gap-6">
+          <Card className="hover:shadow-lg transition-all">
+            <CardContent className="p-5">
+              <h3 className="font-semibold">Editorials</h3>
+              <ul className="mt-3 text-sm text-neutral-700 space-y-2">
+                <li><a className="underline underline-offset-4" href="#">Kerala Couture — Monsoon Edit</a></li>
+                <li><a className="underline underline-offset-4" href="#">Traditional Elegance — Onam Special</a></li>
+              </ul>
+            </CardContent>
+          </Card>
+          <Card className="hover:shadow-lg transition-all">
+            <CardContent className="p-5">
+              <h3 className="font-semibold">Covers</h3>
+              <ul className="mt-3 text-sm text-neutral-700 space-y-2">
+                <li><a className="underline underline-offset-4" href="#">Season 8 — Cover Girl</a></li>
+                <li><a className="underline underline-offset-4" href="#">Teens Edition — Kochi</a></li>
+              </ul>
+            </CardContent>
+          </Card>
+          <Card className="hover:shadow-lg transition-all">
+            <CardContent className="p-5">
+              <h3 className="font-semibold">Press</h3>
+              <ul className="mt-3 text-sm text-neutral-700 space-y-2">
+                <li><a className="underline underline-offset-4" href="#">Local Daily: Fashion Zoom Season 8</a></li>
+                <li><a className="underline underline-offset-4" href="#">Channel Feature: Modeling Careers</a></li>
+              </ul>
+            </CardContent>
+          </Card>
         </div>
 
       </div>
@@ -281,10 +311,25 @@ function Admissions() {
   })
   const [submitted, setSubmitted] = useState(false)
 
-  const onSubmit = (values) => {
-    setSubmitted(true)
-    setTimeout(() => form.reset(), 300)
-    console.log('Admission Request', values)
+  const onSubmit = async (values) => {
+    const endpoint = import.meta.env.VITE_FORM_ENDPOINT
+    setSubmitted(false)
+    try {
+      if (endpoint) {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ source: 'fashion-zoom-site', ...values })
+        })
+        if (!res.ok) throw new Error('Request failed')
+      } else {
+        console.log('Admission Request (no endpoint configured)', values)
+      }
+      setSubmitted(true)
+      form.reset()
+    } catch (e) {
+      alert('Could not submit the form right now. Please try again later.')
+    }
   }
 
   return (
