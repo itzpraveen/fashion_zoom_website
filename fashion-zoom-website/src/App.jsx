@@ -40,19 +40,19 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <img src={logoWhite} alt="Fashion Zoom logo" className="h-10 w-auto" />
+              <img src={logoWhite} alt="Fashion Zoom logo" className="h-12 w-auto" />
             </div>
             
             {/* Desktop Navigation */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                <a href="#home" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">Home</a>
-                <a href="#about" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">About</a>
-                <a href="#fashion-shows" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">Fashion Shows</a>
-                <a href="#academy" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">Academy</a>
-                <a href="#gallery" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">Gallery</a>
-                <a href="#contact" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
-              </div>
+              <a href="#home" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black">Home</a>
+              <a href="#about" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black">About</a>
+              <a href="#fashion-shows" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black">Fashion Shows</a>
+              <a href="#academy" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black">Academy</a>
+              <a href="#gallery" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black">Gallery</a>
+              <a href="#contact" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black">Contact</a>
+            </div>
             </div>
 
             {/* Mobile menu button */}
@@ -68,12 +68,12 @@ function App() {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-900">
-              <a href="#home" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium">Home</a>
-              <a href="#about" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium">About</a>
-              <a href="#fashion-shows" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium">Fashion Shows</a>
-              <a href="#academy" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium">Academy</a>
-              <a href="#gallery" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium">Gallery</a>
-              <a href="#contact" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium">Contact</a>
+              <a href="#home" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400">Home</a>
+              <a href="#about" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400">About</a>
+              <a href="#fashion-shows" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400">Fashion Shows</a>
+              <a href="#academy" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400">Academy</a>
+              <a href="#gallery" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400">Gallery</a>
+              <a href="#contact" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400">Contact</a>
             </div>
           </div>
         )}
@@ -388,13 +388,13 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="flex items-center justify-center mb-4">
-              <img src={logoWhite} alt="Fashion Zoom logo" className="h-10 w-auto" />
+              <img src={logoWhite} alt="Fashion Zoom logo" className="h-12 w-auto" />
             </div>
             <p className="text-gray-400 mb-4">
               Kerala's Premier Fashion Magazine & Modeling Academy Since 2013
             </p>
             <p className="text-gray-500 text-sm">
-              © 2024 Fashion Zoom Magazine. All rights reserved.
+              © {new Date().getFullYear()} Fashion Zoom Magazine. All rights reserved.
             </p>
           </div>
         </div>
