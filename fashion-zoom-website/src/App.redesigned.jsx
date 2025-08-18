@@ -126,6 +126,7 @@ function Academy() {
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div>
             <h2 className="text-3xl font-bold">What we do</h2>
+            <div className="h-1 w-16 bg-[#F81F2E] rounded mt-2"></div>
             <p className="mt-3 text-neutral-600">A complete ecosystem for modeling & fashion careers.</p>
             <div className="mt-6 grid sm:grid-cols-2 gap-4">
               {[
@@ -172,14 +173,15 @@ function Courses() {
         <div className="flex items-end justify-between gap-6">
           <div>
             <h2 className="text-3xl font-bold">Courses</h2>
+            <div className="h-1 w-16 bg-[#F81F2E] rounded mt-2"></div>
             <p className="mt-2 text-neutral-600">Hands-on curriculum with shoots, runway, and brand projects.</p>
           </div>
           <Button className="bg-[#F81F2E] text-white hover:bg-[#d11322] hidden sm:inline-flex">Get Prospectus</Button>
         </div>
 
         <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {items.map((c) => (
-            <Card key={c.title} className="group hover:shadow-lg transition-all">
+            {items.map((c) => (
+            <Card key={c.title} className="group hover:shadow-lg transition-all hover:-translate-y-1">
               <CardContent className="p-5">
                 <Badge className="bg-black text-white">{c.time}</Badge>
                 <h3 className="mt-3 font-semibold text-lg">{c.title}</h3>
@@ -205,6 +207,7 @@ function Portfolio() {
         <div className="flex items-end justify-between gap-6">
           <div>
             <h2 className="text-3xl font-bold">Portfolio</h2>
+            <div className="h-1 w-16 bg-[#F81F2E] rounded mt-2"></div>
             <p className="mt-2 text-neutral-600">Editorials, runway, campaigns.</p>
           </div>
           <a href="#" className="text-sm font-medium hover:underline">See all</a>
@@ -213,7 +216,7 @@ function Portfolio() {
         <div className="mt-6 overflow-x-auto no-scrollbar">
           <div className="flex gap-4 min-w-max">
             {imgs.map((src, i) => (
-              <div key={i} className="relative w-[320px] h-[420px] shrink-0">
+              <div key={i} className="relative w-[320px] h-[420px] shrink-0 transition-transform duration-200 hover:-translate-y-1">
                 <img src={src} className="w-full h-full object-cover rounded-2xl ring-1 ring-black/5" alt={`Portfolio ${i+1}`} />
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               </div>
@@ -232,6 +235,7 @@ function Events() {
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div>
             <h2 className="text-3xl font-bold">Upcoming Event</h2>
+            <div className="h-1 w-16 bg-[#F81F2E] rounded mt-2"></div>
             <p className="mt-2 text-neutral-600">Onam Photo Shoot & Video Reels • August 30 • Calicut</p>
             <ul className="mt-5 grid gap-2 text-sm text-neutral-700 list-disc pl-4">
               <li>Makeup, Hairstyle, Costume Styling</li>
@@ -239,8 +243,8 @@ function Events() {
               <li>Family packages • No age limit • Limited 30 seats</li>
             </ul>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Button className="bg-[#F81F2E] text-white hover:bg-[#d11322]">Register Now</Button>
-              <Button variant="outline">View past events</Button>
+              <Button className="bg-[#F81F2E] text-white hover:bg-[#d11322] shadow-md hover:shadow-lg transition-transform hover:scale-[1.02]">Register Now</Button>
+              <Button variant="outline" className="border-[#F81F2E] text-[#F81F2E] hover:bg-[#F81F2E] hover:text-white transition-transform hover:scale-[1.02]">View past events</Button>
             </div>
           </div>
           <div className="relative">
@@ -262,6 +266,7 @@ function Admissions() {
         <div className="grid lg:grid-cols-2 gap-10">
           <div>
             <h2 className="text-3xl font-bold">Admissions</h2>
+            <div className="h-1 w-16 bg-[#F81F2E] rounded mt-2"></div>
             <p className="mt-2 text-neutral-600">Tell us about you. Our team will call you back within 24 hours.</p>
             <form className="mt-6 grid gap-4">
               <div className="grid sm:grid-cols-2 gap-4">

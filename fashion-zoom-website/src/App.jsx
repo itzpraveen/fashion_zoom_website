@@ -68,12 +68,12 @@ function App() {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-900">
-              <a href="#home" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Home</a>
-              <a href="#about" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">About</a>
-              <a href="#fashion-shows" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Fashion Shows</a>
-              <a href="#academy" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Academy</a>
-              <a href="#gallery" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Gallery</a>
-              <a href="#contact" className="block hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Contact</a>
+              <a href="#home" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Home</a>
+              <a href="#about" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">About</a>
+              <a href="#fashion-shows" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Fashion Shows</a>
+              <a href="#academy" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Academy</a>
+              <a href="#gallery" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Gallery</a>
+              <a href="#contact" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Contact</a>
             </div>
           </div>
         )}
@@ -95,10 +95,10 @@ function App() {
               seasonal fashion shows, and magazine features across Kerala.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold shadow-sm">
+              <Button size="lg" className="bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
                 Join Our Academy
               </Button>
-              <Button size="lg" variant="outline" className="border-[#F81F2E] text-[#F81F2E] hover:bg-[#F81F2E] hover:text-white">
+              <Button size="lg" variant="outline" className="border-[#F81F2E] text-[#F81F2E] hover:bg-[#F81F2E] hover:text-white transition-colors transition-transform duration-200 hover:scale-[1.02]">
                 View Fashion Shows
               </Button>
             </div>
@@ -110,7 +110,8 @@ function App() {
       <section id="about" className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">About Fashion Zoom</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">About Fashion Zoom</h2>
+            <div className="h-1 w-16 bg-[#F81F2E] rounded mx-auto mb-6"></div>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Since 2013, Fashion Zoom has been Kerala's leading fashion magazine and modeling academy, 
               nurturing talent and celebrating fashion across multiple cities.
@@ -118,7 +119,7 @@ function App() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="text-center">
+            <Card className="text-center transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
               <CardHeader>
                 <Users className="h-12 w-12 mx-auto text-[#F81F2E] mb-4" />
                 <CardTitle>Professional Training</CardTitle>
@@ -130,7 +131,7 @@ function App() {
               </CardContent>
             </Card>
 
-            <Card className="text-center">
+            <Card className="text-center transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
               <CardHeader>
                 <Camera className="h-12 w-12 mx-auto text-[#F81F2E] mb-4" />
                 <CardTitle>Fashion Shows</CardTitle>
@@ -142,7 +143,7 @@ function App() {
               </CardContent>
             </Card>
 
-            <Card className="text-center">
+            <Card className="text-center transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
               <CardHeader>
                 <Award className="h-12 w-12 mx-auto text-[#F81F2E] mb-4" />
                 <CardTitle>Magazine Features</CardTitle>
@@ -161,7 +162,8 @@ function App() {
       <section id="fashion-shows" className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Fashion Shows</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Fashion Shows</h2>
+            <div className="h-1 w-16 bg-[#F81F2E] rounded mx-auto mb-6"></div>
             <p className="text-lg text-gray-600">
               Experience the glamour of our seasonal fashion shows featuring talented models and stunning designs.
             </p>
@@ -196,7 +198,7 @@ function App() {
           </div>
 
           <div className="text-center">
-            <Button size="lg" className="bg-[#F81F2E] hover:bg-[#d11322] text-white">
+            <Button size="lg" className="bg-[#F81F2E] hover:bg-[#d11322] text-white shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
               View All Fashion Shows
             </Button>
           </div>
@@ -207,7 +209,8 @@ function App() {
       <section id="academy" className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Modeling Academy</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Modeling Academy</h2>
+            <div className="h-1 w-16 bg-[#F81F2E] rounded mx-auto mb-6"></div>
             <p className="text-lg text-gray-600">
               Professional modeling training with direct entry - no auditions required!
             </p>
@@ -270,7 +273,7 @@ function App() {
             <p className="text-lg mb-6">
               <strong>Age Range:</strong> 3-60 years | <strong>Direct Entry:</strong> No auditions required
             </p>
-            <Button size="lg" className="bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold">
+            <Button size="lg" className="bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
               Register Now
             </Button>
           </div>
@@ -281,7 +284,8 @@ function App() {
       <section id="gallery" className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Gallery</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Gallery</h2>
+            <div className="h-1 w-16 bg-[#F81F2E] rounded mx-auto mb-6"></div>
             <p className="text-lg text-gray-600">
               Highlights from our fashion shows, photoshoots, and academy events.
             </p>
@@ -309,7 +313,7 @@ function App() {
           </div>
 
           <div className="text-center mt-8">
-            <Button variant="outline" size="lg">
+            <Button variant="outline" size="lg" className="border-[#F81F2E] text-[#F81F2E] hover:bg-[#F81F2E] hover:text-white transition-colors transition-transform duration-200 hover:scale-[1.02]">
               View Full Gallery
             </Button>
           </div>
@@ -320,14 +324,15 @@ function App() {
       <section id="contact" className="py-16 bg-black text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Contact Us</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-2">Contact Us</h2>
+            <div className="h-1 w-16 bg-[#F81F2E] rounded mx-auto mb-6"></div>
             <p className="text-lg text-gray-300">
               Get in touch with us across Kerala for modeling academy enrollment and fashion show participation.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="bg-gray-900 border-gray-700">
+            <Card className="bg-gray-900 border-gray-700 transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
               <CardHeader>
                 <CardTitle className="text-white flex items-center">
                   <Phone className="h-5 w-5 mr-2 text-[#F81F2E]" />
@@ -340,7 +345,7 @@ function App() {
               </CardContent>
             </Card>
 
-            <Card className="bg-gray-900 border-gray-700">
+            <Card className="bg-gray-900 border-gray-700 transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
               <CardHeader>
                 <CardTitle className="text-white flex items-center">
                   <MapPin className="h-5 w-5 mr-2 text-[#F81F2E]" />
@@ -356,7 +361,7 @@ function App() {
               </CardContent>
             </Card>
 
-            <Card className="bg-gray-900 border-gray-700">
+            <Card className="bg-gray-900 border-gray-700 transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
               <CardHeader>
                 <CardTitle className="text-white flex items-center">
                   <Instagram className="h-5 w-5 mr-2 text-[#F81F2E]" />
@@ -376,7 +381,7 @@ function App() {
           </div>
 
           <div className="text-center mt-12">
-            <Button size="lg" className="bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold">
+            <Button size="lg" className="bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
               Get Started Today
             </Button>
           </div>
