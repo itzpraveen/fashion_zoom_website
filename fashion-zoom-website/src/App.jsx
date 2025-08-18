@@ -40,8 +40,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <img src={logoWhite} alt="Fashion Zoom" className="h-10 w-10 mr-3" />
-              <span className="font-bold text-xl">Fashion Zoom</span>
+              <img src={logoWhite} alt="Fashion Zoom logo" className="h-10 w-auto" />
             </div>
             
             {/* Desktop Navigation */}
@@ -389,8 +388,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="flex items-center justify-center mb-4">
-              <img src={logoWhite} alt="Fashion Zoom" className="h-8 w-8 mr-3" />
-              <span className="font-bold text-xl">Fashion Zoom Magazine</span>
+              <img src={logoWhite} alt="Fashion Zoom logo" className="h-10 w-auto" />
             </div>
             <p className="text-gray-400 mb-4">
               Kerala's Premier Fashion Magazine & Modeling Academy Since 2013

@@ -35,8 +35,7 @@ function Header() {
     <header className={`fixed inset-x-0 top-0 z-50 transition-all ${scrolled ? "backdrop-blur bg-white/75 shadow-sm" : "bg-transparent"}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <a href="#" className="flex items-center gap-3">
-          <img src={scrolled ? logo : logoWhite} alt="Fashion Zoom" className="h-8 w-8 object-contain" />
-          <span className="font-semibold tracking-wide">Fashion&nbsp;Zoom</span>
+          <img src={scrolled ? logo : logoWhite} alt="Fashion Zoom logo" className="h-8 w-auto object-contain" />
           <Badge className="hidden sm:inline-flex bg-yellow-400 text-black">Kerala</Badge>
         </a>
 
@@ -306,8 +305,7 @@ function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center gap-3">
-              <img src={logoWhite} alt="Fashion Zoom" className="h-8 w-8 object-contain" />
-              <span className="font-semibold tracking-wide">Fashion Zoom</span>
+              <img src={logoWhite} alt="Fashion Zoom logo" className="h-8 w-auto object-contain" />
             </div>
             <p className="mt-4 text-sm text-neutral-300 max-w-xs">
               Magazine • Academy • Events • Productions. Building careers since 2013.
