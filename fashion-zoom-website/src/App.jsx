@@ -343,17 +343,6 @@ function App() {
             </Card>
           </div>
 
-          <div className="mt-12">
-            <div className="text-center mb-6">
-              <h3 className="text-xl font-semibold text-gray-900">Trusted by partners and local brands</h3>
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 items-center text-center text-gray-500">
-              <div className="py-2 border rounded-md">Studio Nova</div>
-              <div className="py-2 border rounded-md">Kerala Couture</div>
-              <div className="py-2 border rounded-md">South Silk Co.</div>
-              <div className="py-2 border rounded-md">Urban Frames</div>
-            </div>
-          </div>
         </div>
       </section>
 

@@ -229,15 +229,6 @@ function Courses() {
           </div>
         </div>
 
-        <div className="mt-10">
-          <h3 className="text-sm font-medium text-neutral-500">Trusted by partners</h3>
-          <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-4 text-neutral-500">
-            <div className="py-2 border rounded-md text-center">Studio Nova</div>
-            <div className="py-2 border rounded-md text-center">Kerala Couture</div>
-            <div className="py-2 border rounded-md text-center">South Silk Co.</div>
-            <div className="py-2 border rounded-md text-center">Urban Frames</div>
-          </div>
-        </div>
       </div>
     </section>
   );
