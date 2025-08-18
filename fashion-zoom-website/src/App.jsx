@@ -255,9 +255,14 @@ function App() {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{L.sections.about}</h2>
             <div className="h-1 w-16 sm:w-20 md:w-24 bg-[#F81F2E] rounded mx-auto mb-6"></div>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Since 2013, Fashion Zoom has been Kerala's leading fashion magazine and modeling academy, 
+              Since 2013, Fashion Zoom has been Kerala's leading fashion magazine and modeling academy,
               nurturing talent and celebrating fashion across multiple cities.
             </p>
+            {path !== '/about' && (
+              <div className="mt-6">
+                <a href="#/about" className="inline-flex items-center underline underline-offset-4 text-[#F81F2E]">Learn more about us →</a>
+              </div>
+            )}
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -297,6 +302,30 @@ function App() {
               </CardContent>
             </Card>
           </div>
+          {path === '/about' && (
+            <div className="mt-10 grid md:grid-cols-2 gap-6 text-left">
+              <div className="space-y-2 text-gray-700">
+                <h3 className="font-semibold">Fast facts</h3>
+                <ul className="list-disc pl-5 text-sm">
+                  <li>Founded: 2013</li>
+                  <li>Magazine • Academy • Events • Productions</li>
+                  <li>Cover model program for show winners</li>
+                </ul>
+              </div>
+              <div className="space-y-2 text-gray-700">
+                <h3 className="font-semibold">Cities in Kerala</h3>
+                <div className="flex flex-wrap gap-2 text-sm">
+                  {['Trivandrum','Kochi','Calicut','Thrissur','Kottayam'].map(c => (
+                    <span key={c} className="px-2 py-1 rounded-full bg-neutral-100">{c}</span>
+                  ))}
+                </div>
+                <div className="mt-4 text-sm">
+                  <div>Phone: <a className="underline" href="tel:+918590866865">8590866865</a>, <a className="underline" href="tel:+919961444539">9961444539</a></div>
+                  <div>Instagram: <a className="underline" href="https://instagram.com/fashion_zoom_magazine" target="_blank" rel="noreferrer">@fashion_zoom_magazine</a></div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
@@ -393,6 +422,30 @@ function App() {
               <a href="#/shows" className="inline-flex items-center underline underline-offset-4 text-[#F81F2E]">Explore shows →</a>
             </div>
           )}
+
+          {path === '/shows' && (
+            <div className="mt-10">
+              <h3 className="text-xl font-semibold mb-4">Season history</h3>
+              <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
+                <div className="rounded-lg border p-4">
+                  <div className="font-medium">Season 8 (2024–2025)</div>
+                  <ul className="list-disc pl-5 mt-2">
+                    <li>Winner: Cover Girl — Aditri Gouri</li>
+                    <li>Categories: Teen • Miss • Traditional • Kids</li>
+                    <li>Locations: Thrissur and across Kerala</li>
+                  </ul>
+                </div>
+                <div className="rounded-lg border p-4">
+                  <div className="font-medium">Season 7 (2023–2024)</div>
+                  <ul className="list-disc pl-5 mt-2">
+                    <li>Multiple category winners</li>
+                    <li>Traditional Fashion Fest highlights</li>
+                    <li>State‑wide participation</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
@@ -428,6 +481,7 @@ function App() {
             </p>
           </div>
 
+          {path === '/courses' ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card>
               <CardHeader>
@@ -480,6 +534,18 @@ function App() {
               </CardContent>
             </Card>
           </div>
+          ) : (
+            <div className="mt-6 text-gray-600">
+              <ul className="space-y-1">
+                <li>• Runway, camera presence, grooming</li>
+                <li>• Portfolio shoots and reels</li>
+                <li>• Batches for kids, teens and adults</li>
+              </ul>
+              <div className="mt-6">
+                <a href="#/courses" className="underline underline-offset-4 text-[#F81F2E]">Explore courses →</a>
+              </div>
+            </div>
+          )}
 
           <div className="text-center mt-12">
             <p className="text-lg mb-6">
