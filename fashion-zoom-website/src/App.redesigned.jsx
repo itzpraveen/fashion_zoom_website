@@ -43,7 +43,7 @@ function Header() {
           <Badge className="hidden sm:inline-flex bg-[#F81F2E] text-white">Kerala</Badge>
         </a>
 
-        <nav className="hidden md:flex items-center gap-6">
+        <nav role="navigation" aria-label="Primary" className="hidden md:flex items-center gap-6">
           {nav.map((n) => (
             <a key={n.href} href={n.href} className="text-sm font-medium text-neutral-700 hover:text-black">
               {n.label}
@@ -425,7 +425,7 @@ function Footer() {
 
 export default function AppRedesigned() {
   return (
-    <div className="min-h-screen bg-white">
+    <main id="main" role="main" className="min-h-screen bg-white">
       <Header />
       <main>
         <Hero />
@@ -436,6 +436,6 @@ export default function AppRedesigned() {
         <Admissions />
       </main>
       <Footer />
-    </div>
+    </main>
   );
 }

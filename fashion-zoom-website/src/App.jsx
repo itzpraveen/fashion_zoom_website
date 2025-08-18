@@ -34,9 +34,9 @@ function App() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
   return (
-    <div className="min-h-screen bg-white">
+    <main id="main" role="main" className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="bg-black text-white sticky top-0 z-50 border-t-2 border-[#F81F2E]">
+      <nav role="navigation" aria-label="Primary" className="bg-black text-white sticky top-0 z-50 border-t-2 border-[#F81F2E]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
@@ -430,7 +430,7 @@ function App() {
           </div>
         </div>
       </footer>
-    </div>
+    </main>
   )
 }
 

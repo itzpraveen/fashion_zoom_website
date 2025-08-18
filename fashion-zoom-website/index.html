@@ -43,9 +43,14 @@
         ]
       }
     </script>
+    <style>
+      .skip-link{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+      .skip-link:focus{left:16px;top:16px;width:auto;height:auto;padding:8px 12px;background:#F81F2E;color:#fff;border-radius:6px;z-index:9999}
+    </style>
     <title>Fashion Zoom Magazine - Kerala's Premier Fashion & Modeling Academy</title>
   </head>
   <body>
+    <a href="#main" class="skip-link">Skip to content</a>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
