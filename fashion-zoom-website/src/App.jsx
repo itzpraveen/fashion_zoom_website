@@ -360,6 +360,7 @@ function App() {
             </p>
           </div>
 
+          {path === '/shows' ? (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             <div>
               <h3 className="text-2xl font-bold mb-4">Season 8 - Current</h3>
@@ -387,12 +388,11 @@ function App() {
               <img src={fashionShow2} alt="Fashion Show 2" className="rounded-lg shadow-lg" loading="lazy" />
             </div>
           </div>
-
-          <div className="text-center">
-            <Button size="lg" aria-label="View all fashion shows" className="h-12 px-8 text-base bg-[#F81F2E] hover:bg-[#d11322] text-white shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
-              View All Fashion Shows
-            </Button>
-          </div>
+          ) : (
+            <div className="text-center">
+              <a href="#/shows" className="inline-flex items-center underline underline-offset-4 text-[#F81F2E]">Explore shows →</a>
+            </div>
+          )}
         </div>
       </section>
 
@@ -406,9 +406,13 @@ function App() {
           <div className="grid md:grid-cols-2 gap-6 text-gray-700">
             <details className="rounded-lg border p-4"><summary className="font-semibold cursor-pointer">Who can join the academy?</summary><p className="mt-2 text-sm">We welcome beginners and experienced aspirants across ages 3–60. Batches are tailored by age group and goals.</p></details>
             <details className="rounded-lg border p-4"><summary className="font-semibold cursor-pointer">Do I need prior experience?</summary><p className="mt-2 text-sm">No. Our curriculum starts with fundamentals — posture, walk, grooming — and progresses to advanced runway and camera work.</p></details>
-            <details className="rounded-lg border p-4"><summary className="font-semibold cursor-pointer">Will I get a portfolio?</summary><p className="mt-2 text-sm">Yes. Programs include editorial‑style photos and short reels to start pitching for assignments.</p></details>
-            <details className="rounded-lg border p-4"><summary className="font-semibold cursor-pointer">Are there shows or events?</summary><p className="mt-2 text-sm">Yes. We organize seasonal shows across Kerala. Students get opportunities to participate by category.</p></details>
-            <details className="rounded-lg border p-4 md:col-span-2"><summary className="font-semibold cursor-pointer">How do admissions work?</summary><p className="mt-2 text-sm">Submit the callback form, and our team will contact you with batch dates, fees, and a short orientation call.</p></details>
+            {path === '/faq' && (
+              <>
+                <details className="rounded-lg border p-4"><summary className="font-semibold cursor-pointer">Will I get a portfolio?</summary><p className="mt-2 text-sm">Yes. Programs include editorial‑style photos and short reels to start pitching for assignments.</p></details>
+                <details className="rounded-lg border p-4"><summary className="font-semibold cursor-pointer">Are there shows or events?</summary><p className="mt-2 text-sm">Yes. We organize seasonal shows across Kerala. Students get opportunities to participate by category.</p></details>
+                <details className="rounded-lg border p-4 md:col-span-2"><summary className="font-semibold cursor-pointer">How do admissions work?</summary><p className="mt-2 text-sm">Submit the callback form, and our team will contact you with batch dates, fees, and a short orientation call.</p></details>
+              </>
+            )}
           </div>
         </div>
       </section>
