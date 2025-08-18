@@ -36,7 +36,7 @@ function App() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="bg-black text-white sticky top-0 z-50">
+      <nav className="bg-black text-white sticky top-0 z-50 border-t-2 border-[#F81F2E]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
@@ -95,10 +95,10 @@ function App() {
               seasonal fashion shows, and magazine features across Kerala.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
+              <Button size="lg" className="h-12 px-8 text-base bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
                 Join Our Academy
               </Button>
-              <Button size="lg" variant="outline" className="border-[#F81F2E] text-[#F81F2E] hover:bg-[#F81F2E] hover:text-white transition-colors transition-transform duration-200 hover:scale-[1.02]">
+              <Button size="lg" variant="outline" className="h-12 px-8 text-base border-[#F81F2E] text-[#F81F2E] hover:bg-[#F81F2E] hover:text-white transition-colors transition-transform duration-200 hover:scale-[1.02]">
                 View Fashion Shows
               </Button>
             </div>
@@ -111,7 +111,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">About Fashion Zoom</h2>
-            <div className="h-1 w-16 bg-[#F81F2E] rounded mx-auto mb-6"></div>
+            <div className="h-1 w-16 sm:w-20 md:w-24 bg-[#F81F2E] rounded mx-auto mb-6"></div>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Since 2013, Fashion Zoom has been Kerala's leading fashion magazine and modeling academy, 
               nurturing talent and celebrating fashion across multiple cities.
@@ -163,7 +163,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Fashion Shows</h2>
-            <div className="h-1 w-16 bg-[#F81F2E] rounded mx-auto mb-6"></div>
+            <div className="h-1 w-16 sm:w-20 md:w-24 bg-[#F81F2E] rounded mx-auto mb-6"></div>
             <p className="text-lg text-gray-600">
               Experience the glamour of our seasonal fashion shows featuring talented models and stunning designs.
             </p>
@@ -198,7 +198,7 @@ function App() {
           </div>
 
           <div className="text-center">
-            <Button size="lg" className="bg-[#F81F2E] hover:bg-[#d11322] text-white shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
+            <Button size="lg" className="h-12 px-8 text-base bg-[#F81F2E] hover:bg-[#d11322] text-white shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
               View All Fashion Shows
             </Button>
           </div>
@@ -210,7 +210,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Modeling Academy</h2>
-            <div className="h-1 w-16 bg-[#F81F2E] rounded mx-auto mb-6"></div>
+            <div className="h-1 w-16 sm:w-20 md:w-24 bg-[#F81F2E] rounded mx-auto mb-6"></div>
             <p className="text-lg text-gray-600">
               Professional modeling training with direct entry - no auditions required!
             </p>
@@ -273,7 +273,7 @@ function App() {
             <p className="text-lg mb-6">
               <strong>Age Range:</strong> 3-60 years | <strong>Direct Entry:</strong> No auditions required
             </p>
-            <Button size="lg" className="bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
+            <Button size="lg" className="h-12 px-8 text-base bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
               Register Now
             </Button>
           </div>
@@ -285,7 +285,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Gallery</h2>
-            <div className="h-1 w-16 bg-[#F81F2E] rounded mx-auto mb-6"></div>
+            <div className="h-1 w-16 sm:w-20 md:w-24 bg-[#F81F2E] rounded mx-auto mb-6"></div>
             <p className="text-lg text-gray-600">
               Highlights from our fashion shows, photoshoots, and academy events.
             </p>
@@ -313,7 +313,7 @@ function App() {
           </div>
 
           <div className="text-center mt-8">
-            <Button variant="outline" size="lg" className="border-[#F81F2E] text-[#F81F2E] hover:bg-[#F81F2E] hover:text-white transition-colors transition-transform duration-200 hover:scale-[1.02]">
+            <Button variant="outline" size="lg" className="h-12 px-8 text-base border-[#F81F2E] text-[#F81F2E] hover:bg-[#F81F2E] hover:text-white transition-colors transition-transform duration-200 hover:scale-[1.02]">
               View Full Gallery
             </Button>
           </div>
@@ -325,7 +325,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-2">Contact Us</h2>
-            <div className="h-1 w-16 bg-[#F81F2E] rounded mx-auto mb-6"></div>
+            <div className="h-1 w-16 sm:w-20 md:w-24 bg-[#F81F2E] rounded mx-auto mb-6"></div>
             <p className="text-lg text-gray-300">
               Get in touch with us across Kerala for modeling academy enrollment and fashion show participation.
             </p>
@@ -381,7 +381,7 @@ function App() {
           </div>
 
           <div className="text-center mt-12">
-            <Button size="lg" className="bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
+            <Button size="lg" className="h-12 px-8 text-base bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
               Get Started Today
             </Button>
           </div>

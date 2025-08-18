@@ -32,7 +32,7 @@ function Header() {
   }, []);
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 transition-all ${scrolled ? "backdrop-blur bg-white/75 shadow-sm" : "bg-transparent"}`}>
+    <header className={`fixed inset-x-0 top-0 z-50 transition-all border-t-2 border-[#F81F2E] ${scrolled ? "backdrop-blur bg-white/75 shadow-sm" : "bg-transparent"}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <a href="#" className="flex items-center gap-3">
           <img src={scrolled ? logo : logoWhite} alt="Fashion Zoom logo" className="h-10 w-auto object-contain" />
@@ -51,7 +51,7 @@ function Header() {
           <a href="https://instagram.com" target="_blank" rel="noreferrer" className="p-2 rounded-full hover:bg-neutral-100">
             <Instagram size={18} />
           </a>
-          <Button className="bg-[#F81F2E] text-white hover:bg-[#d11322]">Apply Now</Button>
+          <Button className="h-12 px-8 text-base bg-[#F81F2E] text-white hover:bg-[#d11322]">Apply Now</Button>
         </div>
 
         <button className="md:hidden p-2 rounded-lg hover:bg-neutral-100" onClick={() => setOpen((v) => !v)} aria-label="Toggle menu">
@@ -67,7 +67,7 @@ function Header() {
                 {n.label}
               </a>
             ))}
-            <Button className="bg-[#F81F2E] text-white hover:bg-[#d11322]">Apply Now</Button>
+            <Button className="h-12 px-8 text-base bg-[#F81F2E] text-white hover:bg-[#d11322]">Apply Now</Button>
           </div>
         </div>
       )}
@@ -94,11 +94,11 @@ function Hero() {
           </p>
 
           <div className="mt-6 flex flex-wrap items-center gap-3">
-            <Button size="lg" className="bg-[#F81F2E] text-white hover:bg-[#d11322]">
+            <Button size="lg" className="h-12 px-8 text-base bg-[#F81F2E] text-white hover:bg-[#d11322]">
               Join the Academy
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button size="lg" variant="outline" className="border-[#F81F2E] text-[#F81F2E] hover:bg-[#F81F2E] hover:text-white">
+            <Button size="lg" variant="outline" className="h-12 px-8 text-base border-[#F81F2E] text-[#F81F2E] hover:bg-[#F81F2E] hover:text-white">
               Watch Reels
               <Play className="ml-2 h-4 w-4" />
             </Button>
@@ -176,7 +176,7 @@ function Courses() {
             <div className="h-1 w-16 bg-[#F81F2E] rounded mt-2"></div>
             <p className="mt-2 text-neutral-600">Hands-on curriculum with shoots, runway, and brand projects.</p>
           </div>
-          <Button className="bg-[#F81F2E] text-white hover:bg-[#d11322] hidden sm:inline-flex">Get Prospectus</Button>
+          <Button className="h-12 px-8 text-base bg-[#F81F2E] text-white hover:bg-[#d11322] hidden sm:inline-flex">Get Prospectus</Button>
         </div>
 
         <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -210,7 +210,7 @@ function Portfolio() {
             <div className="h-1 w-16 bg-[#F81F2E] rounded mt-2"></div>
             <p className="mt-2 text-neutral-600">Editorials, runway, campaigns.</p>
           </div>
-          <a href="#" className="text-sm font-medium hover:underline">See all</a>
+          <a href="#" className="text-sm font-medium hover:underline underline-offset-4 decoration-[#F81F2E]">See all</a>
         </div>
 
         <div className="mt-6 overflow-x-auto no-scrollbar">
@@ -243,8 +243,8 @@ function Events() {
               <li>Family packages • No age limit • Limited 30 seats</li>
             </ul>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Button className="bg-[#F81F2E] text-white hover:bg-[#d11322] shadow-md hover:shadow-lg transition-transform hover:scale-[1.02]">Register Now</Button>
-              <Button variant="outline" className="border-[#F81F2E] text-[#F81F2E] hover:bg-[#F81F2E] hover:text-white transition-transform hover:scale-[1.02]">View past events</Button>
+              <Button className="h-12 px-8 text-base bg-[#F81F2E] text-white hover:bg-[#d11322] shadow-md hover:shadow-lg transition-transform hover:scale-[1.02]">Register Now</Button>
+              <Button variant="outline" className="h-12 px-8 text-base border-[#F81F2E] text-[#F81F2E] hover:bg-[#F81F2E] hover:text-white transition-transform hover:scale-[1.02]">View past events</Button>
             </div>
           </div>
           <div className="relative">
@@ -277,7 +277,7 @@ function Admissions() {
               <Input placeholder="City" />
               <Textarea placeholder="What do you want to achieve with us?" />
               <div className="flex items-center gap-3">
-            <Button className="bg-[#F81F2E] text-white hover:bg-[#d11322]" type="button">Request Callback</Button>
+            <Button className="h-12 px-8 text-base bg-[#F81F2E] text-white hover:bg-[#d11322]" type="button">Request Callback</Button>
                 <span className="text-xs text-neutral-500">By submitting, you agree to our terms.</span>
               </div>
             </form>
@@ -319,10 +319,10 @@ function Footer() {
           <div>
             <h4 className="font-semibold">Explore</h4>
             <ul className="mt-3 space-y-2 text-sm text-neutral-300">
-              <li><a href="#academy" className="hover:underline">Academy</a></li>
-              <li><a href="#courses" className="hover:underline">Courses</a></li>
-              <li><a href="#portfolio" className="hover:underline">Portfolio</a></li>
-              <li><a href="#events" className="hover:underline">Events</a></li>
+              <li><a href="#academy" className="hover:underline underline-offset-4 decoration-[#F81F2E]">Academy</a></li>
+              <li><a href="#courses" className="hover:underline underline-offset-4 decoration-[#F81F2E]">Courses</a></li>
+              <li><a href="#portfolio" className="hover:underline underline-offset-4 decoration-[#F81F2E]">Portfolio</a></li>
+              <li><a href="#events" className="hover:underline underline-offset-4 decoration-[#F81F2E]">Events</a></li>
             </ul>
           </div>
           <div>
@@ -337,7 +337,7 @@ function Footer() {
             <h4 className="font-semibold">Newsletter</h4>
             <div className="mt-3 flex gap-2">
               <Input placeholder="Your email" className="bg-white text-black placeholder:text-neutral-500" />
-              <Button className="bg-[#F81F2E] text-white hover:bg-[#d11322]">Subscribe</Button>
+              <Button className="h-12 px-8 text-base bg-[#F81F2E] text-white hover:bg-[#d11322]">Subscribe</Button>
             </div>
             <p className="mt-2 text-xs text-neutral-400">We respect your privacy.</p>
           </div>
