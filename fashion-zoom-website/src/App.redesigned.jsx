@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input.jsx";
 import { Textarea } from "@/components/ui/textarea.jsx";
 import { Separator } from "@/components/ui/separator.jsx";
 import { Instagram, Phone, Mail, MapPin, CalendarDays, ArrowRight, Play } from "lucide-react";
+import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -39,10 +40,10 @@ function Header() {
   return (
     <header className={`fixed inset-x-0 top-0 z-50 transition-all border-t-2 border-[#F81F2E] ${scrolled ? "backdrop-blur bg-white/75 shadow-sm" : "bg-transparent"}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3" aria-label="Go to homepage">
           <img src={scrolled ? logo : logoWhite} alt="Fashion Zoom logo" className="h-10 w-auto object-contain" />
           <Badge className="hidden sm:inline-flex bg-[#F81F2E] text-white">Kerala</Badge>
-        </a>
+        </Link>
 
         <nav role="navigation" aria-label="Primary" className="hidden md:flex items-center gap-6">
           {nav.map((n) => (
@@ -446,7 +447,9 @@ function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center gap-3">
-              <img src={logoWhite} alt="Fashion Zoom logo" className="h-12 w-auto object-contain" />
+              <Link to="/" aria-label="Go to homepage">
+                <img src={logoWhite} alt="Fashion Zoom logo" className="h-12 w-auto object-contain" />
+              </Link>
             </div>
             <p className="mt-4 text-sm text-neutral-300 max-w-xs">
               Magazine • Academy • Events • Productions. Building careers since 2013.

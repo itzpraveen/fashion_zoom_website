@@ -21,7 +21,7 @@ import {
 } from 'lucide-react'
 import './App.css'
 import { locales } from './i18n.js'
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -78,9 +78,9 @@ function App() {
       <nav role="navigation" aria-label="Primary" className="bg-black text-white sticky top-0 z-50 border-t-2 border-[#F81F2E]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
+            <Link to="/" aria-label="Go to homepage" className="flex items-center">
               <img src={logoWhite} alt="Fashion Zoom logo" className="h-12 w-auto" />
-            </div>
+            </Link>
             <div className="hidden md:block" />
             
             {/* Desktop Navigation */}
@@ -696,7 +696,9 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="flex items-center justify-center mb-4">
-              <img src={logoWhite} alt="Fashion Zoom logo" className="h-12 w-auto" />
+              <Link to="/" aria-label="Go to homepage">
+                <img src={logoWhite} alt="Fashion Zoom logo" className="h-12 w-auto" />
+              </Link>
             </div>
             <p className="text-gray-400 mb-4">
               Kerala's Premier Fashion Magazine & Modeling Academy Since 2013
