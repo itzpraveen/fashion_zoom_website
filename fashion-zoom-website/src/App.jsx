@@ -95,10 +95,10 @@ function App() {
               seasonal fashion shows, and magazine features across Kerala.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold">
+              <Button size="lg" className="bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold shadow-sm">
                 Join Our Academy
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-black">
+              <Button size="lg" variant="outline" className="border-[#F81F2E] text-[#F81F2E] hover:bg-[#F81F2E] hover:text-white">
                 View Fashion Shows
               </Button>
             </div>
@@ -120,7 +120,7 @@ function App() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card className="text-center">
               <CardHeader>
-                <Users className="h-12 w-12 mx-auto text-yellow-500 mb-4" />
+                <Users className="h-12 w-12 mx-auto text-[#F81F2E] mb-4" />
                 <CardTitle>Professional Training</CardTitle>
               </CardHeader>
               <CardContent>
@@ -132,7 +132,7 @@ function App() {
 
             <Card className="text-center">
               <CardHeader>
-                <Camera className="h-12 w-12 mx-auto text-yellow-500 mb-4" />
+                <Camera className="h-12 w-12 mx-auto text-[#F81F2E] mb-4" />
                 <CardTitle>Fashion Shows</CardTitle>
               </CardHeader>
               <CardContent>
@@ -144,7 +144,7 @@ function App() {
 
             <Card className="text-center">
               <CardHeader>
-                <Award className="h-12 w-12 mx-auto text-yellow-500 mb-4" />
+                <Award className="h-12 w-12 mx-auto text-[#F81F2E] mb-4" />
                 <CardTitle>Magazine Features</CardTitle>
               </CardHeader>
               <CardContent>
@@ -196,7 +196,7 @@ function App() {
           </div>
 
           <div className="text-center">
-            <Button size="lg" className="bg-black hover:bg-gray-800 text-white">
+            <Button size="lg" className="bg-[#F81F2E] hover:bg-[#d11322] text-white">
               View All Fashion Shows
             </Button>
           </div>
@@ -217,7 +217,7 @@ function App() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center">
-                  <Star className="h-5 w-5 mr-2 text-yellow-500" />
+                  <Star className="h-5 w-5 mr-2 text-[#F81F2E]" />
                   Beginner Course
                 </CardTitle>
               </CardHeader>
@@ -234,7 +234,7 @@ function App() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center">
-                  <Star className="h-5 w-5 mr-2 text-yellow-500" />
+                  <Star className="h-5 w-5 mr-2 text-[#F81F2E]" />
                   Advanced Course
                 </CardTitle>
               </CardHeader>
@@ -251,7 +251,7 @@ function App() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center">
-                  <Star className="h-5 w-5 mr-2 text-yellow-500" />
+                  <Star className="h-5 w-5 mr-2 text-[#F81F2E]" />
                   Kids Program
                 </CardTitle>
               </CardHeader>
@@ -270,7 +270,7 @@ function App() {
             <p className="text-lg mb-6">
               <strong>Age Range:</strong> 3-60 years | <strong>Direct Entry:</strong> No auditions required
             </p>
-            <Button size="lg" className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold">
+            <Button size="lg" className="bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold">
               Register Now
             </Button>
           </div>
@@ -330,7 +330,7 @@ function App() {
             <Card className="bg-gray-900 border-gray-700">
               <CardHeader>
                 <CardTitle className="text-white flex items-center">
-                  <Phone className="h-5 w-5 mr-2 text-yellow-500" />
+                  <Phone className="h-5 w-5 mr-2 text-[#F81F2E]" />
                   Phone Numbers
                 </CardTitle>
               </CardHeader>
@@ -343,7 +343,7 @@ function App() {
             <Card className="bg-gray-900 border-gray-700">
               <CardHeader>
                 <CardTitle className="text-white flex items-center">
-                  <MapPin className="h-5 w-5 mr-2 text-yellow-500" />
+                  <MapPin className="h-5 w-5 mr-2 text-[#F81F2E]" />
                   Locations
                 </CardTitle>
               </CardHeader>
@@ -359,7 +359,7 @@ function App() {
             <Card className="bg-gray-900 border-gray-700">
               <CardHeader>
                 <CardTitle className="text-white flex items-center">
-                  <Instagram className="h-5 w-5 mr-2 text-yellow-500" />
+                  <Instagram className="h-5 w-5 mr-2 text-[#F81F2E]" />
                   Social Media
                 </CardTitle>
               </CardHeader>
@@ -367,16 +367,16 @@ function App() {
                 <p>@fashion_zoom_magazine</p>
                 <p>@fashionzoom_modeling_academy</p>
                 <div className="flex space-x-4 mt-4">
-                  <Instagram className="h-6 w-6 hover:text-yellow-500 cursor-pointer" />
-                  <Facebook className="h-6 w-6 hover:text-yellow-500 cursor-pointer" />
-                  <Youtube className="h-6 w-6 hover:text-yellow-500 cursor-pointer" />
+                  <Instagram className="h-6 w-6 hover:text-[#F81F2E] cursor-pointer" />
+                  <Facebook className="h-6 w-6 hover:text-[#F81F2E] cursor-pointer" />
+                  <Youtube className="h-6 w-6 hover:text-[#F81F2E] cursor-pointer" />
                 </div>
               </CardContent>
             </Card>
           </div>
 
           <div className="text-center mt-12">
-            <Button size="lg" className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold">
+            <Button size="lg" className="bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold">
               Get Started Today
             </Button>
           </div>

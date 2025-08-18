@@ -36,7 +36,7 @@ function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <a href="#" className="flex items-center gap-3">
           <img src={scrolled ? logo : logoWhite} alt="Fashion Zoom logo" className="h-10 w-auto object-contain" />
-          <Badge className="hidden sm:inline-flex bg-yellow-400 text-black">Kerala</Badge>
+          <Badge className="hidden sm:inline-flex bg-[#F81F2E] text-white">Kerala</Badge>
         </a>
 
         <nav className="hidden md:flex items-center gap-6">
@@ -51,7 +51,7 @@ function Header() {
           <a href="https://instagram.com" target="_blank" rel="noreferrer" className="p-2 rounded-full hover:bg-neutral-100">
             <Instagram size={18} />
           </a>
-          <Button className="bg-yellow-500 text-black hover:bg-yellow-400">Apply Now</Button>
+          <Button className="bg-[#F81F2E] text-white hover:bg-[#d11322]">Apply Now</Button>
         </div>
 
         <button className="md:hidden p-2 rounded-lg hover:bg-neutral-100" onClick={() => setOpen((v) => !v)} aria-label="Toggle menu">
@@ -67,7 +67,7 @@ function Header() {
                 {n.label}
               </a>
             ))}
-            <Button className="bg-yellow-500 text-black hover:bg-yellow-400">Apply Now</Button>
+            <Button className="bg-[#F81F2E] text-white hover:bg-[#d11322]">Apply Now</Button>
           </div>
         </div>
       )}
@@ -85,20 +85,20 @@ function Hero() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="max-w-2xl text-white">
-          <Badge className="bg-yellow-400 text-black">Since 2013</Badge>
+          <Badge className="bg-[#F81F2E] text-white">Since 2013</Badge>
           <h1 className="mt-4 text-4xl sm:text-5xl font-bold leading-tight">
-            Kerala’s Premier Fashion & <span className="text-yellow-300">Modeling Academy</span>
+            Kerala’s Premier Fashion & <span className="text-[#F81F2E]">Modeling Academy</span>
           </h1>
           <p className="mt-4 text-neutral-100/90">
             Train with industry mentors, build your portfolio, and walk real runway shows. From grooming to reels, get career‑ready.
           </p>
 
           <div className="mt-6 flex flex-wrap items-center gap-3">
-            <Button size="lg" className="bg-yellow-500 text-black hover:bg-yellow-400">
+            <Button size="lg" className="bg-[#F81F2E] text-white hover:bg-[#d11322]">
               Join the Academy
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-black">
+            <Button size="lg" variant="outline" className="border-[#F81F2E] text-[#F81F2E] hover:bg-[#F81F2E] hover:text-white">
               Watch Reels
               <Play className="ml-2 h-4 w-4" />
             </Button>
@@ -174,7 +174,7 @@ function Courses() {
             <h2 className="text-3xl font-bold">Courses</h2>
             <p className="mt-2 text-neutral-600">Hands-on curriculum with shoots, runway, and brand projects.</p>
           </div>
-          <Button className="bg-yellow-500 text-black hover:bg-yellow-400 hidden sm:inline-flex">Get Prospectus</Button>
+          <Button className="bg-[#F81F2E] text-white hover:bg-[#d11322] hidden sm:inline-flex">Get Prospectus</Button>
         </div>
 
         <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -185,7 +185,7 @@ function Courses() {
                 <h3 className="mt-3 font-semibold text-lg">{c.title}</h3>
                 <p className="text-sm text-neutral-600">{c.tag}</p>
                 <Separator className="my-4" />
-                <Button variant="outline" className="w-full group-hover:bg-yellow-50">
+                <Button variant="outline" className="w-full group-hover:bg-[#F81F2E]/10">
                   View syllabus <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </CardContent>
@@ -239,7 +239,7 @@ function Events() {
               <li>Family packages • No age limit • Limited 30 seats</li>
             </ul>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Button className="bg-yellow-500 text-black hover:bg-yellow-400">Register Now</Button>
+              <Button className="bg-[#F81F2E] text-white hover:bg-[#d11322]">Register Now</Button>
               <Button variant="outline">View past events</Button>
             </div>
           </div>
@@ -272,7 +272,7 @@ function Admissions() {
               <Input placeholder="City" />
               <Textarea placeholder="What do you want to achieve with us?" />
               <div className="flex items-center gap-3">
-                <Button className="bg-yellow-500 text-black hover:bg-yellow-400" type="button">Request Callback</Button>
+            <Button className="bg-[#F81F2E] text-white hover:bg-[#d11322]" type="button">Request Callback</Button>
                 <span className="text-xs text-neutral-500">By submitting, you agree to our terms.</span>
               </div>
             </form>
@@ -332,7 +332,7 @@ function Footer() {
             <h4 className="font-semibold">Newsletter</h4>
             <div className="mt-3 flex gap-2">
               <Input placeholder="Your email" className="bg-white text-black placeholder:text-neutral-500" />
-              <Button className="bg-yellow-500 text-black hover:bg-yellow-400">Subscribe</Button>
+              <Button className="bg-[#F81F2E] text-white hover:bg-[#d11322]">Subscribe</Button>
             </div>
             <p className="mt-2 text-xs text-neutral-400">We respect your privacy.</p>
           </div>
