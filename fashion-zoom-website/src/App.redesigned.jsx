@@ -21,6 +21,7 @@ const nav = [
   { label: "Portfolio", href: "#portfolio" },
   { label: "Events", href: "#events" },
   { label: "Admissions", href: "#admissions" },
+  { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -374,6 +375,25 @@ function Admissions() {
   );
 }
 
+function FAQ() {
+  return (
+    <section id="faq" className="py-16 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold">Frequently Asked Questions</h2>
+          <div className="h-1 w-16 bg-[#F81F2E] rounded mt-2 mx-auto"></div>
+        </div>
+        <div className="grid md:grid-cols-2 gap-4 text-sm text-neutral-800">
+          <details className="rounded-lg border p-4"><summary className="font-medium cursor-pointer">Who is eligible?</summary><p className="mt-2">Ages 3–60. We run separate tracks for kids, teens and adults.</p></details>
+          <details className="rounded-lg border p-4"><summary className="font-medium cursor-pointer">Do you help with portfolios?</summary><p className="mt-2">Yes, editorial‑style photos and short reels are part of the programs.</p></details>
+          <details className="rounded-lg border p-4"><summary className="font-medium cursor-pointer">Are there shows?</summary><p className="mt-2">Seasonal shows run across Kerala with multiple categories.</p></details>
+          <details className="rounded-lg border p-4"><summary className="font-medium cursor-pointer">How to apply?</summary><p className="mt-2">Submit the admissions form. Our team will call you within 24 hours.</p></details>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   return (
     <footer id="contact" className="bg-black text-white">
@@ -434,6 +454,7 @@ export default function AppRedesigned() {
         <Portfolio />
         <Events />
         <Admissions />
+        <FAQ />
       </main>
       <Footer />
     </main>

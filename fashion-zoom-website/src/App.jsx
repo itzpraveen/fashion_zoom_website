@@ -51,6 +51,7 @@ function App() {
               <a href="#fashion-shows" aria-label="Go to Fashion Shows section" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">Fashion Shows</a>
               <a href="#academy" aria-label="Go to Academy section" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">Academy</a>
               <a href="#gallery" aria-label="Go to Gallery section" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">Gallery</a>
+              <a href="#faq" aria-label="Go to FAQs" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">FAQ</a>
               <a href="#contact" aria-label="Go to Contact section" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">Contact</a>
             </div>
             </div>
@@ -73,6 +74,7 @@ function App() {
               <a href="#fashion-shows" aria-label="Go to Fashion Shows section" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Fashion Shows</a>
               <a href="#academy" aria-label="Go to Academy section" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Academy</a>
               <a href="#gallery" aria-label="Go to Gallery section" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Gallery</a>
+              <a href="#faq" aria-label="Go to FAQs" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">FAQ</a>
               <a href="#contact" aria-label="Go to Contact section" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">Contact</a>
             </div>
           </div>
@@ -159,6 +161,55 @@ function App() {
         </div>
       </section>
 
+      {/* Why Fashion Zoom */}
+      <section id="why" className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Why Fashion Zoom</h2>
+            <div className="h-1 w-16 sm:w-20 md:w-24 bg-[#F81F2E] rounded mx-auto mb-6"></div>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">A complete ecosystem to get show‑ready — guided by mentors, supported by state‑wide events, and backed by a strong alumni network.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Card className="text-center transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
+              <CardHeader>
+                <Users className="h-10 w-10 mx-auto text-[#F81F2E] mb-3" />
+                <CardTitle>Industry Mentors</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">Hands‑on runway, posing, grooming and camera presence with experienced coaches.</p>
+              </CardContent>
+            </Card>
+            <Card className="text-center transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
+              <CardHeader>
+                <Camera className="h-10 w-10 mx-auto text-[#F81F2E] mb-3" />
+                <CardTitle>Portfolio Shoots</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">Editorial‑style photos and reels to start pitching to brands and agencies.</p>
+              </CardContent>
+            </Card>
+            <Card className="text-center transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
+              <CardHeader>
+                <Award className="h-10 w-10 mx-auto text-[#F81F2E] mb-3" />
+                <CardTitle>Real Shows</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">Walk seasonal fashion shows across Kerala with categories for every age.</p>
+              </CardContent>
+            </Card>
+            <Card className="text-center transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
+              <CardHeader>
+                <MapPin className="h-10 w-10 mx-auto text-[#F81F2E] mb-3" />
+                <CardTitle>State‑wide Network</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">Multiple city chapters, alumni network, and brand partners to open doors.</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Fashion Shows Section */}
       <section id="fashion-shows" className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -202,6 +253,23 @@ function App() {
             <Button size="lg" aria-label="View all fashion shows" className="h-12 px-8 text-base bg-[#F81F2E] hover:bg-[#d11322] text-white shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
               View All Fashion Shows
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Frequently Asked Questions</h2>
+            <div className="h-1 w-16 sm:w-20 md:w-24 bg-[#F81F2E] rounded mx-auto"></div>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6 text-gray-700">
+            <details className="rounded-lg border p-4"><summary className="font-semibold cursor-pointer">Who can join the academy?</summary><p className="mt-2 text-sm">We welcome beginners and experienced aspirants across ages 3–60. Batches are tailored by age group and goals.</p></details>
+            <details className="rounded-lg border p-4"><summary className="font-semibold cursor-pointer">Do I need prior experience?</summary><p className="mt-2 text-sm">No. Our curriculum starts with fundamentals — posture, walk, grooming — and progresses to advanced runway and camera work.</p></details>
+            <details className="rounded-lg border p-4"><summary className="font-semibold cursor-pointer">Will I get a portfolio?</summary><p className="mt-2 text-sm">Yes. Programs include editorial‑style photos and short reels to start pitching for assignments.</p></details>
+            <details className="rounded-lg border p-4"><summary className="font-semibold cursor-pointer">Are there shows or events?</summary><p className="mt-2 text-sm">Yes. We organize seasonal shows across Kerala. Students get opportunities to participate by category.</p></details>
+            <details className="rounded-lg border p-4 md:col-span-2"><summary className="font-semibold cursor-pointer">How do admissions work?</summary><p className="mt-2 text-sm">Submit the callback form, and our team will contact you with batch dates, fees, and a short orientation call.</p></details>
           </div>
         </div>
       </section>
