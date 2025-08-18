@@ -2,6 +2,8 @@
 
 React + Vite site for Fashion Zoom Magazine and Modeling Academy.
 
+Live site: https://itzpraveen.github.io/fashion_zoom_website/
+
 ### Local Development
 
 - Install: `pnpm install`
@@ -21,4 +23,3 @@ Steps:
 Notes:
 - Vite `base` is set to `./` for correct relative asset paths.
 - Public favicon is referenced via `./favicon.ico`.
-

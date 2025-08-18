@@ -4,7 +4,7 @@
 
 This package contains the complete source code and documentation for the Fashion Zoom Magazine website project, including comprehensive research, design concepts, and a fully functional React.js website.
 
-**Live Website**: https://ksvzakfz.manus.space
+**Live Website**: https://itzpraveen.github.io/fashion_zoom_website/
 
 ## 📁 Project Structure
 
@@ -161,12 +161,13 @@ The website is fully responsive and optimized for:
 
 ## 🚀 Deployment
 
-The website is deployed and live at: **https://ksvzakfz.manus.space**
+The website is deployed via GitHub Pages and live at:  
+https://itzpraveen.github.io/fashion_zoom_website/
 
-For redeployment:
-1. Build the project (`npm run build`)
-2. Deploy the `dist/` folder to your hosting service
-3. Ensure proper routing for single-page application
+Notes:
+- Workflow: `.github/workflows/deploy.yml` builds `fashion-zoom-website` and publishes `dist/`.
+- Trigger: push to `main`.
+- Local build: `pnpm -C fashion-zoom-website build`.
 
 ## 📞 Support
 
@@ -179,4 +180,3 @@ For questions about this project or Fashion Zoom Magazine:
 **Project completed**: August 2025  
 **Technology**: React.js, Tailwind CSS, Vite  
 **Status**: Live and fully functional
-
