@@ -389,7 +389,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="flex items-center justify-center mb-4">
-              <img src={fashionZoomLogo} alt="Fashion Zoom" className="h-8 w-8 rounded-full mr-3" />
+              <img src={logoWhite} alt="Fashion Zoom" className="h-8 w-8 mr-3" />
               <span className="font-bold text-xl">Fashion Zoom Magazine</span>
             </div>
             <p className="text-gray-400 mb-4">
