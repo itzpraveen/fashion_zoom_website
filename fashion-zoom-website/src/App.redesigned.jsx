@@ -8,6 +8,8 @@ import { Input } from "@/components/ui/input.jsx";
 import { Textarea } from "@/components/ui/textarea.jsx";
 import { Separator } from "@/components/ui/separator.jsx";
 import { Instagram, Phone, Mail, MapPin, CalendarDays, ArrowRight, Play } from "lucide-react";
+import logoWhite from './assets/logo-white.png'
+import logo from './assets/logo.png'
 
 const nav = [
   { label: "Academy", href: "#academy" },
@@ -33,7 +35,7 @@ function Header() {
     <header className={`fixed inset-x-0 top-0 z-50 transition-all ${scrolled ? "backdrop-blur bg-white/75 shadow-sm" : "bg-transparent"}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <a href="#" className="flex items-center gap-3">
-          <img src="/src/assets/fashion-zoom-logo.jpg" alt="Fashion Zoom" className="h-8 w-8 rounded-full object-cover ring-1 ring-black/5" />
+          <img src={scrolled ? logo : logoWhite} alt="Fashion Zoom" className="h-8 w-8 object-contain" />
           <span className="font-semibold tracking-wide">Fashion&nbsp;Zoom</span>
           <Badge className="hidden sm:inline-flex bg-yellow-400 text-black">Kerala</Badge>
         </a>
@@ -304,7 +306,7 @@ function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center gap-3">
-              <img src="/src/assets/fashion-zoom-logo.jpg" alt="" className="h-8 w-8 rounded-full object-cover ring-1 ring-white/10" />
+              <img src={logoWhite} alt="Fashion Zoom" className="h-8 w-8 object-contain" />
               <span className="font-semibold tracking-wide">Fashion Zoom</span>
             </div>
             <p className="mt-4 text-sm text-neutral-300 max-w-xs">

@@ -22,7 +22,8 @@ import {
 import './App.css'
 
 // Import assets
-import fashionZoomLogo from './assets/fashion-zoom-logo.jpg'
+import logoWhite from './assets/logo-white.png'
+import logo from './assets/logo.png'
 import fashionShow1 from './assets/fashion-show-1.jpg'
 import fashionShow2 from './assets/fashion-show-2.jpg'
 import fashionShow3 from './assets/fashion-show-3.jpg'
@@ -39,7 +40,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <img src={fashionZoomLogo} alt="Fashion Zoom" className="h-10 w-10 rounded-full mr-3" />
+              <img src={logoWhite} alt="Fashion Zoom" className="h-10 w-10 mr-3" />
               <span className="font-bold text-xl">Fashion Zoom</span>
             </div>
             
@@ -405,4 +406,3 @@ function App() {
 }
 
 export default App
-
