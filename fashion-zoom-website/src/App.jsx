@@ -99,6 +99,19 @@ function App() {
             </div>
             </div>
 
+            {/* Desktop social icons */}
+            <div className="hidden md:flex items-center gap-3 ml-4 pl-4 border-l border-gray-800">
+              <a
+                href="https://www.instagram.com/fashion_zoom_magazine/"
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="Open Instagram: @fashion_zoom_magazine"
+                className="p-2 rounded-md hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                title="Instagram"
+              >
+                <Instagram className="h-5 w-5 text-white" />
+              </a>
+            </div>
             {/* Mobile menu button */}
             <div className="md:hidden">
               <button onClick={toggleMenu} className="p-2">
@@ -122,6 +135,20 @@ function App() {
               <a href="#/admissions" aria-label="Go to Admissions" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">{L.nav.admissions}</a>
               <a href="#/magazine" aria-label="Go to Magazine hub" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">{L.nav.magazine}</a>
               <a href="#contact" aria-label="Go to Contact section" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">{L.nav.contact}</a>
+              <div className="pt-2 px-3">
+                <div className="flex items-center gap-3">
+                  <a
+                    href="https://www.instagram.com/fashion_zoom_magazine/"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    aria-label="Open Instagram: @fashion_zoom_magazine"
+                    className="p-2 rounded-md hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]"
+                    title="Instagram"
+                  >
+                    <Instagram className="h-5 w-5 text-white" />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         )}
@@ -672,12 +699,44 @@ function App() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="text-gray-300">
-                <p>@fashion_zoom_magazine</p>
-                <p>@fashionzoom_modeling_academy</p>
+                <div className="space-y-1">
+                  <a
+                    href="https://www.instagram.com/fashion_zoom_magazine/"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="underline underline-offset-4 hover:text-white"
+                  >
+                    @fashion_zoom_magazine
+                  </a>
+                  <div>@fashionzoom_modeling_academy</div>
+                </div>
                 <div className="flex space-x-4 mt-4">
-                  <Instagram className="h-6 w-6 hover:text-[#F81F2E] cursor-pointer" />
-                  <Facebook className="h-6 w-6 hover:text-[#F81F2E] cursor-pointer" />
-                  <Youtube className="h-6 w-6 hover:text-[#F81F2E] cursor-pointer" />
+                  <a
+                    href="https://www.instagram.com/fashion_zoom_magazine/"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    aria-label="Open Instagram"
+                    className="p-2 rounded-md hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]"
+                    title="Instagram"
+                  >
+                    <Instagram className="h-6 w-6" />
+                  </a>
+                  <a
+                    href="#"
+                    aria-label="Facebook (coming soon)"
+                    className="p-2 rounded-md hover:bg-gray-800"
+                    title="Facebook"
+                  >
+                    <Facebook className="h-6 w-6" />
+                  </a>
+                  <a
+                    href="#"
+                    aria-label="YouTube (coming soon)"
+                    className="p-2 rounded-md hover:bg-gray-800"
+                    title="YouTube"
+                  >
+                    <Youtube className="h-6 w-6" />
+                  </a>
                 </div>
               </CardContent>
             </Card>
@@ -703,6 +762,18 @@ function App() {
             <p className="text-gray-400 mb-4">
               Kerala's Premier Fashion Magazine & Modeling Academy Since 2013
             </p>
+            <div className="flex justify-center gap-4 mb-4">
+              <a
+                href="https://www.instagram.com/fashion_zoom_magazine/"
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="Open Instagram"
+                className="p-2 rounded-md bg-gray-800 hover:bg-gray-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]"
+                title="Instagram"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
+            </div>
             <p className="text-gray-500 text-sm">© {new Date().getFullYear()} Fashion Zoom Magazine. All rights reserved.</p>
             <div className="mt-3 text-xs text-gray-500 flex items-center justify-center gap-4">
               <a href="./privacy.html" className="underline underline-offset-4">Privacy Policy</a>
