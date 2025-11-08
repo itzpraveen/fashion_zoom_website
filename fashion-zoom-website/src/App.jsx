@@ -41,15 +41,15 @@ const CANONICAL_BASE_URL = 'https://itzpraveen.github.io/fashion_zoom_website'
 const routeMeta = {
   '/': {
     title: 'Fashion Zoom Magazine — Kerala’s Fashion Shows & Modeling Academy',
-    description: 'Fashion Zoom runs Kerala’s original Fashion Zoom Magazine, modeling academy and runway shows with training for ages 3-60.'
+    description: 'Fashion Zoom runs Kerala’s original Fashion Zoom Magazine, modeling academy and the Fashion Star Awards 2025 runway experience.'
   },
   '/about': {
     title: 'About Fashion Zoom — Kerala Fashion Magazine & Academy',
     description: 'Discover how Fashion Zoom blends a modeling academy, magazine, photoshoots and statewide events since 2013.'
   },
   '/shows': {
-    title: 'Fashion Zoom Fashion Shows — Season 8 Winners & Highlights',
-    description: 'See the latest Kerala fashion shows by Fashion Zoom featuring Teen, Miss, Kids and Traditional categories plus cover model announcements.'
+    title: 'Fashion Zoom Fashion Shows — Fashion Star Awards 2025',
+    description: 'Explore Fashion Zoom’s South India Beauty Icon Season 12 with Kids, Teen, Mr, Miss and Mrs categories plus brand showcases in Thrissur.'
   },
   '/courses': {
     title: 'Modeling Courses in Kerala — Beginner to Advanced by Fashion Zoom',
@@ -119,6 +119,27 @@ const journeySteps = [
   }
 ]
 
+const fashionStarHighlights = [
+  { value: '300+', label: 'New models', detail: 'Fresh talents debuting on the Season 12 runway.' },
+  { value: '100', label: 'Pro models', detail: 'Runway regulars mentoring every category.' },
+  { value: '2,000', label: 'Invited guests', detail: 'Entrepreneurs, families and brand owners through the day.' },
+  { value: '9 AM – 9 PM', label: 'Show window', detail: 'Lifestyle expo, rehearsals and grand finale across 12 hours.' }
+]
+
+const fashionStarFeatures = [
+  'Kids, Teen, Mr, Miss and Mrs beauty pageant categories with dedicated crowns.',
+  'Brand showcase runway plus lifestyle exhibition managed by KB Group International.',
+  'Portfolio and photoshoot bays with personal branding, public speaking and casting support.',
+  'One 10×10 partner stall with every sponsorship plus digital and on-ground collateral placements.'
+]
+
+const fashionStarContacts = [
+  { name: 'K.B. Bineesh', role: 'Chief Editor & Founder', phone: '+91 99614 44539' },
+  { name: 'Sajith Vijayan', role: 'Director & Show Manager', phone: '+91 98479 85798' },
+  { name: 'Shashi P. Shivaram', role: 'Chief Coordinator', phone: '+91 88488 02525' },
+  { name: 'Deepthi Rajesh', role: 'Office Administrator', phone: '+91 70126 19060' },
+]
+
 const enrollmentNote = {
   message: 'Summer 2025 admissions close on 25 March.',
   actionLabel: 'Book orientation',
@@ -164,12 +185,12 @@ const extendedFaqItems = [
 ]
 
 const upcomingEvent = {
-  name: 'Fashion Zoom Season 8 Showcase',
-  startDate: '2025-04-12',
-  endDate: '2025-04-13',
-  location: 'Kerala Fine Arts Hall, Thrissur',
+  name: 'Fashion Star Awards 2025 — South India Beauty Icon Season 12',
+  startDate: '2025-11-30T09:00:00+05:30',
+  endDate: '2025-11-30T21:00:00+05:30',
+  location: 'Parekkatt Convention Centre, Mala, Thrissur',
   image: 'https://itzpraveen.github.io/fashion_zoom_website/og-image.jpg',
-  description: 'Traditional, Teen, Miss and Kids runway categories featuring Fashion Zoom talents.'
+  description: 'Kids, Teen, Mr, Miss and Mrs categories with beauty pageant, brand showcases, portfolio labs and casting support.'
 }
 
 const StructuredData = ({ data }) => (
@@ -476,6 +497,108 @@ function App() {
               )
             })}
           </ol>
+        </div>
+      </section>
+
+      <section id="fashion-star" className="py-16 bg-gradient-to-b from-gray-950 via-black to-gray-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#F81F2E]">Season 12 announcement</p>
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold">Fashion Star Awards 2025 — South India Beauty Icon</h2>
+            <p className="mt-4 text-gray-200 max-w-3xl mx-auto">
+              Fashion Zoom and KB Group International bring the Kids, Teen, Mr, Miss and Mrs crowns to Parekkatt Convention Centre, Mala (Thrissur) on{' '}
+              <strong className="font-semibold">Sunday, 30 November 2025</strong>. A 12-hour runway marathon blends beauty pageants, brand showcases,
+              lifestyle stalls, portfolio shoots, public speaking labs and casting support for 300 new talents alongside 100 professional models.
+            </p>
+          </div>
+          <dl className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {fashionStarHighlights.map((item) => (
+              <div key={item.label} className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur">
+                <dt className="text-[11px] uppercase tracking-[0.35em] text-white/70">{item.label}</dt>
+                <dd className="mt-2">
+                  <span className="block text-3xl font-semibold">{item.value}</span>
+                  <span className="mt-1 block text-sm text-white/80">{item.detail}</span>
+                </dd>
+              </div>
+            ))}
+          </dl>
+          <div className="mt-10 grid gap-6 lg:grid-cols-3">
+            <Card className="lg:col-span-2 bg-white/5 border-white/10 text-white">
+              <CardHeader>
+                <CardTitle>30 November 2025 · Parekkatt Convention Centre</CardTitle>
+                <CardDescription className="text-gray-300">
+                  Mala, Thrissur · 9:00 AM – 9:00 PM IST · Managed by KB Group International
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-5 text-sm text-gray-200">
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <p className="text-[11px] uppercase tracking-[0.35em] text-gray-400">Categories</p>
+                    <p className="mt-2 font-medium">Kids • Teen • Mr • Miss • Mrs</p>
+                  </div>
+                  <div>
+                    <p className="text-[11px] uppercase tracking-[0.35em] text-gray-400">Audience</p>
+                    <p className="mt-2 font-medium">2,000+ invited guests, Thrissur entrepreneurs & brand partners</p>
+                  </div>
+                  <div>
+                    <p className="text-[11px] uppercase tracking-[0.35em] text-gray-400">Participants</p>
+                    <p className="mt-2 font-medium">300 emerging models + 100 professional mentors</p>
+                  </div>
+                  <div>
+                    <p className="text-[11px] uppercase tracking-[0.35em] text-gray-400">Opportunities</p>
+                    <p className="mt-2 font-medium">Beauty pageant titles, brand show slots, magazine & cover shoots</p>
+                  </div>
+                </div>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>Full-day lifestyle exhibition with partner stalls inside the convention centre.</li>
+                  <li>Portfolio, public speaking and personal branding labs embedded in the schedule.</li>
+                  <li>Dedicated casting support for agency tie-ups and upcoming Fashion Zoom seasons.</li>
+                </ul>
+                <div className="flex flex-wrap gap-3">
+                  <Button asChild size="lg" className="h-11 px-6 bg-white text-black hover:bg-gray-100" aria-label="See Fashion Star schedule">
+                    <a href="#/shows">Explore run of show</a>
+                  </Button>
+                  <Button asChild size="lg" variant="outline" className="h-11 px-6 border-white text-white hover:bg-white/10" aria-label="Call Fashion Star show desk">
+                    <a href="tel:+919961444539">Talk to the show desk</a>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+            <Card className="bg-white/5 border-white/10 text-white">
+              <CardHeader>
+                <CardTitle>Partner deliverables</CardTitle>
+                <CardDescription className="text-gray-300">Inclusions across Title, Presented, Powered and Associate tiers</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3 text-sm text-gray-200">
+                  {fashionStarFeatures.map((feature) => (
+                    <li key={feature} className="flex items-start gap-2">
+                      <span className="mt-1 h-2 w-2 rounded-full bg-[#F81F2E]" aria-hidden="true"></span>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+            <Card className="bg-white/5 border-white/10 text-white">
+              <CardHeader>
+                <CardTitle>Season 12 contacts</CardTitle>
+                <CardDescription className="text-gray-300">Reach the core team for sponsorship, participation or media</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4 text-sm text-gray-200">
+                {fashionStarContacts.map((person) => (
+                  <div key={person.name} className="border-b border-white/10 pb-3 last:border-none last:pb-0">
+                    <p className="font-semibold">{person.name}</p>
+                    <p className="text-xs uppercase tracking-[0.25em] text-white/60">{person.role}</p>
+                    <a href={`tel:${person.phone.replace(/\s+/g, '')}`} className="mt-1 inline-flex items-center gap-2 text-[#F81F2E] underline underline-offset-4">
+                      <Phone className="h-3.5 w-3.5" />
+                      {person.phone}
+                    </a>
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
