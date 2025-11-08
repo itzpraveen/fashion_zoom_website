@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
 import { Badge } from '@/components/ui/badge.jsx'
@@ -36,12 +36,257 @@ import fashionShow1 from './assets/fashion-show-1.jpg'
 import fashionShow2 from './assets/fashion-show-2.jpg'
 import fashionShow3 from './assets/fashion-show-3.jpg'
 
+const CANONICAL_BASE_URL = 'https://itzpraveen.github.io/fashion_zoom_website'
+
+const routeMeta = {
+  '/': {
+    title: 'Fashion Zoom Magazine — Kerala’s Fashion Shows & Modeling Academy',
+    description: 'Fashion Zoom runs Kerala’s original Fashion Zoom Magazine, modeling academy and runway shows with training for ages 3-60.'
+  },
+  '/about': {
+    title: 'About Fashion Zoom — Kerala Fashion Magazine & Academy',
+    description: 'Discover how Fashion Zoom blends a modeling academy, magazine, photoshoots and statewide events since 2013.'
+  },
+  '/shows': {
+    title: 'Fashion Zoom Fashion Shows — Season 8 Winners & Highlights',
+    description: 'See the latest Kerala fashion shows by Fashion Zoom featuring Teen, Miss, Kids and Traditional categories plus cover model announcements.'
+  },
+  '/courses': {
+    title: 'Modeling Courses in Kerala — Beginner to Advanced by Fashion Zoom',
+    description: 'Weekend and express modeling courses covering runway, posing, etiquette, camera presence and portfolio building across Kerala.'
+  },
+  '/portfolio': {
+    title: 'Fashion Zoom Portfolio & Gallery — Editorial Shoots from Kerala',
+    description: 'Browse the Fashion Zoom gallery with editorial shoots, backstage content and cover stories captured across Kerala.'
+  },
+  '/admissions': {
+    title: 'Admissions — Book Your Fashion Zoom Modeling Academy Callback',
+    description: 'Request an admissions callback to join Kerala’s Fashion Zoom Academy. Get batch dates, fees and onboarding guidance within 24 hours.'
+  },
+  '/magazine': {
+    title: 'Fashion Zoom Magazine Hub — Editorials, Covers & Press',
+    description: 'Read Kerala editorial picks, cover launches and press mentions powered by Fashion Zoom Magazine.'
+  },
+  '/faq': {
+    title: 'Fashion Zoom FAQ — Admissions, Shows & Portfolio Queries',
+    description: 'Answers about Fashion Zoom admissions, training length, portfolio shoots, Kerala city chapters and seasonal shows.'
+  },
+  '/contact': {
+    title: 'Contact Fashion Zoom — Kerala Modeling Academy & Magazine',
+    description: 'Reach Fashion Zoom via phone, email or Instagram for admissions, collaborations and statewide fashion shows.'
+  },
+  default: {
+    title: 'Fashion Zoom Magazine — Kerala’s Fashion Shows & Modeling Academy',
+    description: 'Fashion Zoom runs Kerala’s original Fashion Zoom Magazine, modeling academy and runway shows with training for ages 3-60.'
+  }
+}
+
+const heroStats = [
+  { value: '10+', label: 'Years mentoring', description: 'Fashion Zoom has trained Kerala talent since 2013.' },
+  { value: '5', label: 'City chapters', description: 'Trivandrum • Kochi • Calicut • Thrissur • Kottayam.' },
+  { value: 'Season 8', label: 'Runway shows', description: 'Teen, Miss, Kids & Traditional grand finales.' },
+  { value: 'Magazine', label: 'Cover spotlight', description: 'Winners feature in Fashion Zoom Magazine.' }
+]
+
+const journeySteps = [
+  {
+    label: 'Step 1',
+    title: 'Book orientation',
+    description: 'A 15-minute call to understand your goals, location and preferred batch schedule.',
+    icon: Calendar,
+    points: ['Goal mapping with faculty mentors', 'Recommendation on weekend vs. express batches']
+  },
+  {
+    label: 'Step 2',
+    title: 'Studio training',
+    description: 'Hands-on runway, etiquette, fitness and camera presence coaching for every age bracket.',
+    icon: Users,
+    points: ['Small batches across Kerala city chapters', 'Grooming, styling and stagecraft labs']
+  },
+  {
+    label: 'Step 3',
+    title: 'Portfolio build',
+    description: 'Editorial photoshoots, reels and social media guidance to pitch confidently to brands.',
+    icon: Camera,
+    points: ['Professional photographers & videographers', 'Content ready for agencies and collaborations']
+  },
+  {
+    label: 'Step 4',
+    title: 'Showtime & cover',
+    description: 'Walk Fashion Zoom shows, compete across categories and unlock magazine cover features.',
+    icon: Award,
+    points: ['Seasonal shows across Kerala venues', 'Cover girl/boy & press spotlight opportunities']
+  }
+]
+
+const enrollmentNote = {
+  message: 'Summer 2025 admissions close on 25 March.',
+  actionLabel: 'Book orientation',
+  actionHref: '#/admissions',
+  secondaryLabel: 'Call 8590866865',
+  secondaryHref: 'tel:+918590866865'
+}
+
+const baseFaqItems = [
+  {
+    question: 'Who can join the academy?',
+    answer: 'We welcome beginners and experienced aspirants across ages 3–60. Batches are tailored by age group and goals.',
+    fullWidth: false
+  },
+  {
+    question: 'Do I need prior experience?',
+    answer: 'No. Our curriculum starts with foundations—posture, walk, grooming—and progresses to advanced runway and camera work.',
+    fullWidth: false
+  },
+  {
+    question: 'Which cities do you operate in?',
+    answer: 'Batches run in Trivandrum, Kochi, Calicut, Thrissur and Kottayam with traveling mentors for nearby towns.',
+    fullWidth: false
+  }
+]
+
+const extendedFaqItems = [
+  {
+    question: 'Will I get a portfolio?',
+    answer: 'Yes. Programs include editorial-style photos and reels to start pitching for assignments.',
+    fullWidth: false
+  },
+  {
+    question: 'Are there shows or events?',
+    answer: 'Yes. We organize seasonal shows across Kerala. Students get opportunities to participate by category.',
+    fullWidth: false
+  },
+  {
+    question: 'How do admissions work?',
+    answer: 'Submit the callback form and our team will confirm batch dates, fees and onboarding within 24 hours.',
+    fullWidth: true
+  }
+]
+
+const upcomingEvent = {
+  name: 'Fashion Zoom Season 8 Showcase',
+  startDate: '2025-04-12',
+  endDate: '2025-04-13',
+  location: 'Kerala Fine Arts Hall, Thrissur',
+  image: 'https://itzpraveen.github.io/fashion_zoom_website/og-image.jpg',
+  description: 'Traditional, Teen, Miss and Kids runway categories featuring Fashion Zoom talents.'
+}
+
+const StructuredData = ({ data }) => (
+  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />
+)
+
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [lang, setLang] = useState('en')
   const L = locales[lang]
   const location = useLocation()
   const path = location?.pathname || '/'
+  const canonicalUrl = useMemo(() => (path === '/' ? `${CANONICAL_BASE_URL}/` : `${CANONICAL_BASE_URL}/#${path}`), [path])
+  const visibleFaq = useMemo(() => (path === '/faq' ? [...baseFaqItems, ...extendedFaqItems] : baseFaqItems), [path])
+
+  useEffect(() => {
+    const metadata = routeMeta[path] || routeMeta.default
+    const setMeta = (selector, attribute, value) => {
+      const tag = document.querySelector(selector)
+      if (tag && value) {
+        tag.setAttribute(attribute, value)
+      }
+    }
+    document.title = metadata.title
+    setMeta('meta[name="description"]', 'content', metadata.description)
+    setMeta('meta[property="og:title"]', 'content', metadata.title)
+    setMeta('meta[property="og:description"]', 'content', metadata.description)
+    setMeta('meta[property="og:url"]', 'content', canonicalUrl)
+    setMeta('meta[name="twitter:title"]', 'content', metadata.title)
+    setMeta('meta[name="twitter:description"]', 'content', metadata.description)
+    const canonicalLink = document.querySelector('link[rel="canonical"]')
+    if (canonicalLink) {
+      canonicalLink.setAttribute('href', canonicalUrl)
+    }
+  }, [canonicalUrl, path])
+
+  const structuredDataPayloads = useMemo(() => {
+    const faqSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: visibleFaq.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer
+        }
+      }))
+    }
+
+    const eventSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'Event',
+      name: upcomingEvent.name,
+      startDate: upcomingEvent.startDate,
+      endDate: upcomingEvent.endDate,
+      eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+      eventStatus: 'https://schema.org/EventScheduled',
+      image: [upcomingEvent.image],
+      description: upcomingEvent.description,
+      organizer: {
+        '@type': 'Organization',
+        name: 'Fashion Zoom Magazine & Modeling Academy',
+        url: CANONICAL_BASE_URL
+      },
+      location: {
+        '@type': 'Place',
+        name: upcomingEvent.location,
+        address: {
+          '@type': 'PostalAddress',
+          addressRegion: 'Kerala',
+          addressCountry: 'IN'
+        }
+      },
+      url: `${CANONICAL_BASE_URL}/#/shows`
+    }
+
+    const academySchema = {
+      '@context': 'https://schema.org',
+      '@type': 'EducationalOrganization',
+      name: 'Fashion Zoom Modeling Academy',
+      url: CANONICAL_BASE_URL,
+      description: routeMeta['/courses'].description,
+      sameAs: ['https://www.instagram.com/fashion_zoom_magazine/'],
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          telephone: '+91-85908-66865',
+          contactType: 'customer service',
+          areaServed: 'IN-KL',
+          availableLanguage: ['English', 'Malayalam']
+        }
+      ],
+      course: [
+        {
+          '@type': 'Course',
+          name: 'Beginner Modeling Course',
+          description: 'Basic runway walking, posing techniques, confidence building and portfolio foundations.',
+          provider: { '@type': 'Organization', name: 'Fashion Zoom' }
+        },
+        {
+          '@type': 'Course',
+          name: 'Advanced Modeling Course',
+          description: 'Professional runway techniques, camera work, industry networking and career guidance.',
+          provider: { '@type': 'Organization', name: 'Fashion Zoom' }
+        },
+        {
+          '@type': 'Course',
+          name: 'Kids Talent Program',
+          description: 'Age-appropriate grooming, confidence development and fun on-stage training for young talents.',
+          provider: { '@type': 'Organization', name: 'Fashion Zoom' }
+        }
+      ]
+    }
+
+    return [faqSchema, eventSchema, academySchema]
+  }, [visibleFaq])
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
@@ -74,6 +319,19 @@ function App() {
 
   return (
     <main id="main" role="main" className="min-h-screen bg-white">
+      <section aria-label="Admissions update" className="bg-[#F81F2E] text-white text-xs sm:text-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+          <p className="font-semibold tracking-wide">{enrollmentNote.message}</p>
+          <div className="flex flex-wrap items-center gap-3 text-[13px]">
+            <a href={enrollmentNote.actionHref} className="inline-flex items-center gap-1 font-semibold underline decoration-white/40 underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80">
+              {enrollmentNote.actionLabel}
+            </a>
+            <a href={enrollmentNote.secondaryHref} className="px-3 py-1 rounded-full bg-white/15 hover:bg-white/25 transition text-white font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80">
+              {enrollmentNote.secondaryLabel}
+            </a>
+          </div>
+        </div>
+      </section>
       {/* Navigation */}
       <nav role="navigation" aria-label="Primary" className="bg-black text-white sticky top-0 z-50 border-t-2 border-[#F81F2E]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -174,11 +432,52 @@ function App() {
                 <a href="#/shows">{L.hero.ctaSecondary}</a>
               </Button>
             </div>
+            <dl className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4 text-left">
+              {heroStats.map((stat) => (
+                <div key={stat.label} className="rounded-2xl border border-white/20 bg-white/5 p-4 backdrop-blur">
+                  <dt className="text-[11px] uppercase tracking-widest text-white/70">{stat.label}</dt>
+                  <dd className="mt-2">
+                    <span className="block text-2xl font-semibold text-white">{stat.value}</span>
+                    <span className="mt-1 block text-sm text-white/80">{stat.description}</span>
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       </section>
 
 
+
+      <section id="journey" className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#F81F2E]">Path to the runway</p>
+            <h2 className="mt-2 text-3xl md:text-4xl font-bold text-gray-900">How we take you from inquiry to cover story</h2>
+            <p className="mt-4 text-gray-600 max-w-2xl mx-auto">Every cohort follows a transparent journey—book an orientation, attend immersive training, build your portfolio and walk real Fashion Zoom shows.</p>
+          </div>
+          <ol className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {journeySteps.map((step) => {
+              const Icon = step.icon
+              return (
+                <li key={step.label} className="rounded-3xl border border-gray-100 bg-white shadow-[0_25px_70px_rgba(0,0,0,0.04)] p-6">
+                  <div className="flex items-center gap-3 text-[#F81F2E] text-sm font-semibold uppercase tracking-widest">
+                    <span className="inline-flex items-center justify-center rounded-full border border-[#F81F2E]/40 px-3 py-1 text-[10px]">{step.label}</span>
+                    <Icon className="h-5 w-5" aria-hidden="true" />
+                  </div>
+                  <h3 className="mt-4 text-xl font-semibold text-gray-900">{step.title}</h3>
+                  <p className="mt-2 text-sm text-gray-600">{step.description}</p>
+                  <ul className="mt-4 list-disc pl-5 text-sm text-gray-500 space-y-1">
+                    {step.points.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                </li>
+              )
+            })}
+          </ol>
+        </div>
+      </section>
 
       {/* Admissions (only on route) */}
       {path === '/admissions' && (
@@ -484,16 +783,21 @@ function App() {
             <div className="h-1 w-16 sm:w-20 md:w-24 bg-[#F81F2E] rounded mx-auto"></div>
           </div>
           <div className="grid md:grid-cols-2 gap-6 text-gray-700">
-            <details className="rounded-lg border p-4"><summary className="font-semibold cursor-pointer">Who can join the academy?</summary><p className="mt-2 text-sm">We welcome beginners and experienced aspirants across ages 3–60. Batches are tailored by age group and goals.</p></details>
-            <details className="rounded-lg border p-4"><summary className="font-semibold cursor-pointer">Do I need prior experience?</summary><p className="mt-2 text-sm">No. Our curriculum starts with fundamentals — posture, walk, grooming — and progresses to advanced runway and camera work.</p></details>
-            {path === '/faq' && (
-              <>
-                <details className="rounded-lg border p-4"><summary className="font-semibold cursor-pointer">Will I get a portfolio?</summary><p className="mt-2 text-sm">Yes. Programs include editorial‑style photos and short reels to start pitching for assignments.</p></details>
-                <details className="rounded-lg border p-4"><summary className="font-semibold cursor-pointer">Are there shows or events?</summary><p className="mt-2 text-sm">Yes. We organize seasonal shows across Kerala. Students get opportunities to participate by category.</p></details>
-                <details className="rounded-lg border p-4 md:col-span-2"><summary className="font-semibold cursor-pointer">How do admissions work?</summary><p className="mt-2 text-sm">Submit the callback form, and our team will contact you with batch dates, fees, and a short orientation call.</p></details>
-              </>
-            )}
+            {visibleFaq.map((item) => (
+              <details key={item.question} className={`rounded-lg border p-4 ${item.fullWidth ? 'md:col-span-2' : ''}`}>
+                <summary className="font-semibold cursor-pointer">{item.question}</summary>
+                <p className="mt-2 text-sm">{item.answer}</p>
+              </details>
+            ))}
           </div>
+          {path !== '/faq' && (
+            <div className="mt-6 text-center text-sm text-gray-600">
+              <a href="#/faq" className="inline-flex items-center gap-2 font-semibold text-[#F81F2E] underline underline-offset-4">
+                View the full FAQ library
+                <ChevronRight className="h-4 w-4" aria-hidden="true" />
+              </a>
+            </div>
+          )}
         </div>
       </section>
 
@@ -661,7 +965,7 @@ function App() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <Card className="bg-gray-900 border-gray-700 transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
               <CardHeader>
                 <CardTitle className="text-white flex items-center">
@@ -672,6 +976,19 @@ function App() {
               <CardContent className="text-gray-300">
                 <p>Primary: 8590866865</p>
                 <p>Secondary: 9961444539</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gray-900 border-gray-700 transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
+              <CardHeader>
+                <CardTitle className="text-white flex items-center">
+                  <Mail className="h-5 w-5 mr-2 text-[#F81F2E]" />
+                  Email desk
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-gray-300">
+                <a href="mailto:fashionzoomkerala@gmail.com" className="underline underline-offset-4">fashionzoomkerala@gmail.com</a>
+                <p className="text-sm text-gray-400 mt-2">We reply within 24 hours in English or Malayalam.</p>
               </CardContent>
             </Card>
 
@@ -691,7 +1008,7 @@ function App() {
               </CardContent>
             </Card>
 
-            <Card className="bg-gray-900 border-gray-700 transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
+            <Card className="bg-gray-900 border-gray-700 transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg lg:col-span-2">
               <CardHeader>
                 <CardTitle className="text-white flex items-center">
                   <Instagram className="h-5 w-5 mr-2 text-[#F81F2E]" />
@@ -784,6 +1101,9 @@ function App() {
           </div>
         </div>
       </footer>
+      {structuredDataPayloads.map((schema, index) => (
+        <StructuredData key={`${schema['@type']}-${index}`} data={schema} />
+      ))}
     </main>
   )
 }
