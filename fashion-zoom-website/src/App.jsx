@@ -17,8 +17,7 @@ import {
   Instagram,
   Facebook,
   Youtube,
-  ChevronRight,
-  Play
+  ChevronRight
 } from 'lucide-react'
 import './App.css'
 import { locales } from './i18n.js'
@@ -38,6 +37,10 @@ import fashionShow2 from './assets/fashion-show-2.jpg'
 import fashionShow3 from './assets/fashion-show-3.jpg'
 import hero2026 from './assets/hero-2026.webp'
 import program2026Poster from './assets/program-2026.webp'
+import showSeason5 from './assets/show-season-5.webp'
+import showSeason6 from './assets/show-season-6.webp'
+import showTraditionalFest from './assets/show-traditional-fest.webp'
+import showBeautyPageant from './assets/show-beauty-pageant.webp'
 
 const CANONICAL_BASE_URL = 'https://itzpraveen.github.io/fashion_zoom_website'
 
@@ -181,6 +184,49 @@ const audienceTracks = [
 ]
 
 const trustBadges = ['No audition for academy entry', 'Ages 3-60', 'English & Malayalam support', '5 Kerala city chapters']
+
+const legacyShowcase = [
+  {
+    key: 'season-5',
+    title: 'Season 5',
+    subtitle: 'Fashion Zoom Fashion Show',
+    caption: 'Runway evening at Sree Gokulam Residency, Thrissur',
+    image: showSeason5,
+    tag: 'Runway legacy',
+    className: 'md:col-span-2 xl:col-span-2 xl:row-span-2',
+    objectPosition: 'center'
+  },
+  {
+    key: 'season-6',
+    title: 'Season 6',
+    subtitle: 'Timeless Style',
+    caption: 'Editorial concept campaign from our previous show season',
+    image: showSeason6,
+    tag: 'Season archive',
+    className: '',
+    objectPosition: 'center'
+  },
+  {
+    key: 'traditional-fest',
+    title: 'Kerala Traditional Fest',
+    subtitle: 'Cultural spotlight runway',
+    caption: 'Celebrating classic styling and regional costume storytelling',
+    image: showTraditionalFest,
+    tag: 'Traditional edit',
+    className: '',
+    objectPosition: 'center'
+  },
+  {
+    key: 'beauty-pageant',
+    title: 'Beauty Pageant',
+    subtitle: 'Kids • Teen • Mr • Miss • Mrs',
+    caption: 'Pageant-stage moments from previous Fashion Zoom programs',
+    image: showBeautyPageant,
+    tag: 'Pageant moments',
+    className: '',
+    objectPosition: 'center'
+  }
+]
 
 const primaryNavItems = [
   { key: 'home', to: '/' },
@@ -1174,35 +1220,40 @@ function App() {
       </section>
 
       {/* Gallery Section */}
-      <section id="gallery" className="py-16">
+      <section id="gallery" className="scroll-mt-28 md:scroll-mt-32 py-16 bg-gradient-to-b from-white to-neutral-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{L.sections.gallery}</h2>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#0F172A] mb-2">{L.sections.gallery}</h2>
             <div className="h-1 w-16 sm:w-20 md:w-24 bg-[#F81F2E] rounded mx-auto mb-6"></div>
             <p className="text-lg text-gray-600">
-              Highlights from our fashion shows, photoshoots, and academy events.
+              Legacy visuals from previous Fashion Zoom show seasons, pageants and signature stage campaigns.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="relative group overflow-hidden rounded-lg shadow-lg">
-              <img src={fashionShow1} alt="Traditional Fashion" className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
-              <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <Play className="h-12 w-12 text-white" />
-              </div>
-            </div>
-            <div className="relative group overflow-hidden rounded-lg shadow-lg">
-              <img src={fashionShow2} alt="Contemporary Fashion" className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
-              <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <Play className="h-12 w-12 text-white" />
-              </div>
-            </div>
-            <div className="relative group overflow-hidden rounded-lg shadow-lg">
-              <img src={fashionShow3} alt="Fashion Show" className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
-              <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <Play className="h-12 w-12 text-white" />
-              </div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 auto-rows-[230px] md:auto-rows-[250px] gap-4">
+            {legacyShowcase.map((item) => (
+              <article
+                key={item.key}
+                className={`group relative overflow-hidden rounded-3xl border border-neutral-200 shadow-[0_18px_45px_rgba(0,0,0,0.14)] ${item.className}`}
+              >
+                <img
+                  src={item.image}
+                  alt={`${item.title} - ${item.subtitle}`}
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  style={{ objectPosition: item.objectPosition }}
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"></div>
+                <div className="relative h-full flex flex-col justify-end p-5 text-white">
+                  <span className="inline-flex w-fit items-center rounded-full border border-white/35 bg-black/35 px-2.5 py-1 text-[11px] uppercase tracking-wider">
+                    {item.tag}
+                  </span>
+                  <h3 className="mt-3 text-2xl font-bold leading-tight">{item.title}</h3>
+                  <p className="text-base font-semibold text-white/90">{item.subtitle}</p>
+                  <p className="mt-2 text-xs text-white/80">{item.caption}</p>
+                </div>
+              </article>
+            ))}
           </div>
 
           <div className="text-center mt-8">
