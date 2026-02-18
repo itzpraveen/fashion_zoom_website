@@ -709,16 +709,16 @@ function App() {
               Registrations are now live for the next 2026 edition across Kids, Teen, Mr, Miss and Mrs categories.
             </p>
           </div>
-          <div className="mt-10 grid gap-6 lg:grid-cols-[300px,1fr] items-stretch">
-            <div className="overflow-hidden rounded-3xl border border-white/15 bg-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
+          <div className="mt-10 grid gap-6 sm:grid-cols-[220px,1fr] lg:grid-cols-[300px,1fr] items-start">
+            <div className="order-2 sm:order-1 overflow-hidden rounded-3xl border border-white/15 bg-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.35)] w-full max-w-[320px] sm:max-w-none mx-auto sm:mx-0">
               <img
                 src={program2026Poster}
                 alt="Fashion Star Awards 2026 beauty pageant registration poster"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover object-center aspect-[3/5] max-h-[560px] sm:max-h-none"
                 loading="lazy"
               />
             </div>
-            <Card className="bg-white/5 border-white/10 text-white">
+            <Card className="order-1 sm:order-2 bg-white/5 border-white/10 text-white">
               <CardHeader>
                 <CardTitle>Latest Announcement: Fashion Star Awards 2026</CardTitle>
                 <CardDescription className="text-gray-300">
