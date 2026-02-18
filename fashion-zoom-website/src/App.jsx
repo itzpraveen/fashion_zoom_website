@@ -36,6 +36,8 @@ import logo from './assets/logo.png'
 import fashionShow1 from './assets/fashion-show-1.jpg'
 import fashionShow2 from './assets/fashion-show-2.jpg'
 import fashionShow3 from './assets/fashion-show-3.jpg'
+import hero2026 from './assets/hero-2026.webp'
+import program2026Poster from './assets/program-2026.webp'
 
 const CANONICAL_BASE_URL = 'https://itzpraveen.github.io/fashion_zoom_website'
 
@@ -524,44 +526,51 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative bg-gradient-to-r from-black to-gray-800 text-white">
-        <div className="absolute inset-0 bg-black/60"></div>
-        <div className="absolute inset-0 bg-gradient-to-tr from-[#F81F2E]/25 via-transparent to-transparent"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <div className="text-center">
+      <section id="home" className="relative min-h-[78vh] overflow-hidden text-white flex items-center">
+        <img
+          src={hero2026}
+          alt="Fashion model in red styling hat"
+          className="absolute inset-0 h-full w-full object-cover object-[74%_center] md:object-right"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-tr from-[#F81F2E]/20 via-transparent to-transparent"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+          <div className="max-w-3xl text-center md:text-left">
             <h1 className="text-4xl md:text-6xl font-bold mb-6" dangerouslySetInnerHTML={{__html: L.hero.title}} />
-            <p className="text-xl md:text-2xl mb-8 text-gray-300" dangerouslySetInnerHTML={{__html: L.hero.subtitle}} />
-            <p className="text-lg mb-8 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl mb-8 text-gray-200" dangerouslySetInnerHTML={{__html: L.hero.subtitle}} />
+            <p className="text-lg mb-8">
               Discover your fashion potential with professional modeling training, 
               seasonal fashion shows, and magazine features across Kerala.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Button asChild size="lg" aria-label="Join the Fashion Zoom Academy" className="h-12 px-8 text-base bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
                 <a href="#/admissions">{L.hero.ctaPrimary}</a>
               </Button>
-              <Button asChild size="lg" aria-label="View Fashion Shows" variant="outline" className="h-12 px-8 text-base border-[#F81F2E] text-[#F81F2E] hover:bg-[#F81F2E] hover:text-white transition-colors transition-transform duration-200 hover:scale-[1.02]">
+              <Button asChild size="lg" aria-label="View Fashion Shows" variant="outline" className="h-12 px-8 text-base border-white text-white hover:bg-white hover:text-black transition-colors transition-transform duration-200 hover:scale-[1.02]">
                 <a href="#/shows">{L.hero.ctaSecondary}</a>
               </Button>
             </div>
-            <div className="mt-6 flex flex-wrap justify-center gap-2">
+            <div className="mt-6 flex flex-wrap justify-center md:justify-start gap-2">
               {trustBadges.map((badge) => (
                 <span key={badge} className="rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs text-white/90">
                   {badge}
                 </span>
               ))}
             </div>
-            <dl className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4 text-left">
-              {heroStats.map((stat) => (
-                <div key={stat.label} className="rounded-2xl border border-white/20 bg-white/5 p-4 backdrop-blur">
-                  <dt className="text-[11px] uppercase tracking-widest text-white/70">{stat.label}</dt>
-                  <dd className="mt-2">
-                    <span className="block text-2xl font-semibold text-white">{stat.value}</span>
-                    <span className="mt-1 block text-sm text-white/80">{stat.description}</span>
-                  </dd>
-                </div>
-              ))}
-            </dl>
           </div>
+          <dl className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4 text-left">
+            {heroStats.map((stat) => (
+              <div key={stat.label} className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur">
+                <dt className="text-[11px] uppercase tracking-widest text-white/70">{stat.label}</dt>
+                <dd className="mt-2">
+                  <span className="block text-2xl font-semibold text-white">{stat.value}</span>
+                  <span className="mt-1 block text-sm text-white/85">{stat.description}</span>
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
@@ -625,13 +634,43 @@ function App() {
       <section id="fashion-star" className="py-16 bg-gradient-to-b from-gray-950 via-black to-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#F81F2E]">Season 12 announcement</p>
-            <h2 className="mt-3 text-3xl md:text-4xl font-bold">Fashion Star Awards 2025 — South India Beauty Icon</h2>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#F81F2E]">Season announcements</p>
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold">Fashion Star Awards — South India Beauty Icon</h2>
             <p className="mt-4 text-gray-200 max-w-3xl mx-auto">
-              Fashion Zoom and KB Group International bring the Kids, Teen, Mr, Miss and Mrs crowns to Parekkatt Convention Centre, Mala (Thrissur) on{' '}
-              <strong className="font-semibold">Sunday, 30 November 2025</strong>. A 12-hour runway marathon blends beauty pageants, brand showcases,
-              lifestyle stalls, portfolio shoots, public speaking labs and casting support for 300 new talents alongside 100 professional models.
+              Our 2025 flagship at Parekkatt Convention Centre, Mala (Thrissur), featured Kids, Teen, Mr, Miss and Mrs crowns with brand showcases and portfolio labs.
+              The <strong className="font-semibold">latest 2026 program registration</strong> is now open in the poster announcement below.
             </p>
+          </div>
+          <div className="mt-10 grid gap-6 lg:grid-cols-[300px,1fr] items-stretch">
+            <div className="overflow-hidden rounded-3xl border border-white/15 bg-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
+              <img
+                src={program2026Poster}
+                alt="Fashion Star Awards 2026 beauty pageant registration poster"
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <Card className="bg-white/5 border-white/10 text-white">
+              <CardHeader>
+                <CardTitle>Latest Program Announced: Fashion Star Awards 2026</CardTitle>
+                <CardDescription className="text-gray-300">
+                  Registration has started for Kids, Teen, Mr, Miss and Mrs categories.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4 text-sm text-gray-200">
+                <p>
+                  The 2026 campaign creative is now live. Aspirants can register early to secure category slots, orientation support and audition details.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <Button asChild className="bg-[#F81F2E] hover:bg-[#d11322] text-white">
+                    <a href="#/admissions">Start registration</a>
+                  </Button>
+                  <Button asChild variant="outline" className="border-white text-white hover:bg-white/10">
+                    <a href={admissionsWhatsappLink} target="_blank" rel="noreferrer noopener">Ask on WhatsApp</a>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
           </div>
           <dl className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {fashionStarHighlights.map((item) => (
