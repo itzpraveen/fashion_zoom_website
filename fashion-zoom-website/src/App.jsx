@@ -588,7 +588,7 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-[78vh] overflow-hidden text-white flex items-center">
+      <section id="home" className="relative min-h-[82vh] overflow-hidden text-white flex items-center">
         <img
           src={hero2026}
           alt="Fashion model in red styling hat"
@@ -602,36 +602,39 @@ function App() {
           <div className="max-w-3xl text-center md:text-left">
             <Badge className="mb-5 bg-[#F81F2E] text-white hover:bg-[#F81F2E]">Admissions Open • 2026</Badge>
             <h1 className="text-4xl md:text-6xl font-black leading-[1.05] tracking-tight mb-5" dangerouslySetInnerHTML={{__html: L.hero.title}} />
-            <p className="text-lg md:text-2xl mb-6 text-gray-200" dangerouslySetInnerHTML={{__html: L.hero.subtitle}} />
-            <p className="text-base md:text-lg mb-8 text-white/90 max-w-2xl">
+            <p className="text-lg md:text-2xl mb-5 text-gray-200" dangerouslySetInnerHTML={{__html: L.hero.subtitle}} />
+            <p className="text-base mb-8 text-white/85 sm:hidden">
+              Train, build your portfolio, and perform on real runway stages.
+            </p>
+            <p className="hidden sm:block text-base md:text-lg mb-8 text-white/90 max-w-2xl">
               From first-time walk training to magazine-ready portfolios, Fashion Zoom helps you move from learning to live runway opportunities with a clear path.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Button asChild size="lg" aria-label="Join the Fashion Zoom Academy" className="h-12 px-8 text-base bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
                 <a href="#/admissions">{L.hero.ctaPrimary}</a>
               </Button>
-              <Button asChild size="lg" aria-label="View Fashion Shows" variant="outline" className="h-12 px-8 text-base border-white text-white hover:bg-white hover:text-black transition-colors transition-transform duration-200 hover:scale-[1.02]">
+              <Button asChild size="lg" aria-label="View Fashion Shows" variant="outline" className="hidden sm:inline-flex h-12 px-8 text-base bg-transparent border-white text-white hover:bg-white hover:text-black transition-colors transition-transform duration-200 hover:scale-[1.02]">
                 <a href="#/shows">{L.hero.ctaSecondary}</a>
               </Button>
             </div>
-            <div className="mt-6 flex flex-wrap justify-center md:justify-start gap-2">
+            <div className="mt-6 hidden sm:flex flex-wrap justify-center md:justify-start gap-2">
               {trustBadges.map((badge) => (
                 <span key={badge} className="rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs text-white/90">
                   {badge}
                 </span>
               ))}
             </div>
-            <div className="mt-6 text-sm text-white/80">
+            <div className="mt-6 hidden sm:block text-sm text-white/80">
               Admissions desk: <a href={`tel:${primaryPhoneNumber}`} className="font-semibold underline underline-offset-4 text-white">{primaryPhoneLabel}</a>
             </div>
           </div>
           <dl className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4 text-left">
-            {heroStats.map((stat) => (
-              <div key={stat.label} className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur shadow-[0_10px_35px_rgba(0,0,0,0.18)]">
+            {heroStats.map((stat, index) => (
+              <div key={stat.label} className={`rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur shadow-[0_10px_35px_rgba(0,0,0,0.18)] ${index > 1 ? 'hidden sm:block' : ''}`}>
                 <dt className="text-[11px] uppercase tracking-[0.3em] text-white/70">{stat.label}</dt>
                 <dd className="mt-2">
                   <span className="block text-2xl font-bold text-white">{stat.value}</span>
-                  <span className="mt-1 block text-sm text-white/85 leading-relaxed">{stat.description}</span>
+                  <span className="mt-1 hidden md:block text-sm text-white/85 leading-relaxed">{stat.description}</span>
                 </dd>
               </div>
             ))}
