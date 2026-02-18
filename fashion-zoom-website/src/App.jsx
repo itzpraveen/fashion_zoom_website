@@ -6,6 +6,7 @@ import {
   Menu, 
   X, 
   Phone, 
+  MessageCircle,
   Mail, 
   MapPin, 
   Calendar, 
@@ -147,6 +148,37 @@ const enrollmentNote = {
   secondaryLabel: 'Call 8590866865',
   secondaryHref: 'tel:+918590866865'
 }
+
+const primaryPhoneNumber = '+918590866865'
+const primaryPhoneLabel = '+91 85908 66865'
+const secondaryPhoneNumber = '+919961444539'
+const secondaryPhoneLabel = '+91 99614 44539'
+const admissionsWhatsappLink = `https://wa.me/918590866865?text=${encodeURIComponent(
+  'Hi Fashion Zoom, I want details about admissions, next batch dates and fees.'
+)}`
+
+const audienceTracks = [
+  {
+    title: 'Aspiring models',
+    description: 'Build confidence, portfolio and runway exposure with mentor-led batches.',
+    ctaLabel: 'Apply for admissions',
+    ctaHref: '#/admissions'
+  },
+  {
+    title: 'Parents of kids & teens',
+    description: 'Safe, age-group training with clear schedules and direct counselor support.',
+    ctaLabel: 'Talk to a counselor',
+    ctaHref: 'tel:+918590866865'
+  },
+  {
+    title: 'Brands & sponsors',
+    description: 'Get on-ground visibility through Fashion Star Awards and citywide showcases.',
+    ctaLabel: 'Partner with Season 12',
+    ctaHref: 'tel:+919961444539'
+  }
+]
+
+const trustBadges = ['No audition for academy entry', 'Ages 3-60', 'English & Malayalam support', '5 Kerala city chapters']
 
 const baseFaqItems = [
   {
@@ -339,7 +371,7 @@ function App() {
   }
 
   return (
-    <main id="main" role="main" className="min-h-screen bg-white">
+    <main id="main" role="main" className="min-h-screen bg-white pb-24 md:pb-0">
       <section aria-label="Admissions update" className="bg-[#F81F2E] text-white text-xs sm:text-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
           <p className="font-semibold tracking-wide">{enrollmentNote.message}</p>
@@ -380,6 +412,9 @@ function App() {
 
             {/* Desktop social icons */}
             <div className="hidden md:flex items-center gap-3 ml-4 pl-4 border-l border-gray-800">
+              <Button asChild size="sm" className="h-9 bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold">
+                <a href="#/admissions">Apply now</a>
+              </Button>
               <a
                 href="https://www.instagram.com/fashion_zoom_magazine/"
                 target="_blank"
@@ -453,6 +488,13 @@ function App() {
                 <a href="#/shows">{L.hero.ctaSecondary}</a>
               </Button>
             </div>
+            <div className="mt-6 flex flex-wrap justify-center gap-2">
+              {trustBadges.map((badge) => (
+                <span key={badge} className="rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs text-white/90">
+                  {badge}
+                </span>
+              ))}
+            </div>
             <dl className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4 text-left">
               {heroStats.map((stat) => (
                 <div key={stat.label} className="rounded-2xl border border-white/20 bg-white/5 p-4 backdrop-blur">
@@ -464,6 +506,31 @@ function App() {
                 </div>
               ))}
             </dl>
+          </div>
+        </div>
+      </section>
+
+      <section id="audience" className="py-12 bg-[#111] text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#F81F2E]">Built for your goal</p>
+            <h2 className="mt-2 text-3xl md:text-4xl font-bold">Choose your track and take the next step</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {audienceTracks.map((track) => (
+              <Card key={track.title} className="bg-white/5 border-white/10 text-white">
+                <CardHeader>
+                  <CardTitle>{track.title}</CardTitle>
+                  <CardDescription className="text-gray-300">{track.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <a href={track.ctaHref} className="inline-flex items-center gap-2 text-[#F81F2E] font-semibold underline underline-offset-4">
+                    {track.ctaLabel}
+                    <ChevronRight className="h-4 w-4" aria-hidden="true" />
+                  </a>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -1005,8 +1072,8 @@ function App() {
             <p className="text-lg mb-6">
               <strong>Age Range:</strong> 3-60 years | <strong>Direct Entry:</strong> No auditions required
             </p>
-            <Button size="lg" aria-label="Register for the Modeling Academy" className="h-12 px-8 text-base bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
-              Register Now
+            <Button asChild size="lg" aria-label="Register for the Modeling Academy" className="h-12 px-8 text-base bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
+              <a href="#/admissions">Register Now</a>
             </Button>
           </div>
         </div>
@@ -1045,8 +1112,8 @@ function App() {
           </div>
 
           <div className="text-center mt-8">
-            <Button variant="outline" size="lg" aria-label="View full gallery" className="h-12 px-8 text-base border-[#F81F2E] text-[#F81F2E] hover:bg-[#F81F2E] hover:text-white transition-colors transition-transform duration-200 hover:scale-[1.02]">
-              View Full Gallery
+            <Button asChild variant="outline" size="lg" aria-label="View full gallery" className="h-12 px-8 text-base border-[#F81F2E] text-[#F81F2E] hover:bg-[#F81F2E] hover:text-white transition-colors transition-transform duration-200 hover:scale-[1.02]">
+              <a href="#/portfolio">View Full Gallery</a>
             </Button>
           </div>
         </div>
@@ -1097,8 +1164,27 @@ function App() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="text-gray-300">
-                <p>Primary: 8590866865</p>
-                <p>Secondary: 9961444539</p>
+                <p>
+                  Primary:{' '}
+                  <a href={`tel:${primaryPhoneNumber}`} className="underline underline-offset-4 hover:text-white">
+                    {primaryPhoneLabel}
+                  </a>
+                </p>
+                <p>
+                  Secondary:{' '}
+                  <a href={`tel:${secondaryPhoneNumber}`} className="underline underline-offset-4 hover:text-white">
+                    {secondaryPhoneLabel}
+                  </a>
+                </p>
+                <a
+                  href={admissionsWhatsappLink}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="mt-3 inline-flex items-center gap-2 rounded-md bg-[#25D366] px-3 py-2 text-sm font-semibold text-black hover:bg-[#1fbe59]"
+                >
+                  <MessageCircle className="h-4 w-4" />
+                  WhatsApp admissions
+                </a>
               </CardContent>
             </Card>
 
@@ -1183,12 +1269,43 @@ function App() {
           </div>
 
           <div className="text-center mt-12">
-            <Button size="lg" aria-label="Get started and contact Fashion Zoom" className="h-12 px-8 text-base bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
-              Get Started Today
+            <Button asChild size="lg" aria-label="Get started and contact Fashion Zoom" className="h-12 px-8 text-base bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
+              <a href="#/admissions">Get Started Today</a>
             </Button>
           </div>
         </div>
       </section>
+
+      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-black/20 bg-white/95 backdrop-blur md:hidden">
+        <div className="grid grid-cols-3">
+          <a
+            href={`tel:${primaryPhoneNumber}`}
+            className="flex items-center justify-center gap-1 py-3 text-xs font-semibold text-neutral-900"
+            aria-label="Call Fashion Zoom admissions desk"
+          >
+            <Phone className="h-4 w-4" />
+            Call
+          </a>
+          <a
+            href={admissionsWhatsappLink}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="flex items-center justify-center gap-1 py-3 text-xs font-semibold text-green-700 border-x border-black/10"
+            aria-label="Chat on WhatsApp for admissions"
+          >
+            <MessageCircle className="h-4 w-4" />
+            WhatsApp
+          </a>
+          <a
+            href="#/admissions"
+            className="flex items-center justify-center gap-1 py-3 text-xs font-semibold text-[#F81F2E]"
+            aria-label="Open admissions form"
+          >
+            <ChevronRight className="h-4 w-4" />
+            Apply
+          </a>
+        </div>
+      </div>
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-8">
