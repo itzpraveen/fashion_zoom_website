@@ -52,15 +52,15 @@ const CANONICAL_BASE_URL = 'https://itzpraveen.github.io/fashion_zoom_website'
 const routeMeta = {
   '/': {
     title: 'Fashion Zoom Magazine — Kerala’s Fashion Shows & Modeling Academy',
-    description: 'Fashion Zoom runs Kerala’s original Fashion Zoom Magazine, modeling academy and the Fashion Star Awards 2025 runway experience.'
+    description: 'Fashion Zoom runs Kerala’s original Fashion Zoom Magazine, modeling academy and the ongoing Fashion Star Awards 2026 program.'
   },
   '/about': {
     title: 'About Fashion Zoom — Kerala Fashion Magazine & Academy',
     description: 'Discover how Fashion Zoom blends a modeling academy, magazine, photoshoots and statewide events since 2013.'
   },
   '/shows': {
-    title: 'Fashion Zoom Fashion Shows — Fashion Star Awards 2025',
-    description: 'Explore Fashion Zoom’s South India Beauty Icon Season 12 with Kids, Teen, Mr, Miss and Mrs categories plus brand showcases in Thrissur.'
+    title: 'Fashion Zoom Fashion Shows — Fashion Star Awards 2026',
+    description: 'Explore Fashion Zoom’s 2026 registrations, latest runway updates, and previous season highlights across Kerala.'
   },
   '/courses': {
     title: 'Modeling Courses in Kerala — Beginner to Advanced by Fashion Zoom',
@@ -93,10 +93,10 @@ const routeMeta = {
 }
 
 const heroStats = [
-  { value: '10+', label: 'Years mentoring', description: 'Fashion Zoom has trained Kerala talent since 2013.' },
-  { value: '5', label: 'City chapters', description: 'Trivandrum • Kochi • Calicut • Thrissur • Kottayam.' },
-  { value: 'Season 8', label: 'Runway shows', description: 'Teen, Miss, Kids & Traditional grand finales.' },
-  { value: 'Magazine', label: 'Cover spotlight', description: 'Winners feature in Fashion Zoom Magazine.' }
+  { value: 'Since 2013', label: 'Kerala legacy', description: 'A long-running platform for runway training and fashion events.' },
+  { value: '5 Cities', label: 'Active chapters', description: 'Trivandrum • Kochi • Calicut • Thrissur • Kottayam.' },
+  { value: '2026', label: 'Current season', description: 'Fashion Star Awards registration is currently open.' },
+  { value: '3 Pillars', label: 'One ecosystem', description: 'Academy training, runway exposure, and magazine features.' }
 ]
 
 const journeySteps = [
@@ -152,10 +152,10 @@ const fashionStarContacts = [
 ]
 
 const enrollmentNote = {
-  message: 'Summer 2025 admissions close on 25 March.',
-  actionLabel: 'Book orientation',
+  message: 'Admissions for 2026 academy batches are now open.',
+  actionLabel: 'Book free orientation',
   actionHref: '#/admissions',
-  secondaryLabel: 'Call 8590866865',
+  secondaryLabel: 'Call now',
   secondaryHref: 'tel:+918590866865'
 }
 
@@ -170,53 +170,53 @@ const admissionsWhatsappLink = `https://wa.me/918590866865?text=${encodeURICompo
 const audienceTracks = [
   {
     title: 'Aspiring models',
-    description: 'Build confidence, portfolio and runway exposure with mentor-led batches.',
+    description: 'Build stage confidence, portfolio photos and casting-ready reels with mentor-led training.',
     ctaLabel: 'Apply for admissions',
     ctaHref: '#/admissions'
   },
   {
     title: 'Parents of kids & teens',
-    description: 'Safe, age-group training with clear schedules and direct counselor support.',
+    description: 'Structured age-group programs with clear schedules, supervised sessions and direct counselor support.',
     ctaLabel: 'Talk to a counselor',
     ctaHref: 'tel:+918590866865'
   },
   {
     title: 'Brands & sponsors',
-    description: 'Get on-ground visibility through Fashion Star Awards and citywide showcases.',
-    ctaLabel: 'Partner with Season 12',
+    description: 'Reach engaged audiences through Fashion Star Awards, showcases and city-level activation opportunities.',
+    ctaLabel: 'Partner with 2026 season',
     ctaHref: 'tel:+919961444539'
   }
 ]
 
-const trustBadges = ['No audition for academy entry', 'Ages 3-60', 'English & Malayalam support', '5 Kerala city chapters']
+const trustBadges = ['No audition for academy entry', 'Ages 3-60', 'English & Malayalam support', 'Portfolio + show opportunities']
 
 const latestShowHighlights = [
   {
     key: 'latest-1',
-    title: 'Opening Walk',
-    subtitle: 'Latest show spotlight',
-    caption: 'Backstage confidence and first-step runway moments from the latest program.',
+    title: 'Opening Sequence',
+    subtitle: 'Latest runway highlight',
+    caption: 'Opening shots from the latest Fashion Zoom stage lineup.',
     image: latestShow1
   },
   {
     key: 'latest-2',
-    title: 'Editorial Frames',
-    subtitle: 'Stage and styling detail',
-    caption: 'Close-up styling direction and expression work captured during the show.',
+    title: 'Style Focus',
+    subtitle: 'Editorial close-ups',
+    caption: 'Styling, expression and finishing details from live show moments.',
     image: latestShow2
   },
   {
     key: 'latest-3',
-    title: 'Audience Energy',
-    subtitle: 'Live show atmosphere',
-    caption: 'Performance moments that highlight stage presence and crowd response.',
+    title: 'Stage Presence',
+    subtitle: 'Live performance energy',
+    caption: 'Confident stage movement captured during the program.',
     image: latestShow3
   },
   {
     key: 'latest-4',
-    title: 'Finale Moments',
+    title: 'Finale Walk',
     subtitle: 'Grand closing sequence',
-    caption: 'Signature shots from the closing lineup of the latest Fashion Zoom show.',
+    caption: 'Signature closing lineup from the latest Fashion Zoom showcase.',
     image: latestShow4
   }
 ]
@@ -321,15 +321,6 @@ const extendedFaqItems = [
   }
 ]
 
-const upcomingEvent = {
-  name: 'Fashion Star Awards 2025 — South India Beauty Icon Season 12',
-  startDate: '2025-11-30T09:00:00+05:30',
-  endDate: '2025-11-30T21:00:00+05:30',
-  location: 'Parekkatt Convention Centre, Mala, Thrissur',
-  image: 'https://itzpraveen.github.io/fashion_zoom_website/og-image.jpg',
-  description: 'Kids, Teen, Mr, Miss and Mrs categories with beauty pageant, brand showcases, portfolio labs and casting support.'
-}
-
 const StructuredData = ({ data }) => (
   <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />
 )
@@ -410,33 +401,6 @@ function App() {
       }))
     }
 
-    const eventSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'Event',
-      name: upcomingEvent.name,
-      startDate: upcomingEvent.startDate,
-      endDate: upcomingEvent.endDate,
-      eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-      eventStatus: 'https://schema.org/EventScheduled',
-      image: [upcomingEvent.image],
-      description: upcomingEvent.description,
-      organizer: {
-        '@type': 'Organization',
-        name: 'Fashion Zoom Magazine & Modeling Academy',
-        url: CANONICAL_BASE_URL
-      },
-      location: {
-        '@type': 'Place',
-        name: upcomingEvent.location,
-        address: {
-          '@type': 'PostalAddress',
-          addressRegion: 'Kerala',
-          addressCountry: 'IN'
-        }
-      },
-      url: `${CANONICAL_BASE_URL}/#/shows`
-    }
-
     const academySchema = {
       '@context': 'https://schema.org',
       '@type': 'EducationalOrganization',
@@ -475,7 +439,7 @@ function App() {
       ]
     }
 
-    return [faqSchema, eventSchema, academySchema]
+    return [faqSchema, academySchema]
   }, [visibleFaq])
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
@@ -561,7 +525,7 @@ function App() {
             {/* Desktop social icons */}
             <div className="hidden md:flex items-center gap-3 ml-4 pl-4 border-l border-gray-800">
               <Button asChild size="sm" className="h-9 bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold">
-                <Link to="/admissions" onClick={() => handleNavClick('/admissions')}>Apply now</Link>
+                <Link to="/admissions" onClick={() => handleNavClick('/admissions')}>Book orientation</Link>
               </Button>
               <a
                 href="https://www.instagram.com/fashion_zoom_magazine/"
@@ -604,7 +568,7 @@ function App() {
               <div className="pt-2 px-3">
                 <div className="flex items-center gap-3">
                   <Button asChild size="sm" className="h-9 bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold">
-                    <Link to="/admissions" onClick={() => handleNavClick('/admissions')}>Apply now</Link>
+                    <Link to="/admissions" onClick={() => handleNavClick('/admissions')}>Book orientation</Link>
                   </Button>
                   <a
                     href="https://www.instagram.com/fashion_zoom_magazine/"
@@ -636,11 +600,11 @@ function App() {
         <div className="absolute inset-0 bg-gradient-to-tr from-[#F81F2E]/20 via-transparent to-transparent"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="max-w-3xl text-center md:text-left">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6" dangerouslySetInnerHTML={{__html: L.hero.title}} />
-            <p className="text-xl md:text-2xl mb-8 text-gray-200" dangerouslySetInnerHTML={{__html: L.hero.subtitle}} />
-            <p className="text-lg mb-8">
-              Discover your fashion potential with professional modeling training, 
-              seasonal fashion shows, and magazine features across Kerala.
+            <Badge className="mb-5 bg-[#F81F2E] text-white hover:bg-[#F81F2E]">Admissions Open • 2026</Badge>
+            <h1 className="text-4xl md:text-6xl font-black leading-[1.05] tracking-tight mb-5" dangerouslySetInnerHTML={{__html: L.hero.title}} />
+            <p className="text-lg md:text-2xl mb-6 text-gray-200" dangerouslySetInnerHTML={{__html: L.hero.subtitle}} />
+            <p className="text-base md:text-lg mb-8 text-white/90 max-w-2xl">
+              From first-time walk training to magazine-ready portfolios, Fashion Zoom helps you move from learning to live runway opportunities with a clear path.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Button asChild size="lg" aria-label="Join the Fashion Zoom Academy" className="h-12 px-8 text-base bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
@@ -657,14 +621,17 @@ function App() {
                 </span>
               ))}
             </div>
+            <div className="mt-6 text-sm text-white/80">
+              Admissions desk: <a href={`tel:${primaryPhoneNumber}`} className="font-semibold underline underline-offset-4 text-white">{primaryPhoneLabel}</a>
+            </div>
           </div>
           <dl className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4 text-left">
             {heroStats.map((stat) => (
-              <div key={stat.label} className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur">
-                <dt className="text-[11px] uppercase tracking-widest text-white/70">{stat.label}</dt>
+              <div key={stat.label} className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur shadow-[0_10px_35px_rgba(0,0,0,0.18)]">
+                <dt className="text-[11px] uppercase tracking-[0.3em] text-white/70">{stat.label}</dt>
                 <dd className="mt-2">
-                  <span className="block text-2xl font-semibold text-white">{stat.value}</span>
-                  <span className="mt-1 block text-sm text-white/85">{stat.description}</span>
+                  <span className="block text-2xl font-bold text-white">{stat.value}</span>
+                  <span className="mt-1 block text-sm text-white/85 leading-relaxed">{stat.description}</span>
                 </dd>
               </div>
             ))}
@@ -672,21 +639,24 @@ function App() {
         </div>
       </section>
 
-      <section id="audience" className="py-12 bg-[#111] text-white">
+      <section id="audience" className="py-12 bg-gradient-to-br from-[#0E111D] via-[#121827] to-[#0B0F1A] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#F81F2E]">Built for your goal</p>
-            <h2 className="mt-2 text-3xl md:text-4xl font-bold">Choose your track and take the next step</h2>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#F81F2E]">Choose Your Path</p>
+            <h2 className="mt-2 text-3xl md:text-4xl font-bold">Start from the track that fits your goal</h2>
+            <p className="mt-3 text-sm md:text-base text-slate-200/85 max-w-3xl mx-auto">
+              Whether you are building a modeling career, guiding your child, or promoting your brand, each track gives you a direct next step.
+            </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {audienceTracks.map((track) => (
-              <Card key={track.title} className="bg-white/5 border-white/10 text-white">
+              <Card key={track.title} className="bg-white/5 border-white/10 text-white shadow-[0_18px_50px_rgba(4,8,20,0.35)]">
                 <CardHeader>
-                  <CardTitle>{track.title}</CardTitle>
-                  <CardDescription className="text-gray-300">{track.description}</CardDescription>
+                  <CardTitle className="text-white text-xl">{track.title}</CardTitle>
+                  <CardDescription className="text-gray-300 leading-relaxed">{track.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <a href={track.ctaHref} className="inline-flex items-center gap-2 text-[#F81F2E] font-semibold underline underline-offset-4">
+                  <a href={track.ctaHref} className="inline-flex items-center gap-2 text-[#FF6A75] font-semibold underline underline-offset-4 hover:text-white transition-colors">
                     {track.ctaLabel}
                     <ChevronRight className="h-4 w-4" aria-hidden="true" />
                   </a>
@@ -702,9 +672,9 @@ function App() {
       <section id="journey" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#F81F2E]">Path to the runway</p>
-            <h2 className="mt-2 text-3xl md:text-4xl font-bold text-gray-900">How we take you from inquiry to cover story</h2>
-            <p className="mt-4 text-gray-600 max-w-2xl mx-auto">Every cohort follows a transparent journey—book an orientation, attend immersive training, build your portfolio and walk real Fashion Zoom shows.</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#F81F2E]">Path To Runway</p>
+            <h2 className="mt-2 text-3xl md:text-4xl font-bold text-gray-900">Your Fashion Zoom journey in four clear steps</h2>
+            <p className="mt-4 text-gray-600 max-w-2xl mx-auto">You always know what comes next: orientation, practical training, portfolio creation, then real stage and media opportunities.</p>
           </div>
           <ol className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {journeySteps.map((step) => {
@@ -732,11 +702,11 @@ function App() {
       <section id="fashion-star" className="py-16 bg-gradient-to-b from-gray-950 via-black to-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#F81F2E]">Season announcements</p>
-            <h2 className="mt-3 text-3xl md:text-4xl font-bold">Fashion Star Awards — South India Beauty Icon</h2>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#F81F2E]">Program Spotlight</p>
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold">Fashion Star Awards 2026 — Registration Open</h2>
             <p className="mt-4 text-gray-200 max-w-3xl mx-auto">
-              Our 2025 flagship at Parekkatt Convention Centre, Mala (Thrissur), featured Kids, Teen, Mr, Miss and Mrs crowns with brand showcases and portfolio labs.
-              The <strong className="font-semibold">latest 2026 program registration</strong> is now open in the poster announcement below.
+              The previous grand finale took place on <strong className="font-semibold">November 30, 2025</strong> at Parekkatt Convention Centre, Mala, Thrissur.
+              Registrations are now live for the next 2026 edition across Kids, Teen, Mr, Miss and Mrs categories.
             </p>
           </div>
           <div className="mt-10 grid gap-6 lg:grid-cols-[300px,1fr] items-stretch">
@@ -750,21 +720,21 @@ function App() {
             </div>
             <Card className="bg-white/5 border-white/10 text-white">
               <CardHeader>
-                <CardTitle>Latest Program Announced: Fashion Star Awards 2026</CardTitle>
+                <CardTitle>Latest Announcement: Fashion Star Awards 2026</CardTitle>
                 <CardDescription className="text-gray-300">
-                  Registration has started for Kids, Teen, Mr, Miss and Mrs categories.
+                  Early registration is open now for all five pageant categories.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4 text-sm text-gray-200">
                 <p>
-                  The 2026 campaign creative is now live. Aspirants can register early to secure category slots, orientation support and audition details.
+                  Register early to secure category slots, receive orientation support, and get priority updates for auditions and rehearsal schedules.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Button asChild className="bg-[#F81F2E] hover:bg-[#d11322] text-white">
-                    <a href="#/admissions">Start registration</a>
+                    <a href="#/admissions">Book registration call</a>
                   </Button>
                   <Button asChild variant="outline" className="border-white text-white hover:bg-white/10">
-                    <a href={admissionsWhatsappLink} target="_blank" rel="noreferrer noopener">Ask on WhatsApp</a>
+                    <a href={admissionsWhatsappLink} target="_blank" rel="noreferrer noopener">Get details on WhatsApp</a>
                   </Button>
                 </div>
               </CardContent>
@@ -784,19 +754,19 @@ function App() {
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
             <Card className="lg:col-span-2 bg-white/5 border-white/10 text-white">
               <CardHeader>
-                <CardTitle>30 November 2025 · Parekkatt Convention Centre</CardTitle>
+                <CardTitle>Previous Grand Finale · November 30, 2025</CardTitle>
                 <CardDescription className="text-gray-300">
-                  Mala, Thrissur · 9:00 AM – 9:00 PM IST · Managed by KB Group International
+                  Parekkatt Convention Centre, Mala (Thrissur) · 9:00 AM – 9:00 PM IST
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-5 text-sm text-gray-200">
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
-                    <p className="text-[11px] uppercase tracking-[0.35em] text-gray-400">Categories</p>
+                    <p className="text-[11px] uppercase tracking-[0.35em] text-gray-400">Core categories</p>
                     <p className="mt-2 font-medium">Kids • Teen • Mr • Miss • Mrs</p>
                   </div>
                   <div>
-                    <p className="text-[11px] uppercase tracking-[0.35em] text-gray-400">Audience</p>
+                    <p className="text-[11px] uppercase tracking-[0.35em] text-gray-400">Audience turnout</p>
                     <p className="mt-2 font-medium">2,000+ invited guests, Thrissur entrepreneurs & brand partners</p>
                   </div>
                   <div>
@@ -815,7 +785,7 @@ function App() {
                 </ul>
                 <div className="flex flex-wrap gap-3">
                   <Button asChild size="lg" className="h-11 px-6 bg-white text-black hover:bg-gray-100" aria-label="See Fashion Star schedule">
-                    <a href="#/shows">Explore run of show</a>
+                    <a href="#/shows">Explore program details</a>
                   </Button>
                   <Button asChild size="lg" variant="outline" className="h-11 px-6 border-white text-white hover:bg-white/10" aria-label="Call Fashion Star show desk">
                     <a href="tel:+919961444539">Talk to the show desk</a>
@@ -841,8 +811,8 @@ function App() {
             </Card>
             <Card className="bg-white/5 border-white/10 text-white">
               <CardHeader>
-                <CardTitle>Season 12 contacts</CardTitle>
-                <CardDescription className="text-gray-300">Reach the core team for sponsorship, participation or media</CardDescription>
+                <CardTitle>Program desk contacts</CardTitle>
+                <CardDescription className="text-gray-300">Reach the core team for participation, sponsorship or media queries</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4 text-sm text-gray-200">
                 {fashionStarContacts.map((person) => (
@@ -939,7 +909,7 @@ function App() {
             <Card className="transition-transform hover:-translate-y-1 hover:shadow-lg">
               <CardHeader><CardTitle>Covers</CardTitle></CardHeader>
               <CardContent className="text-sm text-gray-700 space-y-2">
-                <a className="block underline underline-offset-4" href="#">Season 8 — Cover Girl Aditri</a>
+                <a className="block underline underline-offset-4" href="#">Runway Cover Story — Aditri Gouri</a>
                 <a className="block underline underline-offset-4" href="#">Teens Edition — Kochi</a>
                 <a className="block underline underline-offset-4" href="#">Festival Issue — Thrissur</a>
               </CardContent>
@@ -947,7 +917,7 @@ function App() {
             <Card className="transition-transform hover:-translate-y-1 hover:shadow-lg">
               <CardHeader><CardTitle>Press</CardTitle></CardHeader>
               <CardContent className="text-sm text-gray-700 space-y-2">
-                <a className="block underline underline-offset-4" href="#">Local Daily: Fashion Zoom Season 8</a>
+                <a className="block underline underline-offset-4" href="#">Local Daily: Fashion Zoom Runway Finale Report</a>
                 <a className="block underline underline-offset-4" href="#">Channel Feature: Modeling Careers</a>
                 <a className="block underline underline-offset-4" href="#">Photo Expo: Alumni Showcase</a>
               </CardContent>
@@ -960,15 +930,15 @@ function App() {
       <section id="about" className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#F81F2E]">About Us</p>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{L.sections.about}</h2>
             <div className="h-1 w-16 sm:w-20 md:w-24 bg-[#F81F2E] rounded mx-auto mb-6"></div>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Since 2013, Fashion Zoom has been Kerala's leading fashion magazine and modeling academy,
-              nurturing talent and celebrating fashion across multiple cities.
+              Since 2013, Fashion Zoom has built one connected platform in Kerala for modeling education, runway events and magazine visibility.
             </p>
             {path !== '/about' && (
               <div className="mt-6">
-                <a href="#/about" className="inline-flex items-center underline underline-offset-4 text-[#F81F2E]">Learn more about us →</a>
+                <a href="#/about" className="inline-flex items-center underline underline-offset-4 text-[#F81F2E] font-semibold">Read our full story →</a>
               </div>
             )}
           </div>
@@ -977,11 +947,11 @@ function App() {
             <Card className="text-center transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
               <CardHeader>
                 <Users className="h-12 w-12 mx-auto text-[#F81F2E] mb-4" />
-                <CardTitle>Professional Training</CardTitle>
+                <CardTitle>Mentor-Led Academy</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Comprehensive modeling courses for ages 3-60 with expert instructors and industry professionals.
+                  Structured modeling programs for ages 3-60 with practical runway, grooming and camera coaching.
                 </p>
               </CardContent>
             </Card>
@@ -989,11 +959,11 @@ function App() {
             <Card className="text-center transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
               <CardHeader>
                 <Camera className="h-12 w-12 mx-auto text-[#F81F2E] mb-4" />
-                <CardTitle>Fashion Shows</CardTitle>
+                <CardTitle>Runway Events</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Regular seasonal fashion shows featuring traditional and contemporary fashion across Kerala.
+                  Seasonal pageants and curated shows where talents perform in front of live audiences and partners.
                 </p>
               </CardContent>
             </Card>
@@ -1001,11 +971,11 @@ function App() {
             <Card className="text-center transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
               <CardHeader>
                 <Award className="h-12 w-12 mx-auto text-[#F81F2E] mb-4" />
-                <CardTitle>Magazine Features</CardTitle>
+                <CardTitle>Media Visibility</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Winners become cover models in our professional fashion magazine with high-quality photoshoots.
+                  Selected talents get editorial shoots, campaign content and potential magazine feature opportunities.
                 </p>
               </CardContent>
             </Card>
@@ -1041,9 +1011,10 @@ function App() {
       <section id="why" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#F81F2E]">Why Us</p>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Why Fashion Zoom</h2>
             <div className="h-1 w-16 sm:w-20 md:w-24 bg-[#F81F2E] rounded mx-auto mb-6"></div>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">A complete ecosystem to get show‑ready — guided by mentors, supported by state‑wide events, and backed by a strong alumni network.</p>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">You do not just learn techniques here. You train, build visibility, and step into real stage opportunities with a connected support system.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card className="text-center transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
@@ -1052,7 +1023,7 @@ function App() {
                 <CardTitle>Industry Mentors</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">Hands‑on runway, posing, grooming and camera presence with experienced coaches.</p>
+                <p className="text-gray-600">Hands-on coaching for runway walk, posing, grooming and on-camera confidence.</p>
               </CardContent>
             </Card>
             <Card className="text-center transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
@@ -1061,7 +1032,7 @@ function App() {
                 <CardTitle>Portfolio Shoots</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">Editorial‑style photos and reels to start pitching to brands and agencies.</p>
+                <p className="text-gray-600">Editorial photos and reels designed to help you pitch to brands and agencies.</p>
               </CardContent>
             </Card>
             <Card className="text-center transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
@@ -1070,7 +1041,7 @@ function App() {
                 <CardTitle>Real Shows</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">Walk seasonal fashion shows across Kerala with categories for every age.</p>
+                <p className="text-gray-600">Participate in curated seasonal shows across Kerala, with categories for every age group.</p>
               </CardContent>
             </Card>
             <Card className="text-center transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
@@ -1079,7 +1050,7 @@ function App() {
                 <CardTitle>State‑wide Network</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">Multiple city chapters, alumni network, and brand partners to open doors.</p>
+                <p className="text-gray-600">Five active city chapters, alumni support, and brand relationships that open doors.</p>
               </CardContent>
             </Card>
           </div>
@@ -1090,33 +1061,33 @@ function App() {
       <section id="fashion-shows" className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#F81F2E]">Runway & Pageants</p>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{L.sections.shows}</h2>
             <div className="h-1 w-16 sm:w-20 md:w-24 bg-[#F81F2E] rounded mx-auto mb-6"></div>
-            <p className="text-lg text-gray-600">
-              Experience the glamour of our seasonal fashion shows featuring talented models and stunning designs.
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Follow the latest Fashion Zoom season, pageant tracks, and stage highlights from programs conducted across Kerala.
             </p>
           </div>
 
           {path === '/shows' ? (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             <div>
-              <h3 className="text-2xl font-bold mb-4">Season 8 - Current</h3>
+              <h3 className="text-2xl font-bold mb-4">Season 2026 — Registrations Live</h3>
               <p className="text-gray-600 mb-6">
-                Our latest fashion show season featuring traditional and contemporary fashion, 
-                with categories for all ages including Teen, Miss, and Traditional Fashion Fest.
+                Our current season focuses on building confident stage performers through category-based pageants, rehearsals and curated finale opportunities.
               </p>
               <div className="space-y-3">
                 <div className="flex items-center">
-                  <Badge variant="secondary" className="mr-3 bg-[#F81F2E] text-white">Winner</Badge>
-                  <span>Cover Girl: Aditri Gouri</span>
+                  <Badge variant="secondary" className="mr-3 bg-[#F81F2E] text-white">Status</Badge>
+                  <span>Registration phase open</span>
                 </div>
                 <div className="flex items-center">
-                  <Badge variant="secondary" className="mr-3 bg-[#F81F2E] text-white">Location</Badge>
-                  <span>Thrissur, Kerala</span>
+                  <Badge variant="secondary" className="mr-3 bg-[#F81F2E] text-white">Previous finale</Badge>
+                  <span>November 30, 2025 · Thrissur, Kerala</span>
                 </div>
                 <div className="flex items-center">
                   <Badge variant="secondary" className="mr-3 bg-[#F81F2E] text-white">Categories</Badge>
-                  <span>Teen, Miss, Traditional, Kids</span>
+                  <span>Kids, Teen, Mr, Miss, Mrs</span>
                 </div>
               </div>
             </div>
@@ -1133,22 +1104,22 @@ function App() {
 
           {path === '/shows' && (
             <div className="mt-10">
-              <h3 className="text-xl font-semibold mb-4">Season history</h3>
+              <h3 className="text-xl font-semibold mb-4">Season timeline</h3>
               <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
                 <div className="rounded-lg border p-4">
-                  <div className="font-medium">Season 8 (2024–2025)</div>
+                  <div className="font-medium">Season 2025 Finale</div>
                   <ul className="list-disc pl-5 mt-2">
-                    <li>Winner: Cover Girl — Aditri Gouri</li>
-                    <li>Categories: Teen • Miss • Traditional • Kids</li>
-                    <li>Locations: Thrissur and across Kerala</li>
+                    <li>Grand finale held on November 30, 2025</li>
+                    <li>Categories: Kids • Teen • Mr • Miss • Mrs</li>
+                    <li>Live audience, brand showcase and magazine opportunities</li>
                   </ul>
                 </div>
                 <div className="rounded-lg border p-4">
-                  <div className="font-medium">Season 7 (2023–2024)</div>
+                  <div className="font-medium">Season 2026 (Current)</div>
                   <ul className="list-disc pl-5 mt-2">
-                    <li>Multiple category winners</li>
-                    <li>Traditional Fashion Fest highlights</li>
-                    <li>State‑wide participation</li>
+                    <li>Registrations and orientation calls in progress</li>
+                    <li>Audition and rehearsal updates shared with registered candidates</li>
+                    <li>Program rollout across Kerala chapters</li>
                   </ul>
                 </div>
               </div>
@@ -1161,8 +1132,12 @@ function App() {
       <section id="faq" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#F81F2E]">Need Clarity?</p>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Frequently Asked Questions</h2>
             <div className="h-1 w-16 sm:w-20 md:w-24 bg-[#F81F2E] rounded mx-auto"></div>
+            <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+              Quick answers about admissions, eligibility, city chapters, and what to expect from training.
+            </p>
           </div>
           <div className="grid md:grid-cols-2 gap-6 text-gray-700">
             {visibleFaq.map((item) => (
@@ -1187,85 +1162,86 @@ function App() {
       <section id="academy" className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#F81F2E]">Academy Programs</p>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{L.sections.academy}</h2>
             <div className="h-1 w-16 sm:w-20 md:w-24 bg-[#F81F2E] rounded mx-auto mb-6"></div>
-            <p className="text-lg text-gray-600">
-              Professional modeling training with direct entry - no auditions required!
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Job-oriented runway and camera training built for beginners and advancing talents, with direct entry and guided progression.
             </p>
           </div>
 
           {path === '/courses' ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card>
+            <Card className="transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
               <CardHeader>
                 <CardTitle className="flex items-center">
                   <Star className="h-5 w-5 mr-2 text-[#F81F2E]" />
-                  Beginner Course
+                  Foundation Course
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2 text-gray-600">
-                  <li>• Basic runway walking</li>
-                  <li>• Posing techniques</li>
-                  <li>• Confidence building</li>
-                  <li>• Portfolio development</li>
+                  <li>• Posture, walk and stage entry basics</li>
+                  <li>• Posing fundamentals and expression control</li>
+                  <li>• Confidence and personal presentation drills</li>
+                  <li>• Starter portfolio planning</li>
                 </ul>
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
               <CardHeader>
                 <CardTitle className="flex items-center">
                   <Star className="h-5 w-5 mr-2 text-[#F81F2E]" />
-                  Advanced Course
+                  Professional Track
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2 text-gray-600">
-                  <li>• Professional runway techniques</li>
-                  <li>• Fashion photography</li>
-                  <li>• Industry networking</li>
-                  <li>• Career guidance</li>
+                  <li>• Advanced runway choreography and timing</li>
+                  <li>• Camera awareness for editorial and reels</li>
+                  <li>• Casting readiness and industry etiquette</li>
+                  <li>• Career mapping with mentor guidance</li>
                 </ul>
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
               <CardHeader>
                 <CardTitle className="flex items-center">
                   <Star className="h-5 w-5 mr-2 text-[#F81F2E]" />
-                  Kids Program
+                  Kids & Teen Program
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2 text-gray-600">
                   <li>• Age-appropriate training</li>
-                  <li>• Fun learning environment</li>
-                  <li>• Confidence development</li>
-                  <li>• Performance opportunities</li>
+                  <li>• Safe and engaging learning environment</li>
+                  <li>• Communication and confidence development</li>
+                  <li>• Guided stage performance opportunities</li>
                 </ul>
               </CardContent>
             </Card>
           </div>
           ) : (
-            <div className="mt-6 text-gray-600">
-              <ul className="space-y-1">
-                <li>• Runway, camera presence, grooming</li>
-                <li>• Portfolio shoots and reels</li>
-                <li>• Batches for kids, teens and adults</li>
+            <div className="mt-6 text-gray-600 max-w-3xl mx-auto text-center">
+              <ul className="space-y-1 text-left inline-block">
+                <li>• Runway walk, camera presence and grooming foundations</li>
+                <li>• Portfolio shoots and short-form content direction</li>
+                <li>• Separate batches for kids, teens and adults</li>
               </ul>
               <div className="mt-6">
-                <a href="#/courses" className="underline underline-offset-4 text-[#F81F2E]">Explore courses →</a>
+                <a href="#/courses" className="underline underline-offset-4 text-[#F81F2E] font-semibold">Explore all course tracks →</a>
               </div>
             </div>
           )}
 
           <div className="text-center mt-12">
             <p className="text-lg mb-6">
-              <strong>Age Range:</strong> 3-60 years | <strong>Direct Entry:</strong> No auditions required
+              <strong>Age Range:</strong> 3-60 years | <strong>Entry:</strong> Direct admissions, no audition required
             </p>
             <Button asChild size="lg" aria-label="Register for the Modeling Academy" className="h-12 px-8 text-base bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
-              <a href="#/admissions">Register Now</a>
+              <a href="#/admissions">Apply for Next Batch</a>
             </Button>
           </div>
         </div>
@@ -1275,10 +1251,11 @@ function App() {
       <section id="gallery" className="scroll-mt-28 md:scroll-mt-32 py-16 bg-gradient-to-b from-white to-neutral-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#F81F2E]">Visual Gallery</p>
             <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#0F172A] mb-2">{L.sections.gallery}</h2>
             <div className="h-1 w-16 sm:w-20 md:w-24 bg-[#F81F2E] rounded mx-auto mb-6"></div>
             <p className="text-lg text-gray-600">
-              Legacy visuals from previous Fashion Zoom show seasons, pageants and signature stage campaigns.
+              A curated stream of latest runway moments followed by iconic posters and archives from previous Fashion Zoom seasons.
             </p>
           </div>
 
@@ -1288,10 +1265,10 @@ function App() {
                 <Badge className="bg-[#F81F2E] text-white hover:bg-[#F81F2E]">Latest Show Highlights</Badge>
                 <h3 className="mt-3 text-2xl md:text-3xl font-bold text-white">Season 2026 Visual Story</h3>
                 <p className="mt-2 text-sm md:text-base text-slate-200/85 max-w-3xl">
-                  Swipe through the latest runway frames. Carousel is the best format here because it showcases more images without cluttering the page.
+                  Swipe through fresh stage frames from our latest program and experience the mood, styling and confidence of the show.
                 </p>
               </div>
-              <p className="text-xs sm:text-sm text-slate-300">4 curated portraits • mobile-first • fast loading</p>
+              <p className="text-xs sm:text-sm text-slate-300">4 curated frames • mobile-first • optimized loading</p>
             </div>
 
             <div className="relative mt-6 px-0 sm:px-10">
@@ -1377,17 +1354,21 @@ function App() {
       <section id="testimonials" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#F81F2E]">Real Outcomes</p>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">What Our Talents Say</h2>
             <div className="h-1 w-16 sm:w-20 md:w-24 bg-[#F81F2E] rounded mx-auto"></div>
+            <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+              Feedback from talents who trained, performed and built real visibility through Fashion Zoom.
+            </p>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
-            <Card className="transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
+            <Card className="transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg border-[#F81F2E]/20">
               <CardContent className="p-6">
                 <p className="text-lg text-gray-700">“The runway coaching and portfolio shoots helped me land my first brand job within weeks. The mentors are world‑class.”</p>
                 <div className="mt-4 text-sm text-gray-500">— Aditri Gouri, Cover Girl</div>
               </CardContent>
             </Card>
-            <Card className="transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
+            <Card className="transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg border-[#F81F2E]/20">
               <CardContent className="p-6">
                 <p className="text-lg text-gray-700">“From confidence to camera presence, I grew across the board. The exposure at shows changed my trajectory.”</p>
                 <div className="mt-4 text-sm text-gray-500">— Aarav Menon, Runway Winner</div>
@@ -1402,14 +1383,15 @@ function App() {
       <section id="contact" className="py-16 bg-black text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#F81F2E]">Contact Desk</p>
             <h2 className="text-3xl md:text-4xl font-bold mb-2">{L.sections.contact}</h2>
             <div className="h-1 w-16 sm:w-20 md:w-24 bg-[#F81F2E] rounded mx-auto mb-6"></div>
             <p className="text-lg text-gray-300">
-              Get in touch with us across Kerala for modeling academy enrollment and fashion show participation.
+              Speak with our team for admissions, show participation, sponsorships or media collaborations across Kerala.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
             <Card className="bg-gray-900 border-gray-700 transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
               <CardHeader>
                 <CardTitle className="text-white flex items-center">
@@ -1451,7 +1433,7 @@ function App() {
               </CardHeader>
               <CardContent className="text-gray-300">
                 <a href="mailto:fashionzoomkerala@gmail.com" className="underline underline-offset-4">fashionzoomkerala@gmail.com</a>
-                <p className="text-sm text-gray-400 mt-2">We reply within 24 hours in English or Malayalam.</p>
+                <p className="text-sm text-gray-400 mt-2">Average response time: under 24 hours in English or Malayalam.</p>
               </CardContent>
             </Card>
 
@@ -1471,7 +1453,7 @@ function App() {
               </CardContent>
             </Card>
 
-            <Card className="bg-gray-900 border-gray-700 transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg lg:col-span-2">
+            <Card className="bg-gray-900 border-gray-700 transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg xl:col-span-2">
               <CardHeader>
                 <CardTitle className="text-white flex items-center">
                   <Instagram className="h-5 w-5 mr-2 text-[#F81F2E]" />
@@ -1524,7 +1506,7 @@ function App() {
 
           <div className="text-center mt-12">
             <Button asChild size="lg" aria-label="Get started and contact Fashion Zoom" className="h-12 px-8 text-base bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02]">
-              <a href="#/admissions">Get Started Today</a>
+              <a href="#/admissions">Start Your Application</a>
             </Button>
           </div>
         </div>
@@ -1571,7 +1553,7 @@ function App() {
               </Link>
             </div>
             <p className="text-gray-400 mb-4">
-              Kerala's Premier Fashion Magazine & Modeling Academy Since 2013
+              Kerala's runway-focused academy, show platform and fashion media network since 2013.
             </p>
             <div className="flex justify-center gap-4 mb-4">
               <a
