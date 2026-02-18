@@ -180,6 +180,27 @@ const audienceTracks = [
 
 const trustBadges = ['No audition for academy entry', 'Ages 3-60', 'English & Malayalam support', '5 Kerala city chapters']
 
+const primaryNavItems = [
+  { key: 'home', to: '/' },
+  { key: 'about', to: '/about' },
+  { key: 'shows', to: '/shows' },
+  { key: 'courses', to: '/courses' },
+  { key: 'contact', to: '/contact' }
+]
+
+const sectionByPath = {
+  '/': 'home',
+  '/about': 'about',
+  '/why': 'why',
+  '/shows': 'fashion-shows',
+  '/courses': 'academy',
+  '/portfolio': 'gallery',
+  '/admissions': 'admissions',
+  '/magazine': 'magazine',
+  '/faq': 'faq',
+  '/contact': 'contact'
+}
+
 const baseFaqItems = [
   {
     question: 'Who can join the academy?',
@@ -258,6 +279,22 @@ function App() {
       canonicalLink.setAttribute('href', canonicalUrl)
     }
   }, [canonicalUrl, path])
+
+  const scrollToSectionForPath = (targetPath, behavior = 'smooth') => {
+    const sectionId = sectionByPath[targetPath]
+    if (!sectionId) return
+    const section = document.getElementById(sectionId)
+    if (section) {
+      section.scrollIntoView({ behavior, block: 'start' })
+    }
+  }
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      scrollToSectionForPath(path, path === '/' ? 'auto' : 'smooth')
+    }, 0)
+    return () => window.clearTimeout(timer)
+  }, [path])
 
   const structuredDataPayloads = useMemo(() => {
     const faqSchema = {
@@ -343,6 +380,13 @@ function App() {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
+  const handleNavClick = (targetPath) => {
+    setIsMenuOpen(false)
+    if (targetPath === path) {
+      scrollToSectionForPath(targetPath)
+    }
+  }
+
   // Admissions form (classic)
   const schema = z.object({
     fullName: z.string().min(2, 'Name is too short'),
@@ -396,24 +440,28 @@ function App() {
             
             {/* Desktop Navigation */}
             <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-              <a href="#/" aria-label="Go to Home" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">{L.nav.home}</a>
-              <a href="#/about" aria-label="Go to About page" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">{L.nav.about}</a>
-              <a href="#/why" aria-label="Go to Why page" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">{L.nav.why}</a>
-              <a href="#/shows" aria-label="Go to Fashion Shows page" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">{L.nav.shows}</a>
-              <a href="#/courses" aria-label="Go to Courses page" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">{L.nav.courses}</a>
-              <a href="#/portfolio" aria-label="Go to Portfolio page" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">{L.nav.portfolio}</a>
-              <a href="#faq" aria-label="Go to FAQs" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">{L.nav.faq}</a>
-              <a href="#/admissions" aria-label="Go to Admissions" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">{L.nav.admissions}</a>
-              <a href="#/magazine" aria-label="Go to Magazine hub" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">{L.nav.magazine}</a>
-              <a href="#contact" aria-label="Go to Contact section" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black">{L.nav.contact}</a>
-            </div>
+              <div className="ml-10 flex items-baseline space-x-2">
+                {primaryNavItems.map((item) => {
+                  const isActive = path === item.to
+                  return (
+                    <Link
+                      key={item.key}
+                      to={item.to}
+                      onClick={() => handleNavClick(item.to)}
+                      aria-label={`Go to ${L.nav[item.key]}`}
+                      className={`${isActive ? 'bg-gray-700 text-white' : 'hover:bg-gray-700'} px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E] focus-visible:ring-offset-2 focus-visible:ring-offset-black`}
+                    >
+                      {L.nav[item.key]}
+                    </Link>
+                  )
+                })}
+              </div>
             </div>
 
             {/* Desktop social icons */}
             <div className="hidden md:flex items-center gap-3 ml-4 pl-4 border-l border-gray-800">
               <Button asChild size="sm" className="h-9 bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold">
-                <a href="#/admissions">Apply now</a>
+                <Link to="/admissions" onClick={() => handleNavClick('/admissions')}>Apply now</Link>
               </Button>
               <a
                 href="https://www.instagram.com/fashion_zoom_magazine/"
@@ -439,18 +487,25 @@ function App() {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-900">
-              <a href="#/" aria-label="Go to Home" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">{L.nav.home}</a>
-              <a href="#/about" aria-label="Go to About page" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">{L.nav.about}</a>
-              <a href="#/why" aria-label="Go to Why page" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">{L.nav.why}</a>
-              <a href="#/shows" aria-label="Go to Fashion Shows page" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">{L.nav.shows}</a>
-              <a href="#/courses" aria-label="Go to Courses page" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">{L.nav.courses}</a>
-              <a href="#/portfolio" aria-label="Go to Portfolio page" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">{L.nav.portfolio}</a>
-              <a href="#faq" aria-label="Go to FAQs" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">{L.nav.faq}</a>
-              <a href="#/admissions" aria-label="Go to Admissions" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">{L.nav.admissions}</a>
-              <a href="#/magazine" aria-label="Go to Magazine hub" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">{L.nav.magazine}</a>
-              <a href="#contact" aria-label="Go to Contact section" className="block hover:bg-gray-700 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]">{L.nav.contact}</a>
+              {primaryNavItems.map((item) => {
+                const isActive = path === item.to
+                return (
+                  <Link
+                    key={item.key}
+                    to={item.to}
+                    onClick={() => handleNavClick(item.to)}
+                    aria-label={`Go to ${L.nav[item.key]}`}
+                    className={`${isActive ? 'bg-gray-700 text-white' : 'hover:bg-gray-700'} block px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F81F2E]`}
+                  >
+                    {L.nav[item.key]}
+                  </Link>
+                )
+              })}
               <div className="pt-2 px-3">
                 <div className="flex items-center gap-3">
+                  <Button asChild size="sm" className="h-9 bg-[#F81F2E] hover:bg-[#d11322] text-white font-semibold">
+                    <Link to="/admissions" onClick={() => handleNavClick('/admissions')}>Apply now</Link>
+                  </Button>
                   <a
                     href="https://www.instagram.com/fashion_zoom_magazine/"
                     target="_blank"
