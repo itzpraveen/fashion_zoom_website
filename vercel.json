@@ -1,7 +1,0 @@
-{
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": "vite",
-  "installCommand": "cd fashion-zoom-website && pnpm install --no-frozen-lockfile",
-  "buildCommand": "cd fashion-zoom-website && pnpm build",
-  "outputDirectory": "fashion-zoom-website/dist"
-}
