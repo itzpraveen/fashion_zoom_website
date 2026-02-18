@@ -670,6 +670,70 @@ function App() {
         </div>
       </section>
 
+      <section id="latest-show" className="py-14 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-3 text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#F81F2E]">Upcoming Show Visuals</p>
+            <h2 className="mt-2 text-3xl md:text-4xl font-bold text-gray-900">Latest Show Highlights</h2>
+            <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
+              Fresh campaign frames from the current season, placed here before the training journey so visitors see the upcoming show mood first.
+            </p>
+          </div>
+
+          <div className="mt-8 rounded-3xl border border-[#111827]/10 bg-gradient-to-br from-[#0B1120] via-[#151A2F] to-[#0F172A] p-5 sm:p-7 shadow-[0_28px_70px_rgba(9,16,36,0.35)]">
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <div>
+                <Badge className="bg-[#F81F2E] text-white hover:bg-[#F81F2E]">Latest Show Highlights</Badge>
+                <h3 className="mt-3 text-2xl md:text-3xl font-bold text-white">Season 2026 Visual Story</h3>
+                <p className="mt-2 text-sm md:text-base text-slate-200/85 max-w-3xl">
+                  Swipe through fresh stage frames from our latest program and experience the mood, styling and confidence of the show.
+                </p>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-300">4 curated frames • mobile-first • optimized loading</p>
+            </div>
+
+            <div className="relative mt-6 px-0 sm:px-10">
+              <Carousel setApi={setLatestShowApi} opts={{ loop: true, align: 'start' }} className="w-full">
+                <CarouselContent className="-ml-3">
+                  {latestShowHighlights.map((item) => (
+                    <CarouselItem key={item.key} className="pl-3 basis-[86%] sm:basis-1/2 xl:basis-1/3">
+                      <article className="group relative overflow-hidden rounded-2xl border border-white/15 shadow-[0_18px_45px_rgba(0,0,0,0.35)]">
+                        <img
+                          src={item.image}
+                          alt={`${item.title} - ${item.subtitle}`}
+                          className="h-[420px] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+                        <div className="absolute inset-x-0 bottom-0 p-4 text-white">
+                          <p className="text-xs uppercase tracking-wider text-white/75">{item.subtitle}</p>
+                          <h4 className="mt-1 text-xl font-bold">{item.title}</h4>
+                          <p className="mt-2 text-xs text-white/85">{item.caption}</p>
+                        </div>
+                      </article>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="hidden sm:inline-flex left-2 h-9 w-9 border-white/35 bg-black/45 text-white hover:bg-black/70 disabled:opacity-25" />
+                <CarouselNext className="hidden sm:inline-flex right-2 h-9 w-9 border-white/35 bg-black/45 text-white hover:bg-black/70 disabled:opacity-25" />
+              </Carousel>
+            </div>
+
+            <div className="mt-5 flex items-center justify-center gap-2">
+              {latestShowHighlights.map((item, index) => (
+                <button
+                  key={item.key}
+                  type="button"
+                  onClick={() => latestShowApi?.scrollTo(index)}
+                  className={`h-2.5 rounded-full transition-all ${latestShowIndex === index ? 'w-7 bg-[#F81F2E]' : 'w-2.5 bg-white/40 hover:bg-white/65'}`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
 
 
       <section id="journey" className="py-16 bg-white">
@@ -1258,60 +1322,8 @@ function App() {
             <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#0F172A] mb-2">{L.sections.gallery}</h2>
             <div className="h-1 w-16 sm:w-20 md:w-24 bg-[#F81F2E] rounded mx-auto mb-6"></div>
             <p className="text-lg text-gray-600">
-              A curated stream of latest runway moments followed by iconic posters and archives from previous Fashion Zoom seasons.
+              Curated posters and campaign archives from previous Fashion Zoom seasons.
             </p>
-          </div>
-
-          <div className="mb-10 rounded-3xl border border-[#111827]/10 bg-gradient-to-br from-[#0B1120] via-[#151A2F] to-[#0F172A] p-5 sm:p-7 shadow-[0_28px_70px_rgba(9,16,36,0.35)]">
-            <div className="flex flex-wrap items-center justify-between gap-4">
-              <div>
-                <Badge className="bg-[#F81F2E] text-white hover:bg-[#F81F2E]">Latest Show Highlights</Badge>
-                <h3 className="mt-3 text-2xl md:text-3xl font-bold text-white">Season 2026 Visual Story</h3>
-                <p className="mt-2 text-sm md:text-base text-slate-200/85 max-w-3xl">
-                  Swipe through fresh stage frames from our latest program and experience the mood, styling and confidence of the show.
-                </p>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-300">4 curated frames • mobile-first • optimized loading</p>
-            </div>
-
-            <div className="relative mt-6 px-0 sm:px-10">
-              <Carousel setApi={setLatestShowApi} opts={{ loop: true, align: 'start' }} className="w-full">
-                <CarouselContent className="-ml-3">
-                  {latestShowHighlights.map((item) => (
-                    <CarouselItem key={item.key} className="pl-3 basis-[86%] sm:basis-1/2 xl:basis-1/3">
-                      <article className="group relative overflow-hidden rounded-2xl border border-white/15 shadow-[0_18px_45px_rgba(0,0,0,0.35)]">
-                        <img
-                          src={item.image}
-                          alt={`${item.title} - ${item.subtitle}`}
-                          className="h-[420px] w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          loading="lazy"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
-                        <div className="absolute inset-x-0 bottom-0 p-4 text-white">
-                          <p className="text-xs uppercase tracking-wider text-white/75">{item.subtitle}</p>
-                          <h4 className="mt-1 text-xl font-bold">{item.title}</h4>
-                          <p className="mt-2 text-xs text-white/85">{item.caption}</p>
-                        </div>
-                      </article>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious className="hidden sm:inline-flex left-2 h-9 w-9 border-white/35 bg-black/45 text-white hover:bg-black/70 disabled:opacity-25" />
-                <CarouselNext className="hidden sm:inline-flex right-2 h-9 w-9 border-white/35 bg-black/45 text-white hover:bg-black/70 disabled:opacity-25" />
-              </Carousel>
-            </div>
-
-            <div className="mt-5 flex items-center justify-center gap-2">
-              {latestShowHighlights.map((item, index) => (
-                <button
-                  key={item.key}
-                  type="button"
-                  onClick={() => latestShowApi?.scrollTo(index)}
-                  className={`h-2.5 rounded-full transition-all ${latestShowIndex === index ? 'w-7 bg-[#F81F2E]' : 'w-2.5 bg-white/40 hover:bg-white/65'}`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div>
           </div>
 
           <div className="mb-5 flex items-center justify-between gap-3">
