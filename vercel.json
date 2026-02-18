@@ -1,0 +1,6 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "cd fashion-zoom-website && pnpm install --no-frozen-lockfile",
+  "buildCommand": "cd fashion-zoom-website && pnpm build",
+  "outputDirectory": "fashion-zoom-website/dist"
+}
