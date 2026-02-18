@@ -2,6 +2,6 @@
   "name": "fashion-zoom-website-monorepo-root",
   "private": true,
   "scripts": {
-    "vercel-build": "cd fashion-zoom-website && pnpm install --frozen-lockfile && pnpm build"
+    "vercel-build": "cd fashion-zoom-website && pnpm install --no-frozen-lockfile && pnpm build"
   }
 }
