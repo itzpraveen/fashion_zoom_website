@@ -28,6 +28,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form.jsx'
 import { Input } from '@/components/ui/input.jsx'
 import { Textarea } from '@/components/ui/textarea.jsx'
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel.jsx'
 
 // Import assets
 import logoWhite from './assets/logo-white.png'
@@ -41,6 +42,10 @@ import showSeason5 from './assets/show-season-5.webp'
 import showSeason6 from './assets/show-season-6.webp'
 import showTraditionalFest from './assets/show-traditional-fest.webp'
 import showBeautyPageant from './assets/show-beauty-pageant.webp'
+import latestShow1 from './assets/latest-show-1.webp'
+import latestShow2 from './assets/latest-show-2.webp'
+import latestShow3 from './assets/latest-show-3.webp'
+import latestShow4 from './assets/latest-show-4.webp'
 
 const CANONICAL_BASE_URL = 'https://itzpraveen.github.io/fashion_zoom_website'
 
@@ -185,6 +190,37 @@ const audienceTracks = [
 
 const trustBadges = ['No audition for academy entry', 'Ages 3-60', 'English & Malayalam support', '5 Kerala city chapters']
 
+const latestShowHighlights = [
+  {
+    key: 'latest-1',
+    title: 'Opening Walk',
+    subtitle: 'Latest show spotlight',
+    caption: 'Backstage confidence and first-step runway moments from the latest program.',
+    image: latestShow1
+  },
+  {
+    key: 'latest-2',
+    title: 'Editorial Frames',
+    subtitle: 'Stage and styling detail',
+    caption: 'Close-up styling direction and expression work captured during the show.',
+    image: latestShow2
+  },
+  {
+    key: 'latest-3',
+    title: 'Audience Energy',
+    subtitle: 'Live show atmosphere',
+    caption: 'Performance moments that highlight stage presence and crowd response.',
+    image: latestShow3
+  },
+  {
+    key: 'latest-4',
+    title: 'Finale Moments',
+    subtitle: 'Grand closing sequence',
+    caption: 'Signature shots from the closing lineup of the latest Fashion Zoom show.',
+    image: latestShow4
+  }
+]
+
 const legacyShowcase = [
   {
     key: 'season-5',
@@ -301,6 +337,8 @@ const StructuredData = ({ data }) => (
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [lang, setLang] = useState('en')
+  const [latestShowApi, setLatestShowApi] = useState(null)
+  const [latestShowIndex, setLatestShowIndex] = useState(0)
   const L = locales[lang]
   const location = useLocation()
   const path = location?.pathname || '/'
@@ -343,6 +381,20 @@ function App() {
     }, 0)
     return () => window.clearTimeout(timer)
   }, [path])
+
+  useEffect(() => {
+    if (!latestShowApi) return
+    const onSelect = () => {
+      setLatestShowIndex(latestShowApi.selectedScrollSnap())
+    }
+    onSelect()
+    latestShowApi.on('select', onSelect)
+    latestShowApi.on('reInit', onSelect)
+    return () => {
+      latestShowApi.off('select', onSelect)
+      latestShowApi.off('reInit', onSelect)
+    }
+  }, [latestShowApi])
 
   const structuredDataPayloads = useMemo(() => {
     const faqSchema = {
@@ -1228,6 +1280,63 @@ function App() {
             <p className="text-lg text-gray-600">
               Legacy visuals from previous Fashion Zoom show seasons, pageants and signature stage campaigns.
             </p>
+          </div>
+
+          <div className="mb-10 rounded-3xl border border-[#111827]/10 bg-gradient-to-br from-[#0B1120] via-[#151A2F] to-[#0F172A] p-5 sm:p-7 shadow-[0_28px_70px_rgba(9,16,36,0.35)]">
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <div>
+                <Badge className="bg-[#F81F2E] text-white hover:bg-[#F81F2E]">Latest Show Highlights</Badge>
+                <h3 className="mt-3 text-2xl md:text-3xl font-bold text-white">Season 2026 Visual Story</h3>
+                <p className="mt-2 text-sm md:text-base text-slate-200/85 max-w-3xl">
+                  Swipe through the latest runway frames. Carousel is the best format here because it showcases more images without cluttering the page.
+                </p>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-300">4 curated portraits • mobile-first • fast loading</p>
+            </div>
+
+            <div className="relative mt-6 px-0 sm:px-10">
+              <Carousel setApi={setLatestShowApi} opts={{ loop: true, align: 'start' }} className="w-full">
+                <CarouselContent className="-ml-3">
+                  {latestShowHighlights.map((item) => (
+                    <CarouselItem key={item.key} className="pl-3 basis-[86%] sm:basis-1/2 xl:basis-1/3">
+                      <article className="group relative overflow-hidden rounded-2xl border border-white/15 shadow-[0_18px_45px_rgba(0,0,0,0.35)]">
+                        <img
+                          src={item.image}
+                          alt={`${item.title} - ${item.subtitle}`}
+                          className="h-[420px] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+                        <div className="absolute inset-x-0 bottom-0 p-4 text-white">
+                          <p className="text-xs uppercase tracking-wider text-white/75">{item.subtitle}</p>
+                          <h4 className="mt-1 text-xl font-bold">{item.title}</h4>
+                          <p className="mt-2 text-xs text-white/85">{item.caption}</p>
+                        </div>
+                      </article>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="hidden sm:inline-flex left-2 h-9 w-9 border-white/35 bg-black/45 text-white hover:bg-black/70 disabled:opacity-25" />
+                <CarouselNext className="hidden sm:inline-flex right-2 h-9 w-9 border-white/35 bg-black/45 text-white hover:bg-black/70 disabled:opacity-25" />
+              </Carousel>
+            </div>
+
+            <div className="mt-5 flex items-center justify-center gap-2">
+              {latestShowHighlights.map((item, index) => (
+                <button
+                  key={item.key}
+                  type="button"
+                  onClick={() => latestShowApi?.scrollTo(index)}
+                  className={`h-2.5 rounded-full transition-all ${latestShowIndex === index ? 'w-7 bg-[#F81F2E]' : 'w-2.5 bg-white/40 hover:bg-white/65'}`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="mb-5 flex items-center justify-between gap-3">
+            <h3 className="text-xl md:text-2xl font-bold text-[#111827]">Previous Show Archives</h3>
+            <span className="text-xs sm:text-sm uppercase tracking-wider text-gray-500">Posters & campaign editions</span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 auto-rows-[230px] md:auto-rows-[250px] gap-4">
